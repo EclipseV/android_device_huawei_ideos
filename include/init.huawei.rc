@@ -1,0 +1,86 @@
+on boot
+
+    # wifi
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    
+    # dhcp
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    
+    # lights
+    chown system system /sys/class/leds/blue/brightness
+    chown system system /sys/class/leds/button-backlight/brightness
+    chown system system /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/lcd-backlight/brightness
+    chown system system /sys/class/leds/red/brightness
+    
+    # bluetooth power up / down interface
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+    chmod 0660                /sys/class/rfkill/rfkill0/state
+
+    chown bluetooth bluetooth /dev/rfkill
+    chown bluetooth bluetooth /dev/ttyHS0
+    chown bluetooth bluetooth /proc/bluetooth/sleep/proto
+    chmod 0660 /proc/bluetooth/sleep/proto
+    chmod 0660 /dev/rfkill
+    chmod 0660 /dev/ttyHS0
+
+    # sensors    
+    chmod 0666 /dev/accel
+    chmod 0666 /dev/akm8973_aot
+    chmod 0666 /dev/akm8973_dev
+    chmod 0666 /dev/light
+    chmod 0666 /dev/proximity
+    
+    # power management
+    write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/powersave_bias 90
+    write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold 80
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 245760
+        
+    # qmux
+    mkdir /data/local 0777 radio shell
+    mkdir /data/local/tmp 0777 radio shell
+    chown radio shell /data/local
+    chown radio shell /data/local/tmp
+
+    # logger
+    chmod 0777 /sys/kernel/logger/log_main/enable
+    chmod 0777 /sys/kernel/logger/log_events/enable
+    chmod 0777 /sys/kernel/logger/log_radio/enable
+    chmod 0777 /sys/kernel/logger/log_main/priority
+    chmod 0777 /sys/kernel/logger/log_radio/priority
+
+    # ums
+    chown system system /sys/bus/platform/devices/msm_sdcc.1/polling
+    chown system system /sys/bus/platform/devices/msm_sdcc.2/polling
+    write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.1/polling 1
+    write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.2/polling 1
+
+# rild support daemon
+service qmuxd /system/bin/qmuxd &
+    
+service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
+    user bluetooth
+    group qcom_oncrpc bluetooth net_bt_admin system
+    disabled
+    oneshot
+    
+service wpa_supplicant /system/bin/wpa_supplicant -Dwext -ieth0 -c /data/misc/wifi/wpa_supplicant.conf
+    socket wpa_eth0 dgram 660 wifi wifi
+    group system wifi inet dhcp
+    disabled
+    oneshot 
+
+service dhcpcd /system/bin/dhcpcd -ABKL eth0
+    disabled
+    oneshot
+    
+service oem_rpc_svc /system/bin/oem_rpc_svc
+    oneshot
+    
+# compass / accelerometer daemon
+service akmd /system/bin/akmd2
+    disabled
+    oneshot

@@ -59,7 +59,7 @@ on boot
     write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.2/polling 1
 
 # rild support daemon
-service qmuxd /system/bin/qmuxd &
+service qmuxd /system/bin/qmuxd
     
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     user bluetooth

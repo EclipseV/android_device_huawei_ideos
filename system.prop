@@ -1,0 +1,20 @@
+
+#
+# system.prop for u8150
+#
+rild.libpath=/system/lib/libril-qc-1.so
+rild.libargs=-d /dev/smd0
+
+DEVICE_PROVISIONED=1
+
+ro.telephony.default_network=0
+ro.sf.lcd_density=120
+ro.opengles.version=65537
+
+ro.config.wifi_chip_is_bcm=true
+wifi.interface=eth0
+
+# marc: this will go away someday
+ro.confg.hw_appsbootversion=U8150V100R001C253B836_APPSBOOT
+ro.confg.hw_appversion=U8150V100R001C253B836_KERNEL
+ro.confg.hw_appfsversion=U8150V100R001C253B836_SYSIMG

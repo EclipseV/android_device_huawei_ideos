@@ -27,7 +27,7 @@ PRODUCT_COPY_FILES += $(LOCAL_KERNEL):kernel
 
 # HAL libs
 PRODUCT_PACKAGES += \
-    copybit.u8150
+    copybit.U8150
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
@@ -139,5 +139,5 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 $(call inherit-product, build/target/product/full_base.mk)
 
 PRODUCT_NAME   := ideos
-PRODUCT_DEVICE := u8150
+PRODUCT_DEVICE := U8150
 PRODUCT_BRAND  := huawei

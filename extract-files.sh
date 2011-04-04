@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Extract prebuilt libraries that are needed for the u8150
+# Extract prebuilt libraries that are needed for the U8150
 
 mkdir -p ../../../vendor/huawei/ideos/proprietary
 

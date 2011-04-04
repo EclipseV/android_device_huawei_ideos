@@ -40,6 +40,10 @@ PRODUCT_PACKAGES += \
 # Live Wallpapers support
 PRODUCT_COPY_FILES += \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
+
+# Media configuration
+PRODUCT_COPY_FILES += \
+    device/huawei/ideos/include/media_profiles.xml:/system/etc/media_profiles.xml
     
 # Hardware properties
 PRODUCT_COPY_FILES += \

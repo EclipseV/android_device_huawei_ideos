@@ -6,7 +6,6 @@ mkdir -p ../../../vendor/huawei/ideos/proprietary
 
 DIRS="
 bin
-wifi
 lib/hw
 "
 
@@ -25,6 +24,7 @@ bin/rild
 lib/hw/lights.msm7k.so
 lib/hw/sensors.default.so
 
+lib/libaudioeq.so
 lib/libcm.so
 lib/libdiag.so
 lib/libdll.so
@@ -52,9 +52,6 @@ lib/libril-qc-1.so
 lib/libril-qcril-hook-oem.so
 lib/libwms.so
 lib/libwmsts.so
-
-wifi/firmware.bin
-wifi/nvram.txt
 "
 
 for FILE in $FILES; do

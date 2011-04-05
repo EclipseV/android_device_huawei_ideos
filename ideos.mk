@@ -138,6 +138,6 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 $(call inherit-product, build/target/product/full_base.mk)
 
-PRODUCT_NAME   := ideos
-PRODUCT_DEVICE := u8150
+PRODUCT_NAME   := full_ideos
+PRODUCT_DEVICE := ideos
 PRODUCT_BRAND  := huawei

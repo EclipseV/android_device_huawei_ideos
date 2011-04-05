@@ -98,9 +98,9 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/firmware/firmware.bin:system/etc/firmware/firmware.bin \
+    device/huawei/ideos/firmware/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \
     device/huawei/ideos/firmware/nvram.txt:system/etc/firmware/nvram.txt \
-    device/huawei/ideos/prebuilt/dhd.ko:system/lib/modules/dhd.ko
+    device/huawei/ideos/prebuilt/bcm4329.ko:system/lib/modules/bcm4329.ko
 
 # Keychars/Keylayout
 PRODUCT_COPY_FILES += \

@@ -4,55 +4,54 @@
 #
 
 # Density in DPI of the LCD of this board. This is used to scale the UI
-# appropriately. If this property is not defined, the default value is 160 dpi.
+# appropriately. If this property is not defined, the default value is 160 dpi
 ro.sf.lcd_density=120
 
-# View configuration for QVGA.
+# View configuration for QVGA
 view.fading_edge_length=8
 view.touch_slop=15
 view.minimum_fling_velocity=25
 view.scroll_friction=0.008
 
-# RIL specific configuration.
+# RIL specific configuration
 rild.libpath=/system/lib/libril-qc-1.so
 rild.libargs=-d /dev/smd0
 
-# Modify MMS APN retry timer from 5s to 2s.
+# Modify MMS APN retry timer from 5s to 2s
 ro.gsm.2nd_data_retry_config=max_retries=3, 2000, 2000, 2000
 
-# Time between scans in seconds. Keep it high to minimize battery drain.
+# Time between scans in seconds. Keep it high to minimize battery drain
 # This only affects the case in which there are remembered access points,
-# but none are in range.
+# but none are in range
 wifi.interface=eth0
 wifi.supplicant_scan_interval=60
 
-# Allow or deny tethering.
+# Allow or deny tethering
 ro.tether.denied=false
 
-# Default network type.
+# Default network type
 # 0 => WCDMA Preferred.
 ro.telephony.default_network=0
 
 # Enable Google-specific location features,
-# like NetworkLocationProvider and LocationCollector.
+# like NetworkLocationProvider and LocationCollector
 ro.com.google.locationfeatures=1
 
-# The OpenGL ES API level that is natively supported by this device.
-# This is a 16.16 fixed point number.
+# The OpenGL ES API level that is natively supported by this device,
+# this is a 16.16 fixed point number
 ro.opengles.version=65537
 
-# Disable fs check on boot by default.
+# Disable fs check on boot by default
 sys.checkfs.fat=false
 
-# Performance settings.
+# Performance settings
 dalvik.vm.execution-mode=int:jit
 dalvik.vm.heapsize=24m
 
-# Increase SKIA decode memory capability for progressive jpg file.
+# Increase SKIA decode memory capability for progressive jpg file
 ro.media.dec.jpeg.memcap=20000000
 
-# This will go away someday.
-# Debugging oem_rpc_svc.
+# This will go away someday. For debugging oem_rpc_svc
 ro.confg.hw_appsbootversion=U8150V100R001C253B836_APPSBOOT
 ro.confg.hw_appversion=U8150V100R001C253B836_KERNEL
 ro.confg.hw_appfsversion=U8150V100R001C253B836_SYSIMG

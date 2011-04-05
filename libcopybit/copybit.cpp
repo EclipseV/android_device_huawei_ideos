@@ -19,7 +19,7 @@
 
 #include <cutils/log.h>
 
-#include <msm_mdp.h>
+#include <linux/msm_mdp.h>
 #include <linux/fb.h>
 
 #include <stdint.h>

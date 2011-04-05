@@ -27,7 +27,7 @@ PRODUCT_COPY_FILES += $(LOCAL_KERNEL):kernel
 
 # HAL libs
 PRODUCT_PACKAGES += \
-    copybit.U8150
+    copybit.ideos
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \

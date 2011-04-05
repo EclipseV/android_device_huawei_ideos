@@ -61,7 +61,7 @@ PRODUCT_COPY_FILES += \
 
 # Board specific
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/include/init.huawei.rc:root/init.huawei.rc
+    device/huawei/ideos/include/init.ideos.rc:root/init.ideos.rc
 
 # Device specific
 PRODUCT_COPY_FILES += \

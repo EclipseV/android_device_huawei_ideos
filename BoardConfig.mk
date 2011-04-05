@@ -60,7 +60,7 @@ TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 
 BOARD_NO_RGBX_8888 := true
 
-BOARD_KERNEL_CMDLINE := mem=211M console=ttyMSM2,115200n8 console=ttyUSBCONSOLE0 androidboot.console=ttyUSBCONSOLE0 androidboot.hardware=qcom
+BOARD_KERNEL_CMDLINE := mem=211M console=ttyMSM2,115200n8 androidboot.hardware=qcom
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_PAGESIZE := 4096
 

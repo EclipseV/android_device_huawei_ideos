@@ -122,6 +122,7 @@ PRODUCT_COPY_FILES += \
 # OMX
 PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
+    vendor/huawei/ideos/proprietary/lib/libOmxCore.so:system/lib/libOmxCore.so \
     vendor/huawei/ideos/proprietary/lib/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
     vendor/huawei/ideos/proprietary/lib/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
     vendor/huawei/ideos/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \

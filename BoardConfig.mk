@@ -25,23 +25,23 @@ BOARD_USE_FROYO_LIBCAMERA := true
 TARGET_BOARD_PLATFORM := msm7k
 
 # ARMv6-compatible processor rev 2 (v6l)
-TARGET_CPU_ABI := armeabi-v6j
-TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv6j
+TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_ABI := armeabi-v6j
 
-TARGET_OTA_ASSERT_DEVICE := ideos
 TARGET_BOOTLOADER_BOARD_NAME := U8150
+TARGET_OTA_ASSERT_DEVICE := ideos
 
 TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
 TARGET_NO_KERNEL := false
+TARGET_NO_RADIOIMAGE := true
 TARGET_NO_RECOVERY := false
 
-BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_HAVE_BLUETOOTH := true
 
-BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_HARDWARE := true
+BOARD_USES_QCOM_LIBS := true
 
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun"
@@ -49,9 +49,9 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun"
 BOARD_VENDOR_USE_AKMD := akm8973
 TARGET_USES_OLD_LIBSENSORS_HAL := true
 
-BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
-BOARD_LDPI_RECOVERY := true
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/ideos/recovery_ui.c
+BOARD_LDPI_RECOVERY := true
+BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
 TARGET_PROVIDES_LIBAUDIO := true
 TARGET_PROVIDES_LIBRIL := true
@@ -60,8 +60,8 @@ TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 
 BOARD_NO_RGBX_8888 := true
 
-BOARD_KERNEL_CMDLINE := mem=211M console=ttyMSM2,115200n8 androidboot.hardware=ideos
 BOARD_KERNEL_BASE := 0x00200000
+BOARD_KERNEL_CMDLINE := mem=211M console=ttyMSM2,115200n8 androidboot.hardware=ideos
 BOARD_KERNEL_PAGESIZE := 4096
 
 ## cat /proc/mtd
@@ -79,10 +79,12 @@ BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00500000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00500000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x0aa00000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0a6a0000
+
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-WPA_SUPPLICANT_VERSION := VER_0_6_X
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4329.bin nvram_path=/system/etc/firmware/nvram.txt"
 WIFI_DRIVER_MODULE_NAME := "bcm4329"
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcm4329.ko"
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4329.bin nvram_path=/system/etc/firmware/nvram.txt"
+WPA_SUPPLICANT_VERSION := VER_0_6_X
+

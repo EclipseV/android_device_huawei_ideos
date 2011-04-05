@@ -84,3 +84,9 @@ service oem_rpc_svc /system/bin/oem_rpc_svc
 service akmd /system/bin/akmd2
     disabled
     oneshot
+
+# bugreport is triggered by the KEY_VOLUMEDOWN and KEY_CENTER keycodes
+service bugreport /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
+    disabled
+    oneshot
+    keycodes 114 232

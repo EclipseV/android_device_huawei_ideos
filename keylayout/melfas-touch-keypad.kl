@@ -1,0 +1,28 @@
+# Main
+key 116   POWER             WAKE
+key 231   CALL              WAKE_DROPPED
+key 62    ENDCALL           WAKE_DROPPED
+
+# DPAD
+key 232   DPAD_CENTER       WAKE_DROPPED
+key 108   DPAD_DOWN         WAKE_DROPPED
+key 103   DPAD_UP           WAKE_DROPPED
+key 105   DPAD_LEFT         WAKE_DROPPED
+key 106   DPAD_RIGHT        WAKE_DROPPED
+
+# Virtual
+key 158   BACK              WAKE_DROPPED
+key 139   MENU              WAKE_DROPPED
+key 102   HOME              WAKE_DROPPED
+key 217   SEARCH            WAKE_DROPPED
+
+# Volume
+key 115   VOLUME_UP
+key 114   VOLUME_DOWN
+
+# Headset
+key 226   HEADSETHOOK       WAKE
+
+# Headset with volume keys?
+key 163   MEDIA_NEXT        WAKE
+key 165   MEDIA_PREVIOUS    WAKE

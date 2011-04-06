@@ -103,9 +103,10 @@ PRODUCT_COPY_FILES += \
     device/huawei/ideos/firmware/nvram.txt:system/etc/firmware/nvram.txt \
     device/huawei/ideos/prebuilt/bcm4329.ko:system/lib/modules/bcm4329.ko
 
-# Keychars/Keylayout
+# Keychars & Keylayout
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/keychars/surf_keypad.kcm.bin:system/usr/keychars/surf_keypad.kcm.bin \
+    device/huawei/ideos/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
     device/huawei/ideos/keylayout/melfas-touch-keypad.kl:system/usr/keylayout/melfas-touch-keypad.kl \
     device/huawei/ideos/keylayout/surf_keypad.kl:system/usr/keylayout/surf_keypad.kl
 

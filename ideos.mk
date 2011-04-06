@@ -105,11 +105,8 @@ PRODUCT_COPY_FILES += \
 
 # Keychars/Keylayout
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
-    device/huawei/ideos/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
     device/huawei/ideos/keychars/surf_keypad.kcm.bin:system/usr/keychars/surf_keypad.kcm.bin \
-    device/huawei/ideos/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-    device/huawei/ideos/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
+    device/huawei/ideos/keylayout/melfas-touch-keypad.kl:system/usr/keylayout/melfas-touch-keypad.kl \
     device/huawei/ideos/keylayout/surf_keypad.kl:system/usr/keylayout/surf_keypad.kl
 
 # OEM RPC

@@ -90,7 +90,7 @@ PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/libril-qc-1.so:system/lib/libril-qc-1.so \
     vendor/huawei/ideos/proprietary/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \
     vendor/huawei/ideos/proprietary/lib/libwms.so:system/lib/libwms.so \
-    vendor/huawei/ideos/proprietary/lib/libwmsts.so:system/lib/libwmsts.s
+    vendor/huawei/ideos/proprietary/lib/libwmsts.so:system/lib/libwmsts.so
 
 # Hardware
 PRODUCT_COPY_FILES += \

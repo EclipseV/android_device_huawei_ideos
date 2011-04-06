@@ -40,6 +40,7 @@ lib/libmmjpeg.so
 lib/libmmprocess.so
 lib/libnv.so
 lib/liboem_rapi.so
+lib/libmm-omxcore.so
 lib/libOmxCore.so
 lib/libOmxH264Dec.so
 lib/libOmxMpeg4Dec.so

@@ -116,11 +116,15 @@ PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/bin/oem_rpc_svc:system/bin/oem_rpc_svc \
     vendor/huawei/ideos/proprietary/lib/libhwrpc.so:system/lib/libhwrpc.so \
     vendor/huawei/ideos/proprietary/lib/liboem_rapi.so:system/lib/liboem_rapi.so
-    
-# OMX
+
+# MM_CORE
 PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
-    vendor/huawei/ideos/proprietary/lib/libOmxCore.so:system/lib/libOmxCore.so \
+    vendor/huawei/ideos/proprietary/lib/libmm-omxcore.so:system/lib/libmm-omxcore.so \
+    vendor/huawei/ideos/proprietary/lib/libOmxCore.so:system/lib/libOmxCore.so
+
+# MM_VIDEO
+PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
     vendor/huawei/ideos/proprietary/lib/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
     vendor/huawei/ideos/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \

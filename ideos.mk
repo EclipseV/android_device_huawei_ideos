@@ -107,11 +107,6 @@ PRODUCT_COPY_FILES += \
     device/huawei/ideos/firmware/nvram.txt:system/etc/firmware/nvram.txt \
     device/huawei/ideos/prebuilt/bcm4329.ko:system/lib/modules/bcm4329.ko
 
-# Generated kcm keymaps
-PRODUCT_PACKAGES := \
-	melfas-touch-keypad.kcm \
-	surf_keypad.kcm
-
 # Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/melfas-touch-keypad.kl:system/usr/keylayout/melfas-touch-keypad.kl \

@@ -68,7 +68,7 @@ int device_handle_key(int key_code, int visible) {
             case KEY_CENTER:
                 return SELECT_ITEM;
             
-            /* KEY_F4 is the the End key */
+            /* KEY_F4 is the End key */
             case KEY_F4:
             case KEY_BACK:
                 return GO_BACK;

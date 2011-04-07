@@ -103,10 +103,15 @@ PRODUCT_COPY_FILES += \
     device/huawei/ideos/firmware/nvram.txt:system/etc/firmware/nvram.txt \
     device/huawei/ideos/prebuilt/bcm4329.ko:system/lib/modules/bcm4329.ko
 
-# Keychars & Keylayout
+# Generated kcm keymaps
+PRODUCT_PACKAGES := \
+	surf_keypad.kcm \
+	melfas-touch-keypad.kcm
+
+# Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/keychars/surf_keypad.kcm.bin:system/usr/keychars/surf_keypad.kcm.bin \
-    device/huawei/ideos/keylayout/surf_keypad.kl:system/usr/keylayout/surf_keypad.kl
+    device/huawei/ideos/surf_keypad.kl:system/usr/keylayout/surf_keypad.kl \
+    device/huawei/ideos/melfas-touch-keypad.kl:system/usr/keylayout/melfas-touch-keypad.kl
 
 # OEM RPC
 PRODUCT_COPY_FILES += \
@@ -114,15 +119,11 @@ PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/bin/oem_rpc_svc:system/bin/oem_rpc_svc \
     vendor/huawei/ideos/proprietary/lib/libhwrpc.so:system/lib/libhwrpc.so \
     vendor/huawei/ideos/proprietary/lib/liboem_rapi.so:system/lib/liboem_rapi.so
-
-# MM_CORE
+    
+# OMX
 PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
-    vendor/huawei/ideos/proprietary/lib/libmm-omxcore.so:system/lib/libmm-omxcore.so \
-    vendor/huawei/ideos/proprietary/lib/libOmxCore.so:system/lib/libOmxCore.so
-
-# MM_VIDEO
-PRODUCT_COPY_FILES += \
+    vendor/huawei/ideos/proprietary/lib/libOmxCore.so:system/lib/libOmxCore.so \
     vendor/huawei/ideos/proprietary/lib/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
     vendor/huawei/ideos/proprietary/lib/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
     vendor/huawei/ideos/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
@@ -140,10 +141,10 @@ PRODUCT_COPY_FILES += \
 # Inherit from the proprietary version
 $(call inherit-product-if-exists, vendor/huawei/ideos/ideos-vendor.mk)
 
-$(call inherit-product, device/common/gps/gps_us_supl.mk)
-
 $(call inherit-product, build/target/product/full_base.mk)
 
-PRODUCT_NAME   := full_ideos
+$(call inherit-product, device/common/gps/gps_us_supl.mk)
+
+PRODUCT_NAME := full_ideos
 PRODUCT_DEVICE := ideos
-PRODUCT_BRAND  := huawei
+PRODUCT_BRAND := huawei

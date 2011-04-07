@@ -31,11 +31,11 @@ PRODUCT_PACKAGES += \
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
+    librs_jni \
     LiveWallpapers \
     LiveWallpapersPicker \
     MagicSmokeWallpapers \
-    VisualizationWallpapers \
-    librs_jni
+    VisualizationWallpapers
 
 # Live Wallpapers support
 PRODUCT_COPY_FILES += \
@@ -109,13 +109,13 @@ PRODUCT_COPY_FILES += \
 
 # Generated kcm keymaps
 PRODUCT_PACKAGES := \
-	surf_keypad.kcm \
-	melfas-touch-keypad.kcm
+	melfas-touch-keypad.kcm \
+	surf_keypad.kcm
 
 # Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/surf_keypad.kl:system/usr/keylayout/surf_keypad.kl \
-    device/huawei/ideos/melfas-touch-keypad.kl:system/usr/keylayout/melfas-touch-keypad.kl
+    device/huawei/ideos/melfas-touch-keypad.kl:system/usr/keylayout/melfas-touch-keypad.kl \
+    device/huawei/ideos/surf_keypad.kl:system/usr/keylayout/surf_keypad.kl
 
 # OEM RPC
 PRODUCT_COPY_FILES += \

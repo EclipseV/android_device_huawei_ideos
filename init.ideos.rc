@@ -1,6 +1,6 @@
 on post-fs
 
-    # Wi-Fi socket
+    # Wi-Fi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
     
     # DHCP
@@ -24,7 +24,6 @@ on boot
     
     # cpufreq configuration
     write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold 85
-
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 245760
         

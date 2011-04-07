@@ -1,4 +1,4 @@
-# Copyright (C) 2007 The Android Open Source Project
+# Copyright (C) 2011 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
 USE_CAMERA_STUB := false
 BOARD_USE_FROYO_LIBCAMERA := true
 
-# inherit from the proprietary version
+# Inherit from the proprietary version
 -include vendor/huawei/ideos/BoardConfigVendor.mk
 
 TARGET_BOARD_PLATFORM := msm7k
@@ -88,4 +88,3 @@ WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4329.bin nvr
 WIFI_DRIVER_MODULE_NAME := "bcm4329"
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcm4329.ko"
 WPA_SUPPLICANT_VERSION := VER_0_6_X
-

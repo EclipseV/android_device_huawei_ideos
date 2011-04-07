@@ -61,7 +61,8 @@ PRODUCT_COPY_FILES += \
 
 # Board specific
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/include/init.ideos.rc:root/init.ideos.rc \
+    device/huawei/ideos/init.ideos.rc:root/init.ideos.rc \
+    device/huawei/ideos/ueventd.ideos.rc:root/ueventd.ideos.rc \
     device/huawei/ideos/prebuilt/initlogo.rle:root/initlogo.rle
 
 # Device specific

@@ -59,13 +59,16 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
-# Board specific
+# Init files
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/init.ideos.rc:root/init.ideos.rc \
     device/huawei/ideos/ueventd.ideos.rc:root/ueventd.ideos.rc \
+
+# OEM logo
+PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/initlogo.rle:root/initlogo.rle
 
-# Device specific
+# Hardware specific
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/include/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     device/huawei/ideos/include/vold.fstab:system/etc/vold.fstab \
@@ -93,7 +96,7 @@ PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/libwms.so:system/lib/libwms.so \
     vendor/huawei/ideos/proprietary/lib/libwmsts.so:system/lib/libwmsts.so
 
-# Hardware
+# Other modules
 PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.msm7k.so \
     vendor/huawei/ideos/proprietary/lib/hw/sensors.default.so:system/lib/hw/sensors.default.so

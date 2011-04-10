@@ -84,7 +84,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0a6a0000
 BOARD_FLASH_BLOCK_SIZE := 262144 
 
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4329.bin nvram_path=/system/etc/firmware/nvram.txt"
-WIFI_DRIVER_MODULE_NAME := "bcm4329"
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcm4329.ko"
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4319.bin nvram_path=/system/etc/firmware/nvram.txt"
+WIFI_DRIVER_MODULE_NAME := "dhd"
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcm4319.ko"
 WPA_SUPPLICANT_VERSION := VER_0_6_X

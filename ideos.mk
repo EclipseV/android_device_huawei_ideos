@@ -41,10 +41,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 
-# Media configuration
-PRODUCT_COPY_FILES += \
-    device/huawei/ideos/include/media_profiles.xml:/system/etc/media_profiles.xml
-    
 # Hardware properties
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
@@ -99,13 +95,13 @@ PRODUCT_COPY_FILES += \
 # Other modules
 PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.msm7k.so \
-    vendor/huawei/ideos/proprietary/lib/hw/sensors.default.so:system/lib/hw/sensors.default.so
+    vendor/huawei/ideos/proprietary/lib/hw/sensors.default.so:system/lib/hw/sensors.ideos.so
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/firmware/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \
+    device/huawei/ideos/firmware/fw_bcm4319.bin:system/etc/firmware/fw_bcm4319.bin \
     device/huawei/ideos/firmware/nvram.txt:system/etc/firmware/nvram.txt \
-    device/huawei/ideos/prebuilt/bcm4329.ko:system/lib/modules/bcm4329.ko
+    device/huawei/ideos/prebuilt/bcm4319.ko:system/lib/modules/bcm4319.ko
 
 # Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \

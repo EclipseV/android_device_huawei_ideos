@@ -1,7 +1,7 @@
 /dev/oncrpc/*             0660   radio      system
 /dev/rfkill               0660   bluetooth  bluetooth
 
-# For Sensor HAL
+# Sensor HAL
 /dev/accel                0660   system     system
 /dev/akm8973_aot          0660   system     system  
 /dev/akm8973_dev          0660   system     system

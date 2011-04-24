@@ -74,8 +74,8 @@ service akmd /system/bin/akmd2
     disabled
     oneshot
 
-# bugreport is triggered by the KEY_VOLUMEDOWN and KEY_CENTER keycodes
+# bugreport is triggered by the KEY_VOLUMEUP and KEY_CENTER keycodes
 service bugreport /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
     disabled
     oneshot
-    keycodes 114 232
+    keycodes 115 232

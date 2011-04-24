@@ -46,7 +46,6 @@ BOARD_USES_QCOM_LIBS := true
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun"
 
-BOARD_VENDOR_USE_AKMD := akm8973
 TARGET_USES_OLD_LIBSENSORS_HAL := true
 
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/ideos/recovery_ui.c

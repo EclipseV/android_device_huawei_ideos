@@ -64,6 +64,8 @@ BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_CMDLINE := mem=211M console=ttyMSM2,115200n8 androidboot.hardware=ideos
 BOARD_KERNEL_PAGESIZE := 4096
 
+JS_ENGINE := v8
+
 ## cat /proc/mtd
 # dev:    size   erasesize  name
 # mtd0: 00500000 00020000 "boot"

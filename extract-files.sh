@@ -20,6 +20,7 @@ bin/oem_rpc_svc
 bin/qmuxd
 bin/rild
 
+lib/hw/gralloc.msm7k.so
 lib/hw/lights.msm7k.so
 lib/hw/sensors.default.so
 

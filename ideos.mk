@@ -126,8 +126,9 @@ PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
     vendor/huawei/ideos/proprietary/lib/libOmxWmvDec.so:system/lib/libOmxWmvDec.so
 
-# Misc
+# Other
 PRODUCT_COPY_FILES += \
+    device/huawei/ideos/egl.cfg:system/lib/egl/egl.cfg \
     device/huawei/ideos/include/AudioFilter.csv:system/etc/AudioFilter.csv \
     device/huawei/ideos/include/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     device/huawei/ideos/prebuilt/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \

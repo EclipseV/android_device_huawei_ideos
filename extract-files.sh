@@ -1,6 +1,5 @@
 #!/bin/sh
-
-# Extract prebuilt libraries that are needed for the U8150
+# Extract prebuilt libraries (from a working device) needed for the U8150
 
 mkdir -p ../../../vendor/huawei/ideos/proprietary
 
@@ -57,6 +56,7 @@ lib/libwmsts.so
 "
 
 for FILE in $FILES; do
-	adb pull system/$FILE ../../../vendor/huawei/ideos/proprietary/$FILE
+    adb pull system/$FILE ../../../vendor/huawei/ideos/proprietary/$FILE
 done
 
+chmod 755 ../../../vendor/huawei/ideos/proprietary/bin/*

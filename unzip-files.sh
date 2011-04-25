@@ -78,4 +78,4 @@ for FILE in $FILES; do
     unzip -j -o $ZIP system/$FILE -d ../../../vendor/huawei/ideos/proprietary/lib
 done
 
-chmod 755 ../../../vendor/huawei/ideos/proprietary/bin/*
+chmod 755 ../../../vendor/huawei/ideos/proprietary/bin/* 

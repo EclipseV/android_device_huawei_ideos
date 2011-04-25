@@ -58,7 +58,7 @@ PRODUCT_COPY_FILES += \
 # Init files
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/init.ideos.rc:root/init.ideos.rc \
-    device/huawei/ideos/ueventd.ideos.rc:root/ueventd.ideos.rc \
+    device/huawei/ideos/ueventd.ideos.rc:root/ueventd.ideos.rc
 
 # OEM logo
 PRODUCT_COPY_FILES += \

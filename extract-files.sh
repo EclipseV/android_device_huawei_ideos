@@ -59,4 +59,4 @@ for FILE in $FILES; do
     adb pull system/$FILE ../../../vendor/huawei/ideos/proprietary/$FILE
 done
 
-chmod 755 ../../../vendor/huawei/ideos/proprietary/bin/*
+chmod 755 ../../../vendor/huawei/ideos/proprietary/bin/* 

@@ -1,5 +1,6 @@
 #!/bin/sh
 # Extract prebuilt libraries (from a zip archive) needed for the U8150
+
 ZIP="$1"
 
 if [ ! "$ZIP" ]

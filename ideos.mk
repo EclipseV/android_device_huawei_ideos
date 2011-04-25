@@ -91,11 +91,6 @@ PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/libwms.so:system/lib/libwms.so \
     vendor/huawei/ideos/proprietary/lib/libwmsts.so:system/lib/libwmsts.so
 
-# Other modules
-PRODUCT_COPY_FILES += \
-    vendor/huawei/ideos/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.msm7k.so \
-    vendor/huawei/ideos/proprietary/lib/hw/sensors.default.so:system/lib/hw/sensors.ideos.so
-
 # Wi-Fi
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/firmware/fw_bcm4319_apsta.bin:system/etc/firmware/fw_bcm4319_apsta.bin \
@@ -124,18 +119,26 @@ PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
     vendor/huawei/ideos/proprietary/lib/libOmxWmvDec.so:system/lib/libOmxWmvDec.so
 
-# Other
+# Lights & Sensors
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/egl.cfg:system/lib/egl/egl.cfg \
-    device/huawei/ideos/include/AudioFilter.csv:system/etc/AudioFilter.csv \
-    device/huawei/ideos/include/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
+    vendor/huawei/ideos/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.msm7k.so \
+    vendor/huawei/ideos/proprietary/lib/hw/sensors.default.so:system/lib/hw/sensors.ideos.so
+
+# Bluetooth & Compass
+PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
     vendor/huawei/ideos/proprietary/bin/akmd2:system/bin/akmd2 \
     vendor/huawei/ideos/proprietary/bin/hci_qcomm_init:system/bin/hci_qcomm_init \
+
+# Audio
+PRODUCT_COPY_FILES += \
+    device/huawei/ideos/include/AudioFilter.csv:system/etc/AudioFilter.csv \
+    device/huawei/ideos/include/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     vendor/huawei/ideos/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so
 
-# Inherit from the proprietary version
-$(call inherit-product-if-exists, vendor/huawei/ideos/ideos-vendor.mk)
+# Other
+PRODUCT_COPY_FILES += \
+    device/huawei/ideos/egl.cfg:system/lib/egl/egl.cfg \
 
 $(call inherit-product, build/target/product/full_base.mk)
 

@@ -1,4 +1,3 @@
-
 ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),U8150)
 
 LOCAL_PATH := $(call my-dir)

@@ -1,5 +1,6 @@
 #!/system/bin/sh
-# Copyright (c) 2009, Code Aurora Forum. All rights reserved.
+
+# Copyright (c) 2011, Code Aurora Forum. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -24,7 +25,6 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
 
 BLUETOOTH_SLEEP_PATH=/proc/bluetooth/sleep/proto
 LOG_TAG="qcom-bluetooth"
@@ -59,7 +59,7 @@ start_hciattach ()
 kill_hciattach ()
 {
   logi "kill_hciattach: pid = $hciattach_pid"
-  ## careful not to kill zero or null!
+  # careful not to kill zero or null!
   kill -TERM $hciattach_pid
   echo 0 > $BLUETOOTH_SLEEP_PATH
   # this shell doesn't exit now -- wait returns for normal exit

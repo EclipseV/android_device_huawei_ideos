@@ -12,15 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-# WARNING: This line must come *before* including the proprietary
-# variant, so that it gets overwritten by the parent (which goes
-# against the traditional rules of inheritance).
 USE_CAMERA_STUB := false
 BOARD_USE_FROYO_LIBCAMERA := true
-
-# Inherit from the proprietary version
--include vendor/huawei/ideos/BoardConfigVendor.mk
 
 TARGET_BOARD_PLATFORM := msm7k
 
@@ -59,20 +52,22 @@ TARGET_HARDWARE_3D := false
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 
 BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
-BOARD_HAS_LIMITED_EGL := true
 BOARD_NO_RGBX_8888 := true
+
+BOARD_EGL_CFG := device/huawei/ideos/egl.cfg
+BOARD_HAS_LIMITED_EGL := true
 
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_CMDLINE := mem=211M console=ttyMSM2,115200n8 androidboot.hardware=ideos
 BOARD_KERNEL_PAGESIZE := 4096
 
 BOARD_USES_QCOM_GPS := true
-BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 3200
+BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 1240
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := ideos
 
 JS_ENGINE := v8
 
-## cat /proc/mtd
+# # cat /proc/mtd
 # dev:    size   erasesize  name
 # mtd0: 00500000 00020000 "boot"
 # mtd1: 00500000 00020000 "recovery"

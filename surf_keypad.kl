@@ -11,23 +11,18 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-# Main
-key 116   POWER             WAKE
-key 231   CALL              WAKE_DROPPED
-key 62    ENDCALL           WAKE_DROPPED
+key 116   POWER         WAKE
+key 231   CALL          WAKE_DROPPED
+key 62    ENDCALL       WAKE_DROPPED
 
-# DPAD
-key 232   DPAD_CENTER       WAKE_DROPPED
-key 108   DPAD_DOWN         WAKE_DROPPED
-key 103   DPAD_UP           WAKE_DROPPED
-key 105   DPAD_LEFT         WAKE_DROPPED
-key 106   DPAD_RIGHT        WAKE_DROPPED
+key 103   DPAD_UP       WAKE_DROPPED
+key 105   DPAD_LEFT     WAKE_DROPPED
+key 106   DPAD_RIGHT    WAKE_DROPPED
+key 108   DPAD_DOWN     WAKE_DROPPED
+key 232   DPAD_CENTER   WAKE_DROPPED
 
-# Volume
-key 115   VOLUME_UP         WAKE
-key 114   VOLUME_DOWN       WAKE
+key 114   VOLUME_DOWN   WAKE
+key 115   VOLUME_UP     WAKE
 
-# Headset
-key 226   HEADSETHOOK       WAKE
+key 226   HEADSETHOOK   WAKE

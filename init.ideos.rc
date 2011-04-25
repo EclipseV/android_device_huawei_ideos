@@ -1,12 +1,8 @@
 on post-fs
 
-    # Wi-Fi
-    mkdir /data/misc/wifi/sockets 0770 wifi wifi
-    
-    # DHCP
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi    
     mkdir /data/misc/dhcp 0770 dhcp dhcp
 
-    # qmuxd related
     mkdir /data/local 0777 radio shell
     mkdir /data/local/tmp 0777 radio shell
     chown radio shell /data/local
@@ -14,7 +10,6 @@ on post-fs
    
 on boot
     
-    # Bluetooth power up / down interface
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chmod 0660                /sys/class/rfkill/rfkill0/state
@@ -22,32 +17,25 @@ on boot
     chown bluetooth bluetooth /proc/bluetooth/sleep/proto
     chmod 0660 /proc/bluetooth/sleep/proto
     
-    # cpufreq configuration
     write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold 85
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 245760
         
-    # Logger
     chmod 0777 /sys/kernel/logger/log_main/enable
     chmod 0777 /sys/kernel/logger/log_events/enable
     chmod 0777 /sys/kernel/logger/log_radio/enable
     chmod 0777 /sys/kernel/logger/log_main/priority
     chmod 0777 /sys/kernel/logger/log_radio/priority
 
-    # UMS
     chown system system /sys/bus/platform/devices/msm_sdcc.1/polling
     chown system system /sys/bus/platform/devices/msm_sdcc.2/polling
     write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.1/polling 1
     write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.2/polling 1
 
-    # Enable low memory killer to check file pages
-    write /sys/module/lowmemorykiller/parameters/minfile 0,0,0,4632,5632,6144
     write /sys/module/lowmemorykiller/parameters/check_filepages 1
-
-    # lowmem killer minfree adjustments
+    write /sys/module/lowmemorykiller/parameters/minfile 0,0,0,4632,5632,6144
     write /sys/module/lowmemorykiller/parameters/minfree 1536,2048,4096,9216,10240,10240
 
-# rild support daemon
 service qmuxd /system/bin/qmuxd
     
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
@@ -69,7 +57,6 @@ service dhcpcd /system/bin/dhcpcd -ABKL eth0
 service oem_rpc_svc /system/bin/oem_rpc_svc
     oneshot
     
-# Compass / Accelerometer daemon
 service akmd /system/bin/akmd2
     disabled
     oneshot

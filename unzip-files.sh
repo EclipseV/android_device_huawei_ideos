@@ -44,6 +44,7 @@ done
 
 FILES="
 lib/libaudioeq.so
+lib/libcamera.so
 lib/libcm.so
 lib/libdiag.so
 lib/libdll.so
@@ -56,10 +57,10 @@ lib/libmm-adspsvc.so
 lib/libmmgsdilib.so
 lib/libmmipl.so
 lib/libmmjpeg.so
+lib/libmm-omxcore.so
 lib/libmmprocess.so
 lib/libnv.so
 lib/liboem_rapi.so
-lib/libmm-omxcore.so
 lib/libOmxCore.so
 lib/libOmxH264Dec.so
 lib/libOmxMpeg4Dec.so
@@ -67,6 +68,7 @@ lib/libOmxVidEnc.so
 lib/libOmxWmvDec.so
 lib/liboncrpc.so
 lib/libpbmlib.so
+lib/libqcamera.so
 lib/libqmi.so
 lib/libqueue.so
 lib/libril-qc-1.so

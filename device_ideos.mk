@@ -136,6 +136,13 @@ PRODUCT_COPY_FILES += \
     device/huawei/ideos/include/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     vendor/huawei/ideos/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so
 
+# Camera
+PRODUCT_COPY_FILES += \
+    vendor/huawei/ideos/proprietary/lib/libcamera.so:system/lib/libcamera.so \
+    vendor/huawei/ideos/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
+    vendor/huawei/ideos/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
+    vendor/huawei/ideos/proprietary/lib/libqcamera.so:system/lib/libqcamera.so
+
 # Other
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/egl.cfg:system/lib/egl/egl.cfg \

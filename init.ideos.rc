@@ -42,6 +42,9 @@ on boot
     write /sys/module/lowmemorykiller/parameters/minfile 0,0,0,4632,5632,6144
     write /sys/module/lowmemorykiller/parameters/minfree 1536,2048,4096,9216,10240,10240
 
+    # fb0 should not be world writable
+    chmod 0667 /dev/graphics/fb0 # (temporary) copyBits related 
+
 service qmuxd /system/bin/qmuxd
     
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh

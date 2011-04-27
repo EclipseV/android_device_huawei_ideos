@@ -33,11 +33,6 @@ on boot
     chmod 0777 /sys/kernel/logger/log_main/priority
     chmod 0777 /sys/kernel/logger/log_radio/priority
 
-    chown system system /sys/bus/platform/devices/msm_sdcc.1/polling
-    chown system system /sys/bus/platform/devices/msm_sdcc.2/polling
-    write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.1/polling 1
-    write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.2/polling 1
-
     write /sys/module/lowmemorykiller/parameters/check_filepages 1
     write /sys/module/lowmemorykiller/parameters/minfile 0,0,0,4632,5632,6144
     write /sys/module/lowmemorykiller/parameters/minfree 1536,2048,4096,9216,10240,10240

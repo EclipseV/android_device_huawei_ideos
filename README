@@ -1,7 +1,7 @@
 Android device configuration for the Huawei U8150 IDEOS
 
-Notes
-=====
+Pre-Setup
+=========
 Execute "extract-files.sh" to extract prebuilt libraries (from a working device)
 or
 Execute "unzip-files.sh" to extract prebuilt libraries (from a zip archive)

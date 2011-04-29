@@ -1,7 +1,6 @@
-Why is this folder here? Well for one, it (libcamera) doesn't work with the 
-U8150, and two, its 2am right now. (-_-)
+WTF? This libcamera doesn't work with the U8150.
 
-Buuut we need it to trick the build system - something that can be done in a 
-better way - am just too busy.
+Yes, but I use it to trick the build system (something that can be done in a 
+better way)
 
-(copy/paste) works just fine. (^_^)
+copy/paste works just fine. (^_^)

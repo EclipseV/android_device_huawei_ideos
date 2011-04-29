@@ -34,7 +34,6 @@ for FILE in $FILES; do
 done
 
 FILES="
-lib/hw/gralloc.msm7k.so
 lib/hw/lights.msm7k.so
 lib/hw/sensors.default.so
 "

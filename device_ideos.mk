@@ -145,7 +145,8 @@ PRODUCT_COPY_FILES += \
 
 # Other
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/egl.cfg:system/lib/egl/egl.cfg
+    device/huawei/ideos/egl.cfg:system/lib/egl/egl.cfg \
+    device/huawei/ideos/include/sysctl.conf:system/etc/sysctl.conf
 
 $(call inherit-product, build/target/product/full_base.mk)
 

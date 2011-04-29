@@ -24,8 +24,8 @@ on boot
     
     write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold 85
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 600000
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 245760
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 614400
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 153600
         
     chmod 0777 /sys/kernel/logger/log_events/enable
     chmod 0777 /sys/kernel/logger/log_main/enable
@@ -36,6 +36,9 @@ on boot
     write /sys/module/lowmemorykiller/parameters/check_filepages 1
     write /sys/module/lowmemorykiller/parameters/minfile 0,0,0,4632,5632,6144
     write /sys/module/lowmemorykiller/parameters/minfree 1536,2048,4096,9216,10240,10240
+
+    chown system system /sys/bus/platform/devices/msm_sdcc.1/polling
+    chown system system /sys/bus/platform/devices/msm_sdcc.2/polling
 
     # fb0 should not be world writable
     chmod 0667 /dev/graphics/fb0 # (temporary) copyBits related 

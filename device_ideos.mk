@@ -101,8 +101,9 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/melfas-touch-keypad.kl:system/usr/keylayout/melfas-touch-keypad.kl \
-    device/huawei/ideos/surf_keypad.kl:system/usr/keylayout/surf_keypad.kl
+    device/huawei/ideos/keylayout/ideos-keypad.kl:system/usr/keylayout/ideos-keypad.kl \
+    device/huawei/ideos/keylayout/ideos-melfas-tk.kl:system/usr/keylayout/ideos-melfas-tk.kl \
+    device/huawei/ideos/keylayout/ideos-synaptics-tk.kl:system/usr/keylayout/ideos-synaptics-tk.kl
 
 # OEM RPC
 PRODUCT_COPY_FILES += \

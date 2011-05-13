@@ -145,12 +145,12 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_COPY_FILES += \
-    vendor/huawei/ideos/proprietary/libcamera.so:obj/lib/libcamera.so \
-    vendor/huawei/ideos/proprietary/libcamera.so:system/lib/libcamera.so \
-    vendor/huawei/ideos/proprietary/libqcamera.so:system/lib/libqcamera.so \
-    vendor/huawei/ideos/proprietary/libmmjpeg.so:system/lib/libmmjpeg.so \
-    vendor/huawei/ideos/proprietary/libmmipl.so:system/lib/libmmipl.so \
-    vendor/huawei/ideos/proprietary/libmmprocess.so:system/lib/libmmprocess.so
+    vendor/huawei/ideos/proprietary/lib/libcamera.so:obj/lib/libcamera.so \
+    vendor/huawei/ideos/proprietary/lib/libcamera.so:system/lib/libcamera.so \
+    vendor/huawei/ideos/proprietary/lib/libqcamera.so:system/lib/libqcamera.so \
+    vendor/huawei/ideos/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
+    vendor/huawei/ideos/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
+    vendor/huawei/ideos/proprietary/lib/libmmprocess.so:system/lib/libmmprocess.so
 	
 
 # Other

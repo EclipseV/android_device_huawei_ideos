@@ -1,3 +1,4 @@
+#
 # Copyright (C) 2011 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -34,14 +35,6 @@ PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     VisualizationWallpapers
 
-#   MagicSmokeWallpapers
-
-# Perfomance tweaks
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.execution-mode=int:jit \
-    dalvik.vm.heapsize=24m \
-    persist.sys.use_dithering=1
-
 # Live Wallpapers support
 PRODUCT_COPY_FILES += \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
@@ -60,6 +53,25 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
+
+PRODUCT_PROPERTY_OVERRIDES := \
+    wifi.interface=eth0 \
+    wifi.supplicant_scan_interval=60 \
+    ro.sf.lcd_density=120 \
+    ro.com.android.dataroaming=false
+
+# The OpenGL ES API level that is natively supported by this device.
+# This is a 16.16 fixed point number
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.opengles.version=65537
+
+# Perfomance tweaks
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.execution-mode=int:jit \
+    dalvik.vm.heapsize=24m \
+    persist.sys.use_dithering=1 \
+    persist.sys.purgeable_assets=1 \
+    ro.compcache.default=18
 
 # Init files
 PRODUCT_COPY_FILES += \
@@ -93,6 +105,8 @@ PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/libpbmlib.so:system/lib/libpbmlib.so \
     vendor/huawei/ideos/proprietary/lib/libqmi.so:system/lib/libqmi.so \
     vendor/huawei/ideos/proprietary/lib/libqueue.so:system/lib/libqueue.so \
+    vendor/huawei/ideos/proprietary/lib/libril.so:system/lib/libril.so \
+    vendor/huawei/ideos/proprietary/lib/libril.so:obj/lib/libril.so \
     vendor/huawei/ideos/proprietary/lib/libril-qc-1.so:system/lib/libril-qc-1.so \
     vendor/huawei/ideos/proprietary/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \
     vendor/huawei/ideos/proprietary/lib/libwms.so:system/lib/libwms.so \
@@ -126,16 +140,21 @@ PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
     vendor/huawei/ideos/proprietary/lib/libOmxWmvDec.so:system/lib/libOmxWmvDec.so
 
-# Lights & Sensors
+# Lights & Sensors & Gralloc
 PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.msm7k.so \
+    vendor/huawei/ideos/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \
     vendor/huawei/ideos/proprietary/lib/hw/sensors.default.so:system/lib/hw/sensors.ideos.so
+
+# GPS
+PRODUCT_COPY_FILES += \
+    device/huawei/ideos/prebuilt/etc/gps.conf:system/etc/gps.conf
 
 # Bluetooth & Compass
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
     vendor/huawei/ideos/proprietary/bin/akmd2:system/bin/akmd2 \
-    vendor/huawei/ideos/proprietary/bin/hci_qcomm_init:system/bin/hci_qcomm_init \
+    vendor/huawei/ideos/proprietary/bin/hci_qcomm_init:system/bin/hci_qcomm_init
 
 # Audio
 PRODUCT_COPY_FILES += \
@@ -151,7 +170,6 @@ PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
     vendor/huawei/ideos/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
     vendor/huawei/ideos/proprietary/lib/libmmprocess.so:system/lib/libmmprocess.so
-	
 
 # Other
 PRODUCT_COPY_FILES += \
@@ -165,3 +183,6 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 PRODUCT_NAME := full_ideos
 PRODUCT_DEVICE := ideos
 PRODUCT_BRAND := huawei
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.setupwizard.enable_bypass=1

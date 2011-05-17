@@ -21,7 +21,9 @@ bin/qmuxd
 bin/rild
 
 lib/hw/lights.msm7k.so
+lib/hw/gralloc.msm7k.so
 lib/hw/sensors.default.so
+lib/hw/gps.ideos.so
 
 lib/libaudioeq.so
 lib/libcamera.so

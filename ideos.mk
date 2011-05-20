@@ -187,5 +187,4 @@ PRODUCT_NAME := full_ideos
 PRODUCT_DEVICE := ideos
 PRODUCT_BRAND := huawei
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.setupwizard.enable_bypass=1
+PRODUCT_PROPERTY_OVERRIDES += ro.setupwizard.enable_bypass=1

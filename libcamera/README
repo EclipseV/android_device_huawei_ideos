@@ -1,7 +1,0 @@
-WTF? This libcamera doesn't work with the U8150!
-
-Yes, but I use it to trick the build system (something that can be done in a 
-better way)
-
-copy/paste works just fine. (^_^)
-

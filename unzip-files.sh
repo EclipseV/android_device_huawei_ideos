@@ -37,6 +37,7 @@ FILES="
 lib/hw/gralloc.msm7k.so
 lib/hw/lights.msm7k.so
 lib/hw/sensors.default.so
+lib/hw/gps.ideos.so
 "
 
 for FILE in $FILES; do
@@ -72,6 +73,7 @@ lib/libpbmlib.so
 lib/libqcamera.so
 lib/libqmi.so
 lib/libqueue.so
+lib/libril.so
 lib/libril-qc-1.so
 lib/libril-qcril-hook-oem.so
 lib/libwms.so

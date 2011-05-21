@@ -61,6 +61,7 @@ lib/libmmipl.so
 lib/libmmjpeg.so
 lib/libmm-omxcore.so
 lib/libmmprocess.so
+lib/libnetutils.so
 lib/libnv.so
 lib/liboem_rapi.so
 lib/libOmxCore.so

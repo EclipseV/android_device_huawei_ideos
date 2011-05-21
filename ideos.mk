@@ -176,7 +176,7 @@ PRODUCT_COPY_FILES += \
 
 # Dummy backing file for USB mounting
 PRODUCT_COPY_FILES += \
-    device/huawei/ascend/files/cdrom/autorun.iso:system/cdrom/autorun.iso
+    device/huawei/ideos/prebuilt/cdrom/autorun.iso:system/cdrom/autorun.iso
 
 # Other
 PRODUCT_COPY_FILES += \

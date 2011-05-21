@@ -174,6 +174,10 @@ PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
     vendor/huawei/ideos/proprietary/lib/libmmprocess.so:system/lib/libmmprocess.so
 
+# Dummy backing file for USB mounting
+PRODUCT_COPY_FILES += \
+    device/huawei/ascend/files/cdrom/autorun.iso:system/cdrom/autorun.iso
+
 # Other
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/egl.cfg:system/lib/egl/egl.cfg \

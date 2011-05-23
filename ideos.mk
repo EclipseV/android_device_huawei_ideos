@@ -54,24 +54,13 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
-PRODUCT_PROPERTY_OVERRIDES := \
-    wifi.interface=eth0 \
-    wifi.supplicant_scan_interval=60 \
-    ro.sf.lcd_density=120 \
-    ro.com.android.dataroaming=false
-
-# The OpenGL ES API level that is natively supported by this device.
-# This is a 16.16 fixed point number
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opengles.version=65537
-
-# Perfomance tweaks
-PRODUCT_PROPERTY_OVERRIDES += \
+    ro.com.android.dataroaming=false\
     dalvik.vm.execution-mode=int:jit \
     dalvik.vm.heapsize=24m \
-    persist.sys.use_dithering=1 \
+    persist.sys.use_dithering=0 \
     persist.sys.purgeable_assets=1 \
-    ro.compcache.default=18
+    ro.setupwizard.enable_bypass=1
 
 # Init files
 PRODUCT_COPY_FILES += \
@@ -190,5 +179,3 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 PRODUCT_NAME := full_ideos
 PRODUCT_DEVICE := ideos
 PRODUCT_BRAND := huawei
-
-PRODUCT_PROPERTY_OVERRIDES += ro.setupwizard.enable_bypass=1

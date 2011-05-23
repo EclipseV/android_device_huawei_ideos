@@ -50,4 +50,4 @@ endif
 
 include $(BUILD_SHARED_LIBRARY)
 
-endif # build for U8150
+endif

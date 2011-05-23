@@ -17,4 +17,4 @@ LOCAL_CFLAGS += -DCOPYBIT_MSM7K=1
 
 include $(BUILD_SHARED_LIBRARY)
 
-endif # build for U8150
+endif

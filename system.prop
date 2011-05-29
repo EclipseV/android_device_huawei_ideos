@@ -1,7 +1,6 @@
 #
 # system.prop for U8150
 #
-# The LCD density is an dirty fix for correct layout in dialer and USB etc.
 dalvik.vm.execution-mode=int:jit
 dalvik.vm.heapsize=24m
 rild.libargs=-d /dev/smd0

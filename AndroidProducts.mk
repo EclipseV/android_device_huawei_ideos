@@ -13,4 +13,4 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/ideos.mk
+    $(LOCAL_DIR)/device_ideos.mk

@@ -62,7 +62,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/initlogo.rle:root/initlogo.rle \
     device/huawei/ideos/prebuilt/installlogo:system/media/installlogo \
-    device/huawei/ideos/prebuilt/oemlogo.mbn:system/media/oemlogo.mbn \
+    device/huawei/ideos/prebuilt/media/oemlogo.mbn:system/media/oemlogo.mbn \
     vendor/huawei/ideos/proprietary/bin/load_oemlogo:system/bin/load_oemlogo
 
 # Hardware specific

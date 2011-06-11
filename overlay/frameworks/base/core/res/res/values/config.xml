@@ -169,4 +169,24 @@
 
     <!-- Configure lense unlock time label offset -->
     <integer name="config_lenseTimeLabelOffsetDIP">40</integer>
+
+     <!-- The duration (in milliseconds) of a short animation. -->
+    <integer name="config_shortAnimTime">100</integer>
+
+    <integer name="config_mediumAnimTime">250</integer>
+
+    <integer name="config_longAnimTime">350</integer>
+
+    <!-- Enables the Gingerbread electron-beam animation. -->
+
+    <bool name="config_animateScreenLights">true</bool>
+
+    <!-- Enable the screen-on animation -->
+
+    <bool name="config_enableScreenOnAnimation">true</bool>
+
+    <!-- Enable the screen-off animation -->
+
+    <bool name="config_enableScreenOffAnimation">true</bool>
+
 </resources>

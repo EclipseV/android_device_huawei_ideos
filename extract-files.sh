@@ -14,6 +14,7 @@ done
 
 FILES="
 bin/akmd2
+bin/load_oemlogo
 bin/hci_qcomm_init
 bin/modempre
 bin/oem_rpc_svc
@@ -23,7 +24,7 @@ bin/rild
 lib/hw/lights.msm7k.so
 lib/hw/gralloc.msm7k.so
 lib/hw/sensors.default.so
-lib/hw/gps.ideos.so
+lib/hw/gps.default.so
 
 lib/libaudioeq.so
 lib/libcamera.so

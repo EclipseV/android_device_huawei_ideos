@@ -49,18 +49,9 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
     frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-    frameworks/base/data/etc/android.hardware.touchscreen.xml:system/etc/permissions/android.hardware.touchscreen.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.android.dataroaming=false\
-    dalvik.vm.execution-mode=int:jit \
-    dalvik.vm.heapsize=24m \
-    persist.sys.use_dithering=0 \
-    persist.sys.purgeable_assets=1 \
-    ro.setupwizard.enable_bypass=1
 
 # Init files
 PRODUCT_COPY_FILES += \
@@ -69,7 +60,10 @@ PRODUCT_COPY_FILES += \
 
 # OEM logo
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/initlogo.rle:root/initlogo.rle
+    device/huawei/ideos/prebuilt/initlogo.rle:root/initlogo.rle \
+    device/huawei/ideos/prebuilt/installlogo:system/media/installlogo \
+    device/huawei/ideos/prebuilt/oemlogo.mbn:system/media/oemlogo.mbn \
+    vendor/huawei/ideos/proprietary/bin/load_oemlogo:system/bin/load_oemlogo
 
 # Hardware specific
 PRODUCT_COPY_FILES += \
@@ -135,8 +129,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.msm7k.so \
     vendor/huawei/ideos/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \
-    vendor/huawei/ideos/proprietary/lib/hw/gps.ideos.so:system/lib/hw/gps.ideos.so \
-    vendor/huawei/ideos/proprietary/lib/hw/sensors.default.so:system/lib/hw/sensors.ideos.so
+    vendor/huawei/ideos/proprietary/lib/hw/gps.default.so:system/lib/hw/gps.default.so \
+    vendor/huawei/ideos/proprietary/lib/hw/sensors.default.so:system/lib/hw/sensors.default.so
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -163,7 +157,7 @@ PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
     vendor/huawei/ideos/proprietary/lib/libmmprocess.so:system/lib/libmmprocess.so
 
-# Dummy backing file for USB mounting
+# USB mounting
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/cdrom/autorun.iso:system/cdrom/autorun.iso
 
@@ -171,6 +165,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/egl.cfg:system/lib/egl/egl.cfg \
     device/huawei/ideos/include/sysctl.conf:system/etc/sysctl.conf
+
+# Additions to build.prop
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.com.android.dataroaming=false \
+    dalvik.vm.execution-mode=int:jit \
+    dalvik.vm.heapsize=24m \
+    persist.sys.use_dithering=0 \
+    persist.sys.purgeable_assets=1 \
+    ro.setupwizard.enable_bypass=1
 
 $(call inherit-product, build/target/product/full_base.mk)
 

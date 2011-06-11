@@ -1,11 +1,12 @@
 #!/bin/sh
+
 # Extract prebuilt libraries (from a zip archive) needed for the U8150
 
 ZIP="$1"
 
 if [ ! "$ZIP" ]
 then
-    echo "Useage: unzip-files file[.zip]"
+    echo "Usage: unzip-files file[.zip]"
     exit 1
 fi
 
@@ -22,6 +23,7 @@ done
 
 FILES="
 bin/akmd2
+bin/load_oemlogo
 bin/hci_qcomm_init
 bin/modempre
 bin/oem_rpc_svc
@@ -37,7 +39,7 @@ FILES="
 lib/hw/gralloc.msm7k.so
 lib/hw/lights.msm7k.so
 lib/hw/sensors.default.so
-lib/hw/gps.ideos.so
+lib/hw/gps.default.so
 "
 
 for FILE in $FILES; do

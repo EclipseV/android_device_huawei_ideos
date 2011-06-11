@@ -42,8 +42,7 @@ on boot
     chown system system /sys/bus/platform/devices/msm_sdcc.1/polling
     chown system system /sys/bus/platform/devices/msm_sdcc.2/polling
 
-    # fb0 should not be world writable
-    chmod 0667 /dev/graphics/fb0 # (temporary) copyBits related 
+    chmod 0667 /dev/graphics/fb0
 
 service qmuxd /system/bin/qmuxd
     

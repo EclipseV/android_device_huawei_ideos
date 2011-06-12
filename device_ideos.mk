@@ -146,6 +146,7 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/include/AudioFilter.csv:system/etc/AudioFilter.csv \
+    device/huawei/ideos/include/AudioFilterU8150.csv:system/etc/AudioFilterU8150.csv \
     device/huawei/ideos/include/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     vendor/huawei/ideos/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so
 
@@ -174,7 +175,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapsize=24m \
     persist.sys.use_dithering=0 \
     persist.sys.purgeable_assets=1 \
-    ro.setupwizard.enable_bypass=1
+    ro.setupwizard.enable_bypass=1 \
+    ring.delay=0 \
+    ro.telephony.call_ring.delay=0 \
+    ro.telephony.call_ring.multiple=false \
+    ro.compcache.default=0
+
 
 $(call inherit-product, build/target/product/full_base.mk)
 

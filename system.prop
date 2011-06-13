@@ -1,6 +1,7 @@
 #
 # system.prop for U8150
 #
+
 dalvik.vm.execution-mode=int:jit
 dalvik.vm.heapsize=24m
 rild.libargs=-d /dev/smd0
@@ -18,3 +19,6 @@ view.scroll_friction=0.008
 view.touch_slop=15
 wifi.interface=eth0
 wifi.supplicant_scan_interval=60
+# The interfaces to get DNS data from when using mobile data
+# Comma-separated
+mobiledata.interfaces=rmnet0,rmnet1,rmnet2

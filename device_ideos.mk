@@ -27,6 +27,10 @@ PRODUCT_COPY_FILES += $(LOCAL_KERNEL):kernel
 
 # HAL libs
 PRODUCT_PACKAGES += \
+    librs_jni \
+    libOmxCore \
+    libmm-omxcore \
+    libOmxVidEnc \
     copybit.ideos
 
 # Live Wallpapers
@@ -42,7 +46,7 @@ PRODUCT_COPY_FILES += \
 
 # Hardware properties
 PRODUCT_COPY_FILES += \
-    frameworks/base/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
+    frameworks/base/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
     frameworks/base/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/base/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
     frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
@@ -68,9 +72,9 @@ PRODUCT_COPY_FILES += \
 
 # Hardware specific
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/include/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
-    device/huawei/ideos/include/vold.fstab:system/etc/vold.fstab \
-    device/huawei/ideos/include/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    device/huawei/ideos/prebuilt/etc/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+    device/huawei/ideos/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
+    device/huawei/ideos/prebuilt/etc/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
     
 # RIL specific
 PRODUCT_COPY_FILES += \
@@ -98,10 +102,8 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/firmware/fw_bcm4319_apsta.bin:system/etc/firmware/fw_bcm4319_apsta.bin \
-    device/huawei/ideos/firmware/fw_bcm4319.bin:system/etc/firmware/fw_bcm4319.bin \
-    device/huawei/ideos/firmware/nvram.txt:system/etc/firmware/nvram.txt \
-    device/huawei/ideos/prebuilt/bcm4319.ko:system/lib/modules/bcm4319.ko
+    device/huawei/ideos/prebuilt/firmware/nvram.txt:system/etc/firmware/nvram.txt \
+    device/huawei/ideos/prebuilt/lib/modules/bcm4319.ko:system/lib/modules/bcm4319.ko
 
 # Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \
@@ -139,15 +141,15 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth & Compass
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
+    device/huawei/ideos/prebuilt/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
     vendor/huawei/ideos/proprietary/bin/akmd2:system/bin/akmd2 \
     vendor/huawei/ideos/proprietary/bin/hci_qcomm_init:system/bin/hci_qcomm_init
 
 # Audio
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/include/AudioFilter.csv:system/etc/AudioFilter.csv \
-    device/huawei/ideos/include/AudioFilterU8150.csv:system/etc/AudioFilterU8150.csv \
-    device/huawei/ideos/include/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
+    device/huawei/ideos/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
+    device/huawei/ideos/prebuilt/etc/AudioFilterU8150.csv:system/etc/AudioFilterU8150.csv \
+    device/huawei/ideos/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     vendor/huawei/ideos/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so
 
 # Camera
@@ -159,6 +161,10 @@ PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
     vendor/huawei/ideos/proprietary/lib/libmmprocess.so:system/lib/libmmprocess.so
 
+# media configuration xml file
+PRODUCT_COPY_FILES += \
+    device/huawei/ideos/prebuilt/etc/media_profiles.xml:/system/etc/media_profiles.xml
+
 # USB mounting
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/cdrom/autorun.iso:system/cdrom/autorun.iso
@@ -166,25 +172,22 @@ PRODUCT_COPY_FILES += \
 # Other
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/egl.cfg:system/lib/egl/egl.cfg \
-    device/huawei/ideos/include/sysctl.conf:system/etc/sysctl.conf
+    device/huawei/ideos/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf
 
 # Additions to build.prop
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dataroaming=false \
-    dalvik.vm.execution-mode=int:jit \
-    dalvik.vm.heapsize=24m \
     persist.sys.use_dithering=0 \
     persist.sys.purgeable_assets=1 \
     ro.setupwizard.enable_bypass=1 \
     ring.delay=0 \
     ro.telephony.call_ring.delay=0 \
-    ro.telephony.call_ring.multiple=false \
-    ro.compcache.default=0
+    ro.telephony.call_ring.multiple=false
 
 
 $(call inherit-product, build/target/product/full_base.mk)
 
-$(call inherit-product, device/common/gps/gps_us_supl.mk)
+# $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 PRODUCT_NAME := full_ideos
 PRODUCT_DEVICE := ideos

@@ -26,7 +26,6 @@ endif
 PRODUCT_COPY_FILES += $(LOCAL_KERNEL):kernel
 
 PRODUCT_PACKAGES += \
-<<<<<<< HEAD
     libRS \
     hwprops \
     rzscontrol \
@@ -35,8 +34,6 @@ PRODUCT_PACKAGES += \
     libOmxVidEnc \
     Gallery \
     Stk \
-=======
->>>>>>> parent of 06187d0... Fixed so many things I cant mention everything. Mainly audio and WiFi and layouts but cleanups as well and a lot of other things will add change if it doesnt build.
     copybit.ideos
 
 # Live Wallpapers
@@ -78,9 +75,9 @@ PRODUCT_COPY_FILES += \
 
 # Hardware specific
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/include/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
-    device/huawei/ideos/include/vold.fstab:system/etc/vold.fstab \
-    device/huawei/ideos/include/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    device/huawei/ideos/prebuilt/etc/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+    device/huawei/ideos/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
+    device/huawei/ideos/prebuilt/etc/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
     
 # RIL specific
 PRODUCT_COPY_FILES += \
@@ -108,17 +105,10 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
-<<<<<<< HEAD
     device/huawei/ideos/prebuilt/firmware/fw_bcm4319_apsta.bin:system/etc/firmware/fw_bcm4319_apsta.bin \
     device/huawei/ideos/prebuilt/firmware/fw_bcm4319.bin:system/etc/firmware/fw_bcm4319.bin \
     device/huawei/ideos/prebuilt/firmware/nvram.txt:system/etc/firmware/nvram.txt \
     device/huawei/ideos/prebuilt/lib/modules/bcm4319.ko:system/lib/modules/bcm4319.ko
-=======
-    device/huawei/ideos/firmware/fw_bcm4319_apsta.bin:system/etc/firmware/fw_bcm4319_apsta.bin \
-    device/huawei/ideos/firmware/fw_bcm4319.bin:system/etc/firmware/fw_bcm4319.bin \
-    device/huawei/ideos/firmware/nvram.txt:system/etc/firmware/nvram.txt \
-    device/huawei/ideos/prebuilt/bcm4319.ko:system/lib/modules/bcm4319.ko
->>>>>>> parent of 06187d0... Fixed so many things I cant mention everything. Mainly audio and WiFi and layouts but cleanups as well and a lot of other things will add change if it doesnt build.
 
 # Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \
@@ -156,7 +146,7 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth & Compass
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
+    device/huawei/ideos/prebuilt/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
     vendor/huawei/ideos/proprietary/bin/akmd2:system/bin/akmd2 \
     vendor/huawei/ideos/proprietary/bin/hci_qcomm_init:system/bin/hci_qcomm_init
 
@@ -182,13 +172,8 @@ PRODUCT_COPY_FILES += \
 
 # Other
 PRODUCT_COPY_FILES += \
-<<<<<<< HEAD
     device/huawei/ideos/prebuilt/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
     device/huawei/ideos/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf
-=======
-    device/huawei/ideos/egl.cfg:system/lib/egl/egl.cfg \
-    device/huawei/ideos/include/sysctl.conf:system/etc/sysctl.conf
->>>>>>> parent of 06187d0... Fixed so many things I cant mention everything. Mainly audio and WiFi and layouts but cleanups as well and a lot of other things will add change if it doesnt build.
 
 # Additions to build.prop
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -206,7 +191,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 $(call inherit-product, build/target/product/full_base.mk)
 
-$(call inherit-product, device/common/gps/gps_us_supl.mk)
+#$(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 PRODUCT_NAME := full_ideos
 PRODUCT_DEVICE := ideos

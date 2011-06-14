@@ -48,8 +48,9 @@ BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/ideos/recovery_ui.c
 BOARD_LDPI_RECOVERY := true
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
+BOARD_USES_GENERIC_AUDIO := false
 TARGET_PROVIDES_LIBAUDIO := true
-TARGET_PROVIDES_LIBRIL := true
+TARGET_PROVIDES_LIBRIL := false
 
 TARGET_HARDWARE_3D := false
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
@@ -90,10 +91,6 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0a6a0000
 BOARD_FLASH_BLOCK_SIZE := 262144 
 
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-<<<<<<< HEAD
-WPA_SUPPLICANT_VERSION := VER_0_6_X
-=======
->>>>>>> parent of 06187d0... Fixed so many things I cant mention everything. Mainly audio and WiFi and layouts but cleanups as well and a lot of other things will add change if it doesnt build.
 WIFI_DRIVER_FW_AP_PATH := "/system/etc/firmware/fw_bcm4319_apsta.bin"
 WIFI_DRIVER_FW_STA_PATH := "/system/etc/firmware/fw_bcm4319.bin"
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4319.bin nvram_path=/system/etc/firmware/nvram.txt"

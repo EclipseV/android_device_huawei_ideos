@@ -1,4 +1,5 @@
 # mount point   fstype      device                  [device2]
+
 /boot       	mtd         boot
 /cache      	yaffs2      cache
 /datadata       yaffs2      cust

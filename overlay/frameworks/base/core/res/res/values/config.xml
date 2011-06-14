@@ -52,7 +52,8 @@
          USB interfaces.  If the device doesn't want to support tething over USB this should
          be empty.  An example would be "usb.*" -->
     <string-array translatable="false" name="config_tether_usb_regexs">
-	<item>"usb0"</item>
+       <item>usb\\d</item>
+       <item>"usb0"</item>
     </string-array>
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
@@ -156,15 +157,6 @@
         <item>0</item>
         <item>0</item>
     </integer-array>
-
-     <!-- The duration (in milliseconds) of a short animation. -->
-    <integer name="config_shortAnimTime">50</integer>
-
-     <!-- The duration (in milliseconds) of a medium-length animation. -->
-    <integer name="config_mediumAnimTime">200</integer>
-
-     <!-- The duration (in milliseconds) of a long animation. -->
-    <integer name="config_longAnimTime">300</integer>
 
     <!-- Component name of the service providing network location support. -->
     <string name="config_networkLocationProvider">com.google.android.location.NetworkLocationProvider</string>

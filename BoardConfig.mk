@@ -59,7 +59,7 @@ TARGET_USES_OLD_LIBSENSORS_HAL := true
 BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
 BOARD_NO_RGBX_8888 := true
 
-BOARD_EGL_CFG := device/huawei/ideos/prebuilt/lib/egl/egl.cfg
+BOARD_EGL_CFG := device/huawei/ideos/lib/egl/egl.cfg
 BOARD_HAS_LIMITED_EGL := true
 
 BOARD_KERNEL_BASE := 0x00200000

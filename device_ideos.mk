@@ -176,7 +176,7 @@ PRODUCT_COPY_FILES += \
 
 # Other
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
+    device/huawei/ideos/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
     device/huawei/ideos/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf
 
 # Additions to build.prop

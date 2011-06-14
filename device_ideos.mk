@@ -33,6 +33,7 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxVidEnc \
     Gallery \
+    Stk \
     copybit.ideos
 
 # Live Wallpapers
@@ -62,10 +63,10 @@ PRODUCT_COPY_FILES += \
 
 # Init files
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/init.ideos.rc:root/init.ideos.rc \
-    device/huawei/ideos/ueventd.ideos.rc:root/ueventd.ideos.rc
+    device/huawei/ideos/prebuilt/init.ideos.rc:root/init.ideos.rc \
+    device/huawei/ideos/prebuilt/ueventd.ideos.rc:root/ueventd.ideos.rc
 
-# OEM logo
+# OEM logo and boot splash
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/initlogo.rle:root/initlogo.rle \
     device/huawei/ideos/prebuilt/installlogo:system/media/installlogo \
@@ -104,16 +105,16 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/firmware/fw_bcm4319_apsta.bin:system/etc/firmware/fw_bcm4319_apsta.bin \
-    device/huawei/ideos/firmware/fw_bcm4319.bin:system/etc/firmware/fw_bcm4319.bin \
-    device/huawei/ideos/firmware/nvram.txt:system/etc/firmware/nvram.txt \
-    device/huawei/ideos/prebuilt/bcm4319.ko:system/lib/modules/bcm4319.ko
+    device/huawei/ideos/prebuilt/firmware/fw_bcm4319_apsta.bin:system/etc/firmware/fw_bcm4319_apsta.bin \
+    device/huawei/ideos/prebuilt/firmware/fw_bcm4319.bin:system/etc/firmware/fw_bcm4319.bin \
+    device/huawei/ideos/prebuilt/firmware/nvram.txt:system/etc/firmware/nvram.txt \
+    device/huawei/ideos/prebuilt/lib/modules/bcm4319.ko:system/lib/modules/bcm4319.ko
 
 # Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/keylayout/ideos-keypad.kl:system/usr/keylayout/ideos-keypad.kl \
-    device/huawei/ideos/keylayout/ideos-melfas-tk.kl:system/usr/keylayout/ideos-melfas-tk.kl \
-    device/huawei/ideos/keylayout/ideos-synaptics-tk.kl:system/usr/keylayout/ideos-synaptics-tk.kl
+    device/huawei/ideos/prebuilt/usr/keylayout/ideos-keypad.kl:system/usr/keylayout/ideos-keypad.kl \
+    device/huawei/ideos/prebuilt/usr/keylayout/ideos-melfas-tk.kl:system/usr/keylayout/ideos-melfas-tk.kl \
+    device/huawei/ideos/prebuilt/usr/keylayout/ideos-synaptics-tk.kl:system/usr/keylayout/ideos-synaptics-tk.kl
 
 # OEM RPC
 PRODUCT_COPY_FILES += \
@@ -175,7 +176,7 @@ PRODUCT_COPY_FILES += \
 
 # Other
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/egl.cfg:system/lib/egl/egl.cfg \
+    device/huawei/ideos/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
     device/huawei/ideos/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf
 
 # Additions to build.prop

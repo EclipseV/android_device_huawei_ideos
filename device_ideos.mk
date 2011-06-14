@@ -25,12 +25,14 @@ endif
 
 PRODUCT_COPY_FILES += $(LOCAL_KERNEL):kernel
 
-# HAL libs
 PRODUCT_PACKAGES += \
-    librs_jni \
+    libRS \
+    hwprops \
+    rzscontrol \
     libOmxCore \
     libmm-omxcore \
     libOmxVidEnc \
+    Gallery \
     copybit.ideos
 
 # Live Wallpapers
@@ -102,8 +104,10 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/firmware/nvram.txt:system/etc/firmware/nvram.txt \
-    device/huawei/ideos/prebuilt/lib/modules/bcm4319.ko:system/lib/modules/bcm4319.ko
+    device/huawei/ideos/firmware/fw_bcm4319_apsta.bin:system/etc/firmware/fw_bcm4319_apsta.bin \
+    device/huawei/ideos/firmware/fw_bcm4319.bin:system/etc/firmware/fw_bcm4319.bin \
+    device/huawei/ideos/firmware/nvram.txt:system/etc/firmware/nvram.txt \
+    device/huawei/ideos/prebuilt/bcm4319.ko:system/lib/modules/bcm4319.ko
 
 # Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \

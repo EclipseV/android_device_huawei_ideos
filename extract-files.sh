@@ -23,8 +23,8 @@ bin/rild
 
 lib/hw/lights.msm7k.so
 lib/hw/gralloc.msm7k.so
-lib/hw/sensors.default.so
-lib/hw/gps.default.so
+lib/hw/sensors.ideos.so
+lib/hw/gps.ideos.so
 
 lib/libaudioeq.so
 lib/libcamera.so

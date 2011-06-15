@@ -152,9 +152,9 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/include/AudioFilter.csv:system/etc/AudioFilter.csv \
-    device/huawei/ideos/include/AudioFilterU8150.csv:system/etc/AudioFilterU8150.csv \
-    device/huawei/ideos/include/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
+    device/huawei/ideos/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
+    device/huawei/ideos/prebuilt/etc/AudioFilterU8150.csv:system/etc/AudioFilterU8150.csv \
+    device/huawei/ideos/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     vendor/huawei/ideos/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so
 
 # Camera

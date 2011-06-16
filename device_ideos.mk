@@ -133,15 +133,15 @@ PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
     vendor/huawei/ideos/proprietary/lib/libOmxWmvDec.so:system/lib/libOmxWmvDec.so
 
-# Lights & Sensors & Gralloc & GPS
+# Lights & Sensors & Gralloc
 PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.msm7k.so \
     vendor/huawei/ideos/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \
-    vendor/huawei/ideos/proprietary/lib/hw/gps.ideos.so:system/lib/hw/gps.ideos.so \
     vendor/huawei/ideos/proprietary/lib/hw/sensors.ideos.so:system/lib/hw/sensors.ideos.so
 
 # GPS
 PRODUCT_COPY_FILES += \
+    vendor/huawei/ideos/proprietary/lib/hw/gps.ideos.so:system/lib/hw/gps.ideos.so \
     device/huawei/ideos/prebuilt/etc/gps.conf:system/etc/gps.conf
 
 # Bluetooth & Compass

@@ -75,9 +75,9 @@ PRODUCT_COPY_FILES += \
 
 # Hardware specific
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/etc/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+    device/huawei/ideos/prebuilt/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     device/huawei/ideos/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
-    device/huawei/ideos/prebuilt/etc/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    device/huawei/ideos/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
     
 # RIL specific
 PRODUCT_COPY_FILES += \
@@ -105,9 +105,9 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/firmware/fw_bcm4319_apsta.bin:system/etc/firmware/fw_bcm4319_apsta.bin \
-    device/huawei/ideos/prebuilt/firmware/fw_bcm4319.bin:system/etc/firmware/fw_bcm4319.bin \
-    device/huawei/ideos/prebuilt/firmware/nvram.txt:system/etc/firmware/nvram.txt \
+    device/huawei/ideos/prebuilt/etc/firmware/fw_bcm4319_apsta.bin:system/etc/firmware/fw_bcm4319_apsta.bin \
+    device/huawei/ideos/prebuilt/etc/firmware/fw_bcm4319.bin:system/etc/firmware/fw_bcm4319.bin \
+    device/huawei/ideos/prebuilt/etc/firmware/nvram.txt:system/etc/firmware/nvram.txt \
     device/huawei/ideos/prebuilt/lib/modules/bcm4319.ko:system/lib/modules/bcm4319.ko
 
 # Prebuilt kl keymaps

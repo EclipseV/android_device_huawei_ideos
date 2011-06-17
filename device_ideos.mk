@@ -110,11 +110,14 @@ PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/etc/firmware/nvram.txt:system/etc/firmware/nvram.txt \
     device/huawei/ideos/prebuilt/lib/modules/bcm4319.ko:system/lib/modules/bcm4319.ko
 
-# Prebuilt kl keymaps
+# Keylayouts and keychars
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/usr/keylayout/ideos-keypad.kl:system/usr/keylayout/ideos-keypad.kl \
-    device/huawei/ideos/prebuilt/usr/keylayout/ideos-melfas-tk.kl:system/usr/keylayout/ideos-melfas-tk.kl \
-    device/huawei/ideos/prebuilt/usr/keylayout/ideos-synaptics-tk.kl:system/usr/keylayout/ideos-synaptics-tk.kl
+    device/huawei/ideos/prebuilt/usr/keychars/surf_keypad.kcm.bin:system/usr/keychars/surf_keypad.kcm.bin \
+    device/huawei/ideos/prebuilt/usr/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
+    device/huawei/ideos/prebuilt/usr/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
+    device/huawei/ideos/prebuilt/usr/keylayout/surf_keypad.kl:system/usr/keylayout/surf_keypad.kl \
+    device/huawei/ideos/prebuilt/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
+    device/huawei/ideos/prebuilt/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
 
 # OEM RPC
 PRODUCT_COPY_FILES += \
@@ -154,6 +157,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
     device/huawei/ideos/prebuilt/etc/AudioFilterU8150.csv:system/etc/AudioFilterU8150.csv \
+    device/huawei/ideos/prebuilt/etc/AudioFilterU8150.csv:system/etc/AudioFilterC8150.csv \
     device/huawei/ideos/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     vendor/huawei/ideos/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so
 
@@ -170,10 +174,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/cdrom/autorun.iso:system/cdrom/autorun.iso
 
+# APNs
+PRODUCT_COPY_FILES += \
+    device/huawei/ideos/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
+
 # Other
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
-    device/huawei/ideos/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf
+    device/huawei/ideos/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
+    device/huawei/ideos/prebuilt/etc/hosts:system/etc/hosts
 
 # Additions to build.prop
 PRODUCT_PROPERTY_OVERRIDES += \

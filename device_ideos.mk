@@ -16,7 +16,6 @@
 
 DEVICE_PACKAGE_OVERLAYS += device/huawei/ideos/overlay
 
-# Kernel target
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 LOCAL_KERNEL := device/huawei/ideos/prebuilt/kernel
 else
@@ -73,12 +72,6 @@ PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/media/oemlogo.mbn:system/media/oemlogo.mbn \
     vendor/huawei/ideos/proprietary/bin/load_oemlogo:system/bin/load_oemlogo
 
-# Hardware specific
-PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
-    device/huawei/ideos/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
-    device/huawei/ideos/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
-    
 # RIL specific
 PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/bin/qmuxd:system/bin/qmuxd \
@@ -108,7 +101,9 @@ PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/etc/firmware/fw_bcm4319_apsta.bin:system/etc/firmware/fw_bcm4319_apsta.bin \
     device/huawei/ideos/prebuilt/etc/firmware/fw_bcm4319.bin:system/etc/firmware/fw_bcm4319.bin \
     device/huawei/ideos/prebuilt/etc/firmware/nvram.txt:system/etc/firmware/nvram.txt \
-    device/huawei/ideos/prebuilt/lib/modules/bcm4319.ko:system/lib/modules/bcm4319.ko
+    device/huawei/ideos/prebuilt/lib/modules/bcm4319.ko:system/lib/modules/bcm4319.ko \
+    device/huawei/ideos/prebuilt/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+    device/huawei/ideos/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 # Keylayouts and keychars
 PRODUCT_COPY_FILES += \
@@ -157,7 +152,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
     device/huawei/ideos/prebuilt/etc/AudioFilterU8150.csv:system/etc/AudioFilterU8150.csv \
-    device/huawei/ideos/prebuilt/etc/AudioFilterU8150.csv:system/etc/AudioFilterC8150.csv \
+    device/huawei/ideos/prebuilt/etc/AudioFilterC8150.csv:system/etc/AudioFilterC8150.csv \
     device/huawei/ideos/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     vendor/huawei/ideos/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so
 
@@ -182,6 +177,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
     device/huawei/ideos/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
+    device/huawei/ideos/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
     device/huawei/ideos/prebuilt/etc/hosts:system/etc/hosts
 
 # Additions to build.prop
@@ -195,7 +191,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ring.delay=0 \
     ro.telephony.call_ring.delay=0 \
     ro.telephony.call_ring.multiple=false \
-    ro.compcache.default=0
+    ro.setupwizard.mode=DISABLED
 
 
 $(call inherit-product, build/target/product/full_base.mk)

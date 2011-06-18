@@ -6,5 +6,3 @@ Changed, improved and optimized by tilal6991
 Pre-Setup
 =========
 Execute "extract-files.sh" to extract prebuilt libraries (from a working device)
-or
-Execute "unzip-files.sh" to extract prebuilt libraries (from a zip archive)

@@ -33,7 +33,14 @@ PRODUCT_PACKAGES += \
     libOmxVidEnc \
     Gallery \
     Stk \
+    Provision \
+    GoogleSearch \
+    LatinIME \
     copybit.ideos
+
+PRODUCT_PACKAGES += \
+    FM \
+    hcitool
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
@@ -178,7 +185,53 @@ PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
     device/huawei/ideos/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
     device/huawei/ideos/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
-    device/huawei/ideos/prebuilt/etc/hosts:system/etc/hosts
+    device/huawei/ideos/prebuilt/etc/hosts:system/etc/hosts 
+
+#TESTING
+PRODUCT_COPY_FILES += \
+    vendor/huawei/ideos/proprietary/lib/libauth.so:system/lib/libauth.so \
+    vendor/huawei/ideos/proprietary/lib/libcommondefs.so:system/lib/libcommondefs.so \
+    vendor/huawei/ideos/proprietary/lib/libfotaagent.so:system/lib/libfotaagent.so \
+    vendor/huawei/ideos/proprietary/lib/libfotatrigger.so:system/lib/libfotatrigger.so \
+    vendor/huawei/ideos/proprietary/lib/libhwfotaadapter.so:system/lib/libhwfotaadapter.so \
+    vendor/huawei/ideos/proprietary/lib/libhwnv.so:system/lib/libhwnv.so \
+    vendor/huawei/ideos/proprietary/lib/libicudata.so:system/lib/libicudata.so \
+    vendor/huawei/ideos/proprietary/lib/libjni_pinyinime.so:system/lib/libjni_pinyinime.so \
+    vendor/huawei/ideos/proprietary/lib/libloc_api-rpc.so:system/lib/libloc_api-rpc.so \
+    vendor/huawei/ideos/proprietary/lib/libloc_api.so:system/lib/libloc_api.so \
+    vendor/huawei/ideos/proprietary/lib/libmmitest.so:system/lib/libmmitest.so \
+    vendor/huawei/ideos/proprietary/lib/libmvs.so:system/lib/libmvs.so \
+    vendor/huawei/ideos/proprietary/lib/libomx_aacdec_sharedlibrary.so:system/lib/libomx_aacdec_sharedlibrary.so \
+    vendor/huawei/ideos/proprietary/lib/libomx_amrdec_sharedlibrary.so:system/lib/libomx_amrdec_sharedlibrary.so \
+    vendor/huawei/ideos/proprietary/lib/libomx_amrenc_sharedlibrary.so:system/lib/libomx_amrenc_sharedlibrary.so \
+    vendor/huawei/ideos/proprietary/lib/libomx_avcdec_sharedlibrary.so:system/lib/libomx_avcdec_sharedlibrary.so \
+    vendor/huawei/ideos/proprietary/lib/libomx_m4vdec_sharedlibrary.so:system/lib/libomx_m4vdec_sharedlibrary.so \
+    vendor/huawei/ideos/proprietary/lib/libomx_mp3dec_sharedlibrary.so:system/lib/libomx_mp3dec_sharedlibrary.so \
+    vendor/huawei/ideos/proprietary/lib/libomx_sharedlibrary_qc.so:system/lib/libomx_sharedlibrary_qc.so \
+    vendor/huawei/ideos/proprietary/lib/libomx_sharedlibrary.so:system/lib/libomx_sharedlibrary.so \
+    vendor/huawei/ideos/proprietary/lib/libopencore_author.so:system/lib/libopencore_author.so \
+    vendor/huawei/ideos/proprietary/lib/libopencore_common.so:system/lib/libopencore_common.so \
+    vendor/huawei/ideos/proprietary/lib/libopencore_downloadreg.so:system/lib/libopencore_downloadreg.so \
+    vendor/huawei/ideos/proprietary/lib/libopencore_download.so:system/lib/libopencore_download.so \
+    vendor/huawei/ideos/proprietary/lib/libopencorehw.so:system/lib/libopencorehw.so \
+    vendor/huawei/ideos/proprietary/lib/libopencore_mp4localreg.so:system/lib/libopencore_mp4localreg.so \
+    vendor/huawei/ideos/proprietary/lib/libopencore_mp4local.so:system/lib/libopencore_mp4local.so \
+    vendor/huawei/ideos/proprietary/lib/libopencore_net_support.so:system/lib/libopencore_net_support.so \
+    vendor/huawei/ideos/proprietary/lib/libopencore_player.so:system/lib/libopencore_player.so \
+    vendor/huawei/ideos/proprietary/lib/libopencore_rtspreg.so:system/lib/libopencore_rtspreg.so \
+    vendor/huawei/ideos/proprietary/lib/libopencore_rtsp.so:system/lib/libopencore_rtsp.so \
+    vendor/huawei/ideos/proprietary/lib/libpdapi.so:system/lib/libpdapi.so \
+    vendor/huawei/ideos/proprietary/lib/libpdsm_atl.so:system/lib/libpdsm_atl.so \
+    vendor/huawei/ideos/proprietary/lib/libping_mdm.so:system/lib/libping_mdm.so \
+    vendor/huawei/ideos/proprietary/lib/libprojectmenu.so:system/lib/libprojectmenu.so \
+    vendor/huawei/ideos/proprietary/lib/libreference-cdma-sms.so:system/lib/libreference-cdma-sms.so \
+    vendor/huawei/ideos/proprietary/lib/libreference-ril.so:system/lib/libreference-ril.so \
+    vendor/huawei/ideos/proprietary/lib/libsnd.so:system/lib/libsnd.so \
+    vendor/huawei/ideos/proprietary/lib/libtouchpal.so:system/lib/libtouchpal.so \
+    vendor/huawei/ideos/proprietary/lib/libuim.so:system/lib/libuim.so \
+    vendor/huawei/ideos/proprietary/lib/libwbxml_jni.so:system/lib/libwbxml_jni.so \
+    vendor/huawei/ideos/proprietary/lib/libwnndict.so:system/lib/libwnndict.so \
+    vendor/huawei/ideos/proprietary/lib/libxml2wbxml.so:system/lib/libxml2wbxml.so
 
 # Additions to build.prop
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -190,8 +243,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
     ring.delay=0 \
     ro.telephony.call_ring.delay=0 \
-    ro.telephony.call_ring.multiple=false \
-    ro.setupwizard.mode=DISABLED
+    ro.telephony.call_ring.multiple=false
 
 
 $(call inherit-product, build/target/product/full_base.mk)

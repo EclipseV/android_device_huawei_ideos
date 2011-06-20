@@ -44,7 +44,7 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun"
 
 TARGET_USES_OLD_LIBSENSORS_HAL := true
 
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/ideos/recovery_ui.c
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/ideos/recovery/recovery_ui.c
 BOARD_LDPI_RECOVERY := true
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 

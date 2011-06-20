@@ -9,14 +9,6 @@ key 8     7
 key 9     8
 key 10    9
 key 11    0
-# begin BU5D02300 modified by liuyongming00163001 20100203 add headSetHook key value
-key 226   HEADSETHOOK       WAKE
-# end BU5D02300 modified by liuyongming00163001 20100203 add headSetHook key value
-#/* < BU5D09842 weixinghai 20100513 begin */
-key 163   MEDIA_NEXT          WAKE
-key 165   MEDIA_PREVIOUS      WAKE
-#/* BU5D09842 weixinghai 20100513 end> */
-
 key 158   BACK              WAKE_DROPPED
 key 230   SOFT_RIGHT        WAKE
 key 60    SOFT_RIGHT        WAKE
@@ -37,9 +29,10 @@ key 103   DPAD_UP           WAKE_DROPPED
 key 102   HOME              WAKE
 key 105   DPAD_LEFT         WAKE_DROPPED
 key 106   DPAD_RIGHT        WAKE_DROPPED
-key 115   VOLUME_UP
-key 114   VOLUME_DOWN
+key 115   VOLUME_UP         WAKE_DROPPED
+key 114   VOLUME_DOWN       WAKE_DROPPED
 key 116   POWER             WAKE
+key 142   POWER             WAKE
 key 212   CAMERA
 
 key 16    Q
@@ -94,4 +87,4 @@ key 12    MINUS
 key 13    EQUALS
 key 215   AT
 
-
+key 226   HEADSETHOOK       WAKE_DROPPED

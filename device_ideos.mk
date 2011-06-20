@@ -112,13 +112,8 @@ PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     device/huawei/ideos/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
-# Keylayouts and keychars
+# Keylayouts
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/usr/keychars/surf_keypad.kcm.bin:system/usr/keychars/surf_keypad.kcm.bin \
-    device/huawei/ideos/prebuilt/usr/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
-    device/huawei/ideos/prebuilt/usr/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
-    device/huawei/ideos/prebuilt/usr/keylayout/surf_keypad.kl:system/usr/keylayout/surf_keypad.kl \
-    device/huawei/ideos/prebuilt/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/huawei/ideos/prebuilt/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
 
 # OEM RPC

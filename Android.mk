@@ -14,10 +14,4 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := $(my-dir)
-  
-subdir_makefiles := \
-	$(LOCAL_PATH)/libaudio/Android.mk \
-	$(LOCAL_PATH)/libcopybit/Android.mk
-
-include $(subdir_makefiles)
+include $(call all-named-subdir-makefiles, recovery libaudio libcopybit)

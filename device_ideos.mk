@@ -16,11 +16,7 @@
 
 DEVICE_PACKAGE_OVERLAYS += device/huawei/ideos/overlay
 
-ifeq ($(TARGET_PREBUILT_KERNEL),)
 LOCAL_KERNEL := device/huawei/ideos/prebuilt/kernel
-else
-LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
 
 PRODUCT_COPY_FILES += $(LOCAL_KERNEL):kernel
 
@@ -154,7 +150,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
     device/huawei/ideos/prebuilt/etc/AudioFilterU8150.csv:system/etc/AudioFilterU8150.csv \
-    device/huawei/ideos/prebuilt/etc/AudioFilterC8150.csv:system/etc/AudioFilterC8150.csv \
+    device/huawei/ideos/prebuilt/etc/AudioFilterU8150.csv:system/etc/AudioFilterC8150.csv \
     device/huawei/ideos/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     vendor/huawei/ideos/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so
 

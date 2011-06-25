@@ -43,6 +43,7 @@ BOARD_VENDOR_USE_AKMD := akm8973
 
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun"
+BOARD_CUSTOM_USB_CONTROLLER := ../../device/huawei/ideos/UsbController.cpp
 
 TARGET_USES_OLD_LIBSENSORS_HAL := true
 

@@ -54,7 +54,6 @@ BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 BOARD_USES_GENERIC_AUDIO := false
 TARGET_PROVIDES_LIBAUDIO := true
 TARGET_PROVIDES_LIBRIL := false
-NO_FALLBACK_FONT:=true
 
 TARGET_HARDWARE_3D := true
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true

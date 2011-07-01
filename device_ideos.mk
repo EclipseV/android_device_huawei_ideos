@@ -26,28 +26,14 @@ PRODUCT_PACKAGES += \
     rzscontrol \
     libOmxCore \
     libmm-omxcore \
-    libOmxVidEnc \
+    copybit.ideos \
+    sensors.ideos \
+    lights.ideos \
+    gps.ideos
+
+PRODUCT_PACKAGES += \
     Gallery \
-    Stk \
-    Provision \
-    GoogleSearch \
-    LatinIME \
-    copybit.ideos
-
-PRODUCT_PACKAGES += \
-    FM \
-    hcitool
-
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-    librs_jni \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    VisualizationWallpapers
-
-# Live Wallpapers support
-PRODUCT_COPY_FILES += \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
+    Stk
 
 # Hardware properties
 PRODUCT_COPY_FILES += \
@@ -63,138 +49,48 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
+# Vold Config
+PRODUCT_COPY_FILES += \
+    device/huawei/ideos/prebuilt/etc/vold.fstab:system/etc/vold.fstab
+
 # Init files
 PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/init.ideos.rc:root/init.ideos.rc \
     device/huawei/ideos/prebuilt/ueventd.ideos.rc:root/ueventd.ideos.rc
 
-# OEM logo and boot splash
-PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/initlogo.rle:root/initlogo.rle \
-    device/huawei/ideos/prebuilt/installlogo:system/media/installlogo \
-    device/huawei/ideos/prebuilt/media/oemlogo.mbn:system/media/oemlogo.mbn \
-    vendor/huawei/ideos/proprietary/bin/load_oemlogo:system/bin/load_oemlogo
-
-# RIL specific
-PRODUCT_COPY_FILES += \
-    vendor/huawei/ideos/proprietary/bin/qmuxd:system/bin/qmuxd \
-    vendor/huawei/ideos/proprietary/bin/rild:system/bin/rild \
-    vendor/huawei/ideos/proprietary/lib/libcm.so:system/lib/libcm.so \
-    vendor/huawei/ideos/proprietary/lib/libdiag.so:system/lib/libdiag.so \
-    vendor/huawei/ideos/proprietary/lib/libdll.so:system/lib/libdll.so \
-    vendor/huawei/ideos/proprietary/lib/libdsm.so:system/lib/libdsm.so \
-    vendor/huawei/ideos/proprietary/lib/libdss.so:system/lib/libdss.so \
-    vendor/huawei/ideos/proprietary/lib/libgsdi_exp.so:system/lib/libgsdi_exp.so \
-    vendor/huawei/ideos/proprietary/lib/libgstk_exp.so:system/lib/libgstk_exp.so \
-    vendor/huawei/ideos/proprietary/lib/libmmgsdilib.so:system/lib/libmmgsdilib.so \
-    vendor/huawei/ideos/proprietary/lib/libnv.so:system/lib/libnv.so \
-    vendor/huawei/ideos/proprietary/lib/liboncrpc.so:system/lib/liboncrpc.so \
-    vendor/huawei/ideos/proprietary/lib/libpbmlib.so:system/lib/libpbmlib.so \
-    vendor/huawei/ideos/proprietary/lib/libqmi.so:system/lib/libqmi.so \
-    vendor/huawei/ideos/proprietary/lib/libqueue.so:system/lib/libqueue.so \
-    vendor/huawei/ideos/proprietary/lib/libril.so:system/lib/libril.so \
-    vendor/huawei/ideos/proprietary/lib/libril.so:obj/lib/libril.so \
-    vendor/huawei/ideos/proprietary/lib/libril-qc-1.so:system/lib/libril-qc-1.so \
-    vendor/huawei/ideos/proprietary/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \
-    vendor/huawei/ideos/proprietary/lib/libwms.so:system/lib/libwms.so \
-    vendor/huawei/ideos/proprietary/lib/libwmsts.so:system/lib/libwmsts.so
-
-# Wi-Fi
+# DCHP config for Wi-Fi
 PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/etc/firmware/fw_bcm4319_apsta.bin:system/etc/firmware/fw_bcm4319_apsta.bin \
     device/huawei/ideos/prebuilt/etc/firmware/fw_bcm4319.bin:system/etc/firmware/fw_bcm4319.bin \
     device/huawei/ideos/prebuilt/etc/firmware/nvram.txt:system/etc/firmware/nvram.txt \
     device/huawei/ideos/prebuilt/lib/modules/bcm4319.ko:system/lib/modules/bcm4319.ko \
-    device/huawei/ideos/prebuilt/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+    device/huawei/ideos/prebuilt/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
+
+# OEM logo and boot splash
+PRODUCT_COPY_FILES += \
+    device/huawei/ideos/prebuilt/initlogo.rle:root/initlogo.rle \
+    device/huawei/ideos/prebuilt/installlogo:system/media/installlogo \
+    device/huawei/ideos/prebuilt/media/oemlogo.mbn:system/media/oemlogo.mbn
+
+# WPA Supplicant configuration file
+PRODUCT_COPY_FILES += \
     device/huawei/ideos/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
-
-# Keylayouts
-PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
-
-# OEM RPC
-PRODUCT_COPY_FILES += \
-    vendor/huawei/ideos/proprietary/bin/modempre:system/bin/modempre \
-    vendor/huawei/ideos/proprietary/bin/oem_rpc_svc:system/bin/oem_rpc_svc \
-    vendor/huawei/ideos/proprietary/lib/libhwrpc.so:system/lib/libhwrpc.so \
-    vendor/huawei/ideos/proprietary/lib/liboem_rapi.so:system/lib/liboem_rapi.so
-    
-# OMX
-PRODUCT_COPY_FILES += \
-    vendor/huawei/ideos/proprietary/lib/libmm-omxcore.so:system/lib/libmm-omxcore.so \
-    vendor/huawei/ideos/proprietary/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
-    vendor/huawei/ideos/proprietary/lib/libOmxCore.so:system/lib/libOmxCore.so \
-    vendor/huawei/ideos/proprietary/lib/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
-    vendor/huawei/ideos/proprietary/lib/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
-    vendor/huawei/ideos/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
-    vendor/huawei/ideos/proprietary/lib/libOmxWmvDec.so:system/lib/libOmxWmvDec.so
-
-# Lights & Sensors & Gralloc
-PRODUCT_COPY_FILES += \
-    vendor/huawei/ideos/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.msm7k.so \
-    vendor/huawei/ideos/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \
-    vendor/huawei/ideos/proprietary/lib/hw/sensors.ideos.so:system/lib/hw/sensors.ideos.so
 
 # GPS
 PRODUCT_COPY_FILES += \
-    vendor/huawei/ideos/proprietary/lib/hw/gps.ideos.so:system/lib/hw/gps.ideos.so \
     device/huawei/ideos/prebuilt/etc/gps.conf:system/etc/gps.conf
 
-# Bluetooth & Compass
-PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
-    vendor/huawei/ideos/proprietary/bin/akmd2:system/bin/akmd2 \
-    vendor/huawei/ideos/proprietary/bin/hci_qcomm_init:system/bin/hci_qcomm_init
-
-# Audio
-PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
-    device/huawei/ideos/prebuilt/etc/AudioFilterU8150.csv:system/etc/AudioFilterU8150.csv \
-    device/huawei/ideos/prebuilt/etc/AudioFilterU8150.csv:system/etc/AudioFilterC8150.csv \
-    device/huawei/ideos/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
-    vendor/huawei/ideos/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so
-
-# Camera
-PRODUCT_COPY_FILES += \
-    vendor/huawei/ideos/proprietary/lib/libcamera.so:obj/lib/libcamera.so \
-    vendor/huawei/ideos/proprietary/lib/libcamera.so:system/lib/libcamera.so \
-    vendor/huawei/ideos/proprietary/lib/libqcamera.so:system/lib/libqcamera.so \
-    vendor/huawei/ideos/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
-    vendor/huawei/ideos/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
-    vendor/huawei/ideos/proprietary/lib/libmmprocess.so:system/lib/libmmprocess.so
-
-# USB mounting
-PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/cdrom/autorun.iso:system/cdrom/autorun.iso
-
-# APNs
-PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
-
-# Other
-PRODUCT_COPY_FILES += \
-    device/huawei/ideos/prebuilt/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
-    device/huawei/ideos/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
-    device/huawei/ideos/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
-    device/huawei/ideos/prebuilt/etc/hosts:system/etc/hosts
-
-# Additions to build.prop
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.android.dataroaming=false \
-    dalvik.vm.execution-mode=int:jit \
-    dalvik.vm.heapsize=24m \
-    persist.sys.use_dithering=0 \
-    persist.sys.purgeable_assets=1 \
-    ro.setupwizard.enable_bypass=1 \
-    ring.delay=0 \
-    ro.telephony.call_ring.delay=0 \
-    ro.telephony.call_ring.multiple=false
+PRODUCT_PROPERTY_OVERRIDES := \
+    keyguard.no_require_sim=true \
+    ro.com.android.dateformat=dd-MM-yyyy \
+    ro.media.dec.jpeg.memcap=20000000
 
 
-$(call inherit-product, build/target/product/full_base.mk)
+## (2) Also get non-open-source aspects if available
+$(call inherit-product-if-exists, vendor/huawei/ideos/ideos-vendor.mk)
 
-#$(call inherit-product, device/common/gps/gps_us_supl.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
 
-PRODUCT_NAME := full_ideos
+PRODUCT_NAME := generic_ideos
 PRODUCT_DEVICE := ideos
 PRODUCT_BRAND := huawei
+PRODUCT_MODEL := Huawei Ideos

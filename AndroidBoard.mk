@@ -18,4 +18,9 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
+file := $(TARGET_ROOT_OUT)/init.qcom.rc
+ALL_PREBUILT += $(file)
+$(file) : $(LOCAL_PATH)/init.qcom.rc | $(ACP)
+	$(transform-prebuilt-to-target)
+
 ALL_PREBUILT += $(INSTALLED_KERNEL_TARGET)

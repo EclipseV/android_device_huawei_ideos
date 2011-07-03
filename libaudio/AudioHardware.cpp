@@ -103,7 +103,7 @@ static uint32_t SND_DEVICE_NO_MIC_HEADSET=-1;
 
 AudioHardware::AudioHardware() :
     mInit(false), mMicMute(true), mBluetoothNrec(true), mBluetoothId(0),
-    mOutput(0), mSndEndpoints(NULL), mCurSndDevice(-1), mDualMicEnabled(false)
+    mOutput(0), mSndEndpoints(NULL), mCurSndDevice(-1), mDualMicEnabled(false), mBuiltinMicSelected(false)
 {
    if (get_audpp_filter() == 0) {
            audpp_filter_inited = true;
@@ -257,17 +257,6 @@ AudioStreamIn* AudioHardware::openInputStream(
         return 0;
     }
 
-    if ( (mMode == AudioSystem::MODE_IN_CALL) &&
-         (getInputSampleRate(*sampleRate) > AUDIO_HW_IN_SAMPLERATE) &&
-         (*format == AUDIO_HW_IN_FORMAT) )
-    {
-        LOGE("PCM recording, in a voice call, with sample rate more than 8K not supported \
-                re-configure with 8K and try software re-sampler ");
-        *status = BAD_VALUE;
-        *sampleRate = AUDIO_HW_IN_SAMPLERATE;
-        return 0;
-    }
-
     mLock.lock();
 
     AudioStreamInMSM72xx* in = new AudioStreamInMSM72xx();
@@ -407,11 +396,10 @@ status_t AudioHardware::setParameters(const String8& keyValuePairs)
         } else {
             mTtyMode = TTY_OFF;
         }
-        if(mMode != AudioSystem::MODE_IN_CALL){
-           return NO_ERROR;
-        }
-        doRouting(NULL);
+    } else {
+	mTtyMode = TTY_OFF;
     }
+    doRouting(NULL);
 
     return NO_ERROR;
 }
@@ -428,12 +416,6 @@ String8 AudioHardware::getParameters(const String8& keys)
         param.add(key, value);
     }
 
-    key = String8("tunneled-input-formats");
-    if ( param.get(key,value) == NO_ERROR ) {
-        param.addInt(String8("AMR"), true );
-        // param.addInt(String8("QCELP"), true );
-        // param.addInt(String8("EVRC"), true );
-    }
     LOGV("AudioHardware::getParameters() %s", param.toString().string());
     return param.toString();
 }
@@ -655,7 +637,7 @@ int check_and_set_audpp_parameters(char *buf, int size)
 
         mbadrc_flag[device_id] = (uint16_t)strtol(p, &ps, 16);
         LOGV("MBADRC flag = %02x.", mbadrc_flag[device_id]);
-    } else if ((buf[0] == 'E') || (buf[0] == 'F') || (buf[0] == 'G')){
+    }else if ((buf[0] == 'E') || (buf[0] == 'F') || (buf[0] == 'G')){
      //Pre-Processing Features TX_IIR,NS,AGC
         switch (buf[1]) {
                 case '1':
@@ -1051,8 +1033,6 @@ size_t AudioHardware::getInputBufferSize(uint32_t sampleRate, int format, int ch
 {
     if ( (format != AudioSystem::PCM_16_BIT) &&
          (format != AudioSystem::AMR_NB)     &&
-         // (format != AudioSystem::EVRC)       &&
-         // (format != AudioSystem::QCELP)      &&
          (format != AudioSystem::AAC)){
         LOGW("getInputBufferSize bad format: 0x%x", format);
         return 0;
@@ -1064,10 +1044,6 @@ size_t AudioHardware::getInputBufferSize(uint32_t sampleRate, int format, int ch
 
     if(format == AudioSystem::AMR_NB)
        return 320*channelCount;
-    //else if (format == AudioSystem::EVRC)
-    //  return 230*channelCount;
-    //else if (format == AudioSystem::QCELP)
-    //   return 350*channelCount;
     else if (format == AudioSystem::AAC)
        return 2048;
     else
@@ -1209,9 +1185,22 @@ status_t AudioHardware::doAudioRouteOrMute(uint32_t device)
         }
     }
 #endif
-    LOGV("doAudioRouteOrMute() device %x, mMode %d, mMicMute %d", device, mMode, mMicMute);
-    return do_route_audio_rpc(device,
-                              mMode != AudioSystem::MODE_IN_CALL, mMicMute, m7xsnddriverfd);
+    /* QCOM caveat: Audio will be routed to speaker if device=handset and mute=true */
+    /* Also, the audio circuit causes battery drain unless mute=true */
+    /* Android < 2.0 uses MODE_IN_CALL for routing audio to earpiece */
+    /* Android >= 2.0 advises to use STREAM_VOICE_CALL streams and setSpeakerphoneOn() */
+    /* Android >= 2.3 uses MODE_IN_COMMUNICATION for SIP calls */
+    bool mute = !isInCall();
+    if(mute && (device == SND_DEVICE_HANDSET)) {
+        /* workaround to emulate Android >= 2.0 behaviour */
+        /* enable routing to earpiece (unmute) if mic is selected as input */
+        mute = !mBuiltinMicSelected;
+    }
+
+    LOGD("doAudioRouteOrMute() device %x, mMode %d, mMicMute %d, mBuiltinMicSelected %d, %s",
+        device, mMode, mMicMute, mBuiltinMicSelected, mute ? "muted" : "audio circuit active");
+    return do_route_audio_rpc(device, mute, mMicMute, m7xsnddriverfd);
+
 }
 
 status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
@@ -1230,6 +1219,7 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
     if (input != NULL) {
         uint32_t inputDevice = input->devices();
         LOGI("do input routing device %x\n", inputDevice);
+        mBuiltinMicSelected = (inputDevice == AudioSystem::DEVICE_IN_BUILTIN_MIC);
         // ignore routing device information when we start a recording in voice
         // call
         // Recording will happen through currently active tx device
@@ -1324,7 +1314,7 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
         }
     }
 
-    if (new_snd_device != -1 && new_snd_device != mCurSndDevice) {
+    if ((new_snd_device != -1 && new_snd_device != mCurSndDevice)) {
         ret = doAudioRouteOrMute(new_snd_device);
 
        //disable post proc first for previous session
@@ -1599,6 +1589,7 @@ status_t AudioHardware::AudioStreamOutMSM72xx::setParameters(const String8& keyV
     if (param.getInt(key, device) == NO_ERROR) {
         mDevices = device;
         LOGV("set output routing %x", mDevices);
+	status = mHardware->setParameters(keyValuePairs);
         status = mHardware->doRouting(NULL);
         param.remove(key);
     }
@@ -1647,8 +1638,6 @@ status_t AudioHardware::AudioStreamInMSM72xx::set(
     if ((pFormat == 0) ||
         ((*pFormat != AUDIO_HW_IN_FORMAT) &&
          (*pFormat != AudioSystem::AMR_NB) &&
-         // (*pFormat != AudioSystem::EVRC) &&
-         // (*pFormat != AudioSystem::QCELP) &&
          (*pFormat != AudioSystem::AAC)))
     {
         *pFormat = AUDIO_HW_IN_FORMAT;
@@ -1736,10 +1725,8 @@ status_t AudioHardware::AudioStreamInMSM72xx::set(
     mSampleRate = config.sample_rate;
     mBufferSize = config.buffer_size;
     }
-    else if( (*pFormat == AudioSystem::AMR_NB) // ||
-             // (*pFormat == AudioSystem::EVRC) ||
-             // (*pFormat == AudioSystem::QCELP)
-           ) {
+    else if(*pFormat == AudioSystem::AMR_NB)
+      {
 
       // open vocie memo input device
       status = ::open(VOICE_MEMO_DEVICE, O_RDWR);
@@ -1800,29 +1787,6 @@ status_t AudioHardware::AudioStreamInMSM72xx::set(
           break;
         }
 
-        // case AudioSystem::EVRC:
-        // {
-        //  LOGI("Recording Format: EVRC");
-        //  gcfg.capability = RPC_VOC_CAP_IS127;
-        //  gcfg.max_rate = RPC_VOC_1_RATE; // Max rate (Fixed frame)
-        //  gcfg.min_rate = RPC_VOC_1_RATE; // Min rate (Fixed frame length)
-        //  gcfg.frame_format = RPC_VOC_PB_NATIVE_QCP;
-        //  mFormat = AudioSystem::EVRC;
-        //  mBufferSize = 230;
-        //  break;
-        // }
-
-        // case AudioSystem::QCELP:
-        // {
-        //  LOGI("Recording Format: QCELP");
-        //  gcfg.capability = RPC_VOC_CAP_IS733; // RPC_VOC_CAP_AMR (64)
-        //  gcfg.max_rate = RPC_VOC_1_RATE; // Max rate (Fixed frame)
-        //  gcfg.min_rate = RPC_VOC_1_RATE; // Min rate (Fixed frame length)
-        //  gcfg.frame_format = RPC_VOC_PB_NATIVE_QCP;
-        //  mFormat = AudioSystem::QCELP;
-        //  mBufferSize = 350;
-        //  break;
-        // }
 
         default:
         break;

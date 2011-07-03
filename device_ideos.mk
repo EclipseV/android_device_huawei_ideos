@@ -33,7 +33,7 @@ PRODUCT_PACKAGES += \
     GoogleSearch \
     LatinIME \
     copybit.ideos \
-    lights.msm7k
+    lights.ideos
 
 PRODUCT_PACKAGES += \
     FM \
@@ -131,10 +131,9 @@ PRODUCT_COPY_FILES += \
     vendor/huawei/ideos/proprietary/lib/libOmxWmvDec.so:system/lib/libOmxWmvDec.so
 
 # Lights & Sensors & Gralloc
-#    vendor/huawei/ideos/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.msm7k.so \
 PRODUCT_COPY_FILES += \
-    vendor/huawei/ideos/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \
-    vendor/huawei/ideos/proprietary/lib/hw/sensors.ideos.so:system/lib/hw/sensors.ideos.so
+    vendor/huawei/ideos/proprietary/lib/hw/sensors.ideos.so:system/lib/hw/sensors.ideos.so \
+    vendor/huawei/ideos/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so
 
 # GPS
 PRODUCT_COPY_FILES += \

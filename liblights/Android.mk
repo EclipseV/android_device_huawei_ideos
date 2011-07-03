@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),u8220)
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),U8150)
 
 LOCAL_PATH:= $(call my-dir)
 # HAL module implemenation, not prelinked and stored in
@@ -26,7 +26,7 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 
 LOCAL_SHARED_LIBRARIES := liblog
 
-LOCAL_MODULE := lights.u8220
+LOCAL_MODULE := lights.ideos
 
 include $(BUILD_SHARED_LIBRARY)
 

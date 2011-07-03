@@ -84,7 +84,6 @@ PRODUCT_PROPERTY_OVERRIDES := \
     ro.com.android.dateformat=dd-MM-yyyy \
     ro.media.dec.jpeg.memcap=20000000
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
 
 ## (2) Also get non-open-source aspects if available
 $(call inherit-product-if-exists, vendor/huawei/ideos/ideos-vendor.mk)

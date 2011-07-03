@@ -27,6 +27,7 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libmm-omxcore \
     copybit.ideos \
+    sensors.ideos \
     lights.ideos \
     gps.ideos
 
@@ -92,6 +93,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
 ## (2) Also get non-open-source aspects if available
 $(call inherit-product-if-exists, vendor/huawei/ideos/ideos-vendor.mk)
 
-PRODUCT_NAME := full_ideos
+$(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
+
+PRODUCT_NAME := generic_ideos
 PRODUCT_DEVICE := ideos
 PRODUCT_BRAND := huawei
+PRODUCT_MODEL := Huawei Ideos

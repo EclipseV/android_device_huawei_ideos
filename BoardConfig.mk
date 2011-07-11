@@ -41,14 +41,12 @@ BOARD_USES_QCOM_LIBRPC := true
 
 BOARD_VENDOR_USE_AKMD := akm8973
 
-BOARD_CUSTOM_USB_CONTROLLER := ../../device/huawei/ideos/UsbController.cpp
-
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun"
 
 TARGET_USES_OLD_LIBSENSORS_HAL := true
 
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/ideos/recovery/recovery_ui.c
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8150/recovery/recovery_ui.c
 BOARD_LDPI_RECOVERY := true
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
@@ -62,7 +60,7 @@ TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
 BOARD_NO_RGBX_8888 := true
 
-BOARD_EGL_CFG := device/huawei/ideos/prebuilt/lib/egl/egl.cfg
+BOARD_EGL_CFG := device/huawei/u8150/prebuilt/lib/egl/egl.cfg
 BOARD_HAS_LIMITED_EGL := true
 
 BOARD_KERNEL_BASE := 0x00200000

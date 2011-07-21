@@ -133,6 +133,7 @@ PRODUCT_COPY_FILES += \
 # Lights & Sensors & Gralloc
 PRODUCT_COPY_FILES += \
     vendor/huawei/u8150/proprietary/lib/hw/sensors.ideos.so:system/lib/hw/sensors.ideos.so \
+    vendor/huawei/u8150/proprietary/lib/hw/lights.ideos.so:system/lib/hw/lights.ideos.so \
     vendor/huawei/u8150/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so
 
 # GPS
@@ -149,7 +150,8 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
-    device/huawei/u8150/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
+    device/huawei/u8150/prebuilt/etc/AudioFilterU8150.csv:system/etc/AudioFilterU8150.csv \
+    device/huawei/u8150/prebuilt/etc/01_qc.cfg:system/etc/01_qc.cfg \
     vendor/huawei/u8150/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so
 
 # Camera

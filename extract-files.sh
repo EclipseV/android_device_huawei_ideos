@@ -21,7 +21,7 @@ bin/oem_rpc_svc
 bin/qmuxd
 bin/rild
 
-lib/hw/lights.msm7k.so
+lib/hw/lights.ideos.so
 lib/hw/gralloc.msm7k.so
 lib/hw/sensors.ideos.so
 lib/hw/gps.ideos.so

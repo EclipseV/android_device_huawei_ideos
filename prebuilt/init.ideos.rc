@@ -36,8 +36,6 @@ on boot
     chmod 0777 /sys/kernel/logger/log_radio/priority
 
     write /sys/module/lowmemorykiller/parameters/check_filepages 1
-    write /sys/module/lowmemorykiller/parameters/minfile 0,0,0,4632,5632,6144
-    write /sys/module/lowmemorykiller/parameters/minfree 1536,3072,4096,21000,23000,25000
 
     chown system system /sys/bus/platform/devices/msm_sdcc.1/polling
     chown system system /sys/bus/platform/devices/msm_sdcc.2/polling
@@ -58,11 +56,15 @@ service wpa_supplicant /system/bin/wpa_supplicant -Dwext -ieth0 -c /data/misc/wi
     disabled
     oneshot 
 
-service dhcpcd_eth0 /system/bin/dhcpcd -B
+service dhcpcd_eth0 /system/bin/dhcpcd -ABKL -d eth0
     disabled
     oneshot
 
 service iprenew_eth0 /system/bin/dhcpcd -n
+    disabled
+    oneshot
+
+service autoip /system/bin/dhcpcd -B -d eth0
     disabled
     oneshot
 

@@ -175,8 +175,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
     device/huawei/u8150/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
-    device/huawei/u8150/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
-    device/huawei/u8150/prebuilt/etc/hosts:system/etc/hosts
+    device/huawei/u8150/prebuilt/etc/vold.fstab:system/etc/vold.fstab
 
 # Additions to build.prop
 PRODUCT_PROPERTY_OVERRIDES += \

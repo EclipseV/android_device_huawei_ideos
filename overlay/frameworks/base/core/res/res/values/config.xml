@@ -162,10 +162,12 @@
     <!-- Component name of the service providing geocoder API support. -->
     <string name="config_geocodeProvider">com.google.android.location.GeocodeProvider</string>
 
-    <!-- If this is true, the screen will fade off.
-         Setting it to false enables the electron beam -->	
+     <!-- If this is true, the screen will fade off. -->
     <bool name="config_animateScreenLights">false</bool>
-	
+
+    <!-- Enable the screen-on animation -->
+    <bool name="config_enableScreenOnAnimation">false</bool>
+
     <!-- Enable the screen-off animation -->
     <bool name="config_enableScreenOffAnimation">false</bool>
 
@@ -175,12 +177,12 @@
     <!-- Configure lense unlock time label offset -->
     <integer name="config_lenseTimeLabelOffsetDIP">40</integer>
 
-     <!-- The duration (in milliseconds) of a short animation. -->
-    <integer name="config_shortAnimTime">50</integer>
+    <!-- The duration (in milliseconds) of a short animation. -->
+    <integer name="config_shortAnimTime">100</integer>
 
-     <!-- The duration (in milliseconds) of a medium-length animation. -->
-    <integer name="config_mediumAnimTime">200</integer>
+    <!-- The duration (in milliseconds) of a medium-length animation. -->
+    <integer name="config_mediumAnimTime">250</integer>
 
-     <!-- The duration (in milliseconds) of a long animation. -->
-    <integer name="config_longAnimTime">300</integer>
+    <!-- The duration (in milliseconds) of a long animation. -->
+    <integer name="config_longAnimTime">350</integer>
 </resources>

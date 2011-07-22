@@ -35,6 +35,8 @@ on boot
     chmod 0777 /sys/kernel/logger/log_radio/enable
     chmod 0777 /sys/kernel/logger/log_radio/priority
 
+    write /sys/module/lowmemorykiller/parameters/minfree 1536,2048,4096
+    write /sys/module/lowmemorykiller/parameters/adj 0,1,2
     write /sys/module/lowmemorykiller/parameters/check_filepages 1
 
     chown system system /sys/bus/platform/devices/msm_sdcc.1/polling

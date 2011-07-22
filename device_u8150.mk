@@ -163,10 +163,6 @@ PRODUCT_COPY_FILES += \
     vendor/huawei/u8150/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
     vendor/huawei/u8150/proprietary/lib/libmmprocess.so:system/lib/libmmprocess.so
 
-# USB mounting
-PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/cdrom/autorun.iso:system/cdrom/autorun.iso
-
 # APNs
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml

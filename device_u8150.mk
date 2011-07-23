@@ -32,8 +32,7 @@ PRODUCT_PACKAGES += \
     Provision \
     GoogleSearch \
     LatinIME \
-    copybit.ideos \
-    lights.ideos
+    copybit.u8150
 
 PRODUCT_PACKAGES += \
     FM \
@@ -109,10 +108,6 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     device/huawei/u8150/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
-# Keylayouts
-PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
-
 # OEM RPC
 PRODUCT_COPY_FILES += \
     vendor/huawei/u8150/proprietary/bin/modempre:system/bin/modempre \
@@ -163,12 +158,9 @@ PRODUCT_COPY_FILES += \
     vendor/huawei/u8150/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
     vendor/huawei/u8150/proprietary/lib/libmmprocess.so:system/lib/libmmprocess.so
 
-# USB mounting
-PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/cdrom/autorun.iso:system/cdrom/autorun.iso
 # APNs
 PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
+    vendor/cyanogen/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # Other
 PRODUCT_COPY_FILES += \
@@ -183,7 +175,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapsize=24m \
     persist.sys.use_dithering=0 \
     persist.sys.purgeable_assets=1 \
-    ro.setupwizard.enable_bypass=1 \
     ring.delay=0 \
     ro.telephony.call_ring.delay=0 \
     ro.telephony.call_ring.multiple=false

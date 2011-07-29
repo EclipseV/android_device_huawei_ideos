@@ -71,6 +71,7 @@ PRODUCT_COPY_FILES += \
 # OEM logo and boot splash
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/initlogo.rle:root/initlogo.rle \
+    device/huawei/u8150/prebuilt/waitting.rle:root/waitting.rle \
     device/huawei/u8150/prebuilt/installlogo:system/media/installlogo \
     device/huawei/u8150/prebuilt/media/oemlogo.mbn:system/media/oemlogo.mbn \
     vendor/huawei/u8150/proprietary/bin/load_oemlogo:system/bin/load_oemlogo
@@ -127,13 +128,13 @@ PRODUCT_COPY_FILES += \
 
 # Lights & Sensors & Gralloc
 PRODUCT_COPY_FILES += \
-    vendor/huawei/u8150/proprietary/lib/hw/sensors.ideos.so:system/lib/hw/sensors.ideos.so \
-    vendor/huawei/u8150/proprietary/lib/hw/lights.ideos.so:system/lib/hw/lights.ideos.so \
+    vendor/huawei/u8150/proprietary/lib/hw/sensors.u8150.so:system/lib/hw/sensors.u8150.so \
+    vendor/huawei/u8150/proprietary/lib/hw/lights.u8150.so:system/lib/hw/lights.u8150.so \
     vendor/huawei/u8150/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so
 
 # GPS
 PRODUCT_COPY_FILES += \
-    vendor/huawei/u8150/proprietary/lib/hw/gps.ideos.so:system/lib/hw/gps.ideos.so \
+    vendor/huawei/u8150/proprietary/lib/hw/gps.u8150.so:system/lib/hw/gps.u8150.so \
     device/huawei/u8150/prebuilt/etc/gps.conf:system/etc/gps.conf
 
 # Bluetooth & Compass
@@ -147,6 +148,7 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
     device/huawei/u8150/prebuilt/etc/AudioFilterU8150.csv:system/etc/AudioFilterU8150.csv \
     device/huawei/u8150/prebuilt/etc/01_qc.cfg:system/etc/01_qc.cfg \
+    device/huawei/u8150/prebuilt/etc/pvplayer.cfg:system/etc/pvplayer.cfg \
     vendor/huawei/u8150/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so
 
 # Camera

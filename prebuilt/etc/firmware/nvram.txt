@@ -1,5 +1,6 @@
 # bcm94319wlusbn4l board
-# Copyright (C) 2008 Broadcom Corporation
+# $Copyright (C) 2008 Broadcom Corporation$
+# $Id: bcm94319lcsdn4l.txt,v 1.2.4.15 2009/08/24 13:14:29 jayaramn Exp $
 
 sromrev=3
 vendid=0x14e4
@@ -41,20 +42,20 @@ mcs2gpo1=0xcccc
 boardnum=1
 macaddr=00:90:4c:14:43:19
 
-# For mfgc
+#for mfgc
 otpimagesize=182
 nvramver=4.218.223.1
 
-# For BT_COEX
+#for BT_COEX
 boardflags=0x02400200
 btc_params1=15000
 btc_params6=20
 btc_params8=25000
 btc_params22=8500
 
-# Country code for Channel 13
+#Country code for Channel 13
 ccode=EU
 
-# OOB
+#OOB
 sd_gpout=0
 sd_oobonly=1

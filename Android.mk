@@ -14,4 +14,4 @@
 # limitations under the License.
 #
 
-include $(call all-named-subdir-makefiles, recovery libaudio libcopybit)
+include $(call all-named-subdir-makefiles, recovery libcopybit)

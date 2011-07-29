@@ -53,14 +53,13 @@ BOARD_LDPI_RECOVERY := true
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
 BOARD_USES_GENERIC_AUDIO := false
-TARGET_PROVIDES_LIBAUDIO := true
-TARGET_PROVIDES_LIBRIL := false
 
 TARGET_HARDWARE_3D := true
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 
 BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
 BOARD_NO_RGBX_8888 := true
+BOARD_USE_BROADCOM_FM_VOLUME_HACK := true
 
 BOARD_EGL_CFG := device/huawei/u8150/prebuilt/lib/egl/egl.cfg
 BOARD_HAS_LIMITED_EGL := true

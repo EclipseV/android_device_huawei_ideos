@@ -32,7 +32,7 @@ PRODUCT_PACKAGES += \
     Provision \
     GoogleSearch \
     LatinIME \
-    copybit.u8150
+    copybit.ideos
 
 PRODUCT_PACKAGES += \
     FM \
@@ -128,13 +128,13 @@ PRODUCT_COPY_FILES += \
 
 # Lights & Sensors & Gralloc
 PRODUCT_COPY_FILES += \
-    vendor/huawei/u8150/proprietary/lib/hw/sensors.u8150.so:system/lib/hw/sensors.u8150.so \
-    vendor/huawei/u8150/proprietary/lib/hw/lights.u8150.so:system/lib/hw/lights.u8150.so \
+    vendor/huawei/u8150/proprietary/lib/hw/sensors.ideos.so:system/lib/hw/sensors.ideos.so \
+    vendor/huawei/u8150/proprietary/lib/hw/lights.ideos.so:system/lib/hw/lights.ideos.so \
     vendor/huawei/u8150/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so
 
 # GPS
 PRODUCT_COPY_FILES += \
-    vendor/huawei/u8150/proprietary/lib/hw/gps.u8150.so:system/lib/hw/gps.u8150.so \
+    vendor/huawei/u8150/proprietary/lib/hw/gps.ideos.so:system/lib/hw/gps.ideos.so \
     device/huawei/u8150/prebuilt/etc/gps.conf:system/etc/gps.conf
 
 # Bluetooth & Compass

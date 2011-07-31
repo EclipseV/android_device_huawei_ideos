@@ -13,11 +13,9 @@
 # limitations under the License.
 #
 
+$(call inherit-product, build/target/product/small_base.mk)
+
 DEVICE_PACKAGE_OVERLAYS += device/huawei/u8150/overlay
-
-LOCAL_KERNEL := device/huawei/u8150/prebuilt/kernel
-
-PRODUCT_COPY_FILES += $(LOCAL_KERNEL):kernel
 
 PRODUCT_PACKAGES += \
     libRS \
@@ -29,24 +27,17 @@ PRODUCT_PACKAGES += \
     Gallery \
     Stk \
     Provision \
-    GoogleSearch \
     LatinIME \
     copybit.ideos
 
+# FM Radio
 PRODUCT_PACKAGES += \
     FM \
     hcitool
 
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-    librs_jni \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    VisualizationWallpapers
-
-# Live Wallpapers support
+# Vold config
 PRODUCT_COPY_FILES += \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
+    device/huawei/u8150/prebuilt/etc/vold.fstab:system/etc/vold.fstab
 
 # Hardware properties
 PRODUCT_COPY_FILES += \
@@ -70,36 +61,10 @@ PRODUCT_COPY_FILES += \
 # OEM logo and boot splash
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/initlogo.rle:root/initlogo.rle \
-    device/huawei/u8150/prebuilt/waitting.rle:root/waitting.rle \
     device/huawei/u8150/prebuilt/installlogo:system/media/installlogo \
-    device/huawei/u8150/prebuilt/media/oemlogo.mbn:system/media/oemlogo.mbn \
-    vendor/huawei/u8150/proprietary/bin/load_oemlogo:system/bin/load_oemlogo
+    device/huawei/u8150/prebuilt/media/oemlogo.mbn:system/media/oemlogo.mbn
 
-# RIL specific
-PRODUCT_COPY_FILES += \
-    vendor/huawei/u8150/proprietary/bin/qmuxd:system/bin/qmuxd \
-    vendor/huawei/u8150/proprietary/bin/rild:system/bin/rild \
-    vendor/huawei/u8150/proprietary/lib/libcm.so:system/lib/libcm.so \
-    vendor/huawei/u8150/proprietary/lib/libdiag.so:system/lib/libdiag.so \
-    vendor/huawei/u8150/proprietary/lib/libdll.so:system/lib/libdll.so \
-    vendor/huawei/u8150/proprietary/lib/libdsm.so:system/lib/libdsm.so \
-    vendor/huawei/u8150/proprietary/lib/libdss.so:system/lib/libdss.so \
-    vendor/huawei/u8150/proprietary/lib/libgsdi_exp.so:system/lib/libgsdi_exp.so \
-    vendor/huawei/u8150/proprietary/lib/libgstk_exp.so:system/lib/libgstk_exp.so \
-    vendor/huawei/u8150/proprietary/lib/libmmgsdilib.so:system/lib/libmmgsdilib.so \
-    vendor/huawei/u8150/proprietary/lib/libnv.so:system/lib/libnv.so \
-    vendor/huawei/u8150/proprietary/lib/liboncrpc.so:system/lib/liboncrpc.so \
-    vendor/huawei/u8150/proprietary/lib/libpbmlib.so:system/lib/libpbmlib.so \
-    vendor/huawei/u8150/proprietary/lib/libqmi.so:system/lib/libqmi.so \
-    vendor/huawei/u8150/proprietary/lib/libqueue.so:system/lib/libqueue.so \
-    vendor/huawei/u8150/proprietary/lib/libril.so:system/lib/libril.so \
-    vendor/huawei/u8150/proprietary/lib/libril.so:obj/lib/libril.so \
-    vendor/huawei/u8150/proprietary/lib/libril-qc-1.so:system/lib/libril-qc-1.so \
-    vendor/huawei/u8150/proprietary/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \
-    vendor/huawei/u8150/proprietary/lib/libwms.so:system/lib/libwms.so \
-    vendor/huawei/u8150/proprietary/lib/libwmsts.so:system/lib/libwmsts.so
-
-# Wi-Fi
+# Wi-Fi releated
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/etc/firmware/fw_bcm4319_apsta.bin:system/etc/firmware/fw_bcm4319_apsta.bin \
     device/huawei/u8150/prebuilt/etc/firmware/fw_bcm4319.bin:system/etc/firmware/fw_bcm4319.bin \
@@ -108,56 +73,9 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     device/huawei/u8150/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
-# OEM RPC
-PRODUCT_COPY_FILES += \
-    vendor/huawei/u8150/proprietary/bin/modempre:system/bin/modempre \
-    vendor/huawei/u8150/proprietary/bin/oem_rpc_svc:system/bin/oem_rpc_svc \
-    vendor/huawei/u8150/proprietary/lib/libhwrpc.so:system/lib/libhwrpc.so \
-    vendor/huawei/u8150/proprietary/lib/liboem_rapi.so:system/lib/liboem_rapi.so
-    
-# OMX
-PRODUCT_COPY_FILES += \
-    vendor/huawei/u8150/proprietary/lib/libmm-omxcore.so:system/lib/libmm-omxcore.so \
-    vendor/huawei/u8150/proprietary/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
-    vendor/huawei/u8150/proprietary/lib/libOmxCore.so:system/lib/libOmxCore.so \
-    vendor/huawei/u8150/proprietary/lib/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
-    vendor/huawei/u8150/proprietary/lib/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
-    vendor/huawei/u8150/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
-    vendor/huawei/u8150/proprietary/lib/libOmxWmvDec.so:system/lib/libOmxWmvDec.so
-
-# Lights & Sensors & Gralloc
-PRODUCT_COPY_FILES += \
-    vendor/huawei/u8150/proprietary/lib/hw/sensors.ideos.so:system/lib/hw/sensors.ideos.so \
-    vendor/huawei/u8150/proprietary/lib/hw/lights.ideos.so:system/lib/hw/lights.ideos.so \
-    vendor/huawei/u8150/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so
-
 # GPS
 PRODUCT_COPY_FILES += \
-    vendor/huawei/u8150/proprietary/lib/hw/gps.ideos.so:system/lib/hw/gps.ideos.so \
     device/huawei/u8150/prebuilt/etc/gps.conf:system/etc/gps.conf
-
-# Bluetooth & Compass
-PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
-    vendor/huawei/u8150/proprietary/bin/akmd2:system/bin/akmd2 \
-    vendor/huawei/u8150/proprietary/bin/hci_qcomm_init:system/bin/hci_qcomm_init
-
-# Audio
-PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
-    device/huawei/u8150/prebuilt/etc/AudioFilterU8150.csv:system/etc/AudioFilterU8150.csv \
-    device/huawei/u8150/prebuilt/etc/01_qc.cfg:system/etc/01_qc.cfg \
-    device/huawei/u8150/prebuilt/etc/pvplayer.cfg:system/etc/pvplayer.cfg \
-    vendor/huawei/u8150/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so
-
-# Camera
-PRODUCT_COPY_FILES += \
-    vendor/huawei/u8150/proprietary/lib/libcamera.so:obj/lib/libcamera.so \
-    vendor/huawei/u8150/proprietary/lib/libcamera.so:system/lib/libcamera.so \
-    vendor/huawei/u8150/proprietary/lib/libqcamera.so:system/lib/libqcamera.so \
-    vendor/huawei/u8150/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
-    vendor/huawei/u8150/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
-    vendor/huawei/u8150/proprietary/lib/libmmprocess.so:system/lib/libmmprocess.so
 
 # APNs
 PRODUCT_COPY_FILES += \
@@ -167,21 +85,21 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
     device/huawei/u8150/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
-    device/huawei/u8150/prebuilt/etc/init.d/12sdext:system/etc/init.d/12sdext \
-    device/huawei/u8150/prebuilt/etc/vold.fstab:system/etc/vold.fstab
+    device/huawei/u8150/prebuilt/etc/init.d/12sdext:system/etc/init.d/12sdext
 
 # Additions to build.prop
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dataroaming=false \
     persist.sys.use_dithering=0 \
-    persist.sys.purgeable_assets=1 \
-    ring.delay=0 \
-    ro.telephony.call_ring.delay=0 \
-    ro.telephony.call_ring.multiple=false
+    persist.sys.purgeable_assets=1
 
+PRODUCT_COPY_FILES += device/huawei/u8150/prebuilt/kernel:kernel
 
-$(call inherit-product, build/target/product/full_base.mk)
+## (2) Also get non-open-source aspects if available
+$(call inherit-product-if-exists, vendor/huawei/u8150/u8150-vendor.mk)
 
-PRODUCT_NAME := full_u8150
+$(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
+
+PRODUCT_NAME := generic_u8150
 PRODUCT_DEVICE := u8150
-PRODUCT_BRAND := huawei
+PRODUCT_MODEL := Huawei U8150

@@ -1,0 +1,7 @@
+# /bin/sh
+sleep 2
+umount /sd-ext
+mkdir /data/sdext2
+mount -t ext3 -o rw /dev/block/vold/179:2 /data/sdext2
+mount -t ext3 -o rw /dev/block/mmcblk0p2 /data/sdext2
+

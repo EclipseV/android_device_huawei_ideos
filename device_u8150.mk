@@ -13,8 +13,6 @@
 # limitations under the License.
 #
 
-$(call inherit-product, build/target/product/small_base.mk)
-
 DEVICE_PACKAGE_OVERLAYS += device/huawei/u8150/overlay
 
 PRODUCT_PACKAGES += \
@@ -98,7 +96,7 @@ PRODUCT_COPY_FILES += device/huawei/u8150/prebuilt/kernel:kernel
 ## (2) Also get non-open-source aspects if available
 $(call inherit-product-if-exists, vendor/huawei/u8150/u8150-vendor.mk)
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
+$(call inherit-product, build/target/product/full_base.mk)
 
 PRODUCT_NAME := generic_u8150
 PRODUCT_DEVICE := u8150

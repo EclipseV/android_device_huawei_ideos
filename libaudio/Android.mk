@@ -1,10 +1,10 @@
 ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),U8150)
 
-LOCAL_PATH:= $(call my-dir)
+LOCAL_PATH := $(call my-dir)
+
 include $(CLEAR_VARS)
 
-LOCAL_SRC_FILES:=               \
-    AudioPolicyManager.cpp
+LOCAL_SRC_FILES := AudioPolicyManager.cpp
 
 LOCAL_SHARED_LIBRARIES := \
     libcutils \
@@ -20,7 +20,6 @@ ifeq ($(BOARD_HAVE_BLUETOOTH),true)
 endif
 
 include $(BUILD_SHARED_LIBRARY)
-
 
 include $(CLEAR_VARS)
 
@@ -51,5 +50,4 @@ endif
 
 include $(BUILD_SHARED_LIBRARY)
 
-endif
-
+endif # build for U8150

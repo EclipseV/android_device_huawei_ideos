@@ -84,7 +84,7 @@ adb pull /system/lib/libril-qcril-hook-oem.so ../../../vendor/huawei/$DEVICE/pro
 adb pull /system/lib/libwms.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libwms.so
 adb pull /system/lib/libwmsts.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libwmsts.so
 
-chmod 755 ../../../vendor/huawei/ideos/proprietary/bin/* 
+chmod 755 ../../../vendor/huawei/u8150/proprietary/bin/* 
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g > ../../../vendor/huawei/$DEVICE/$DEVICE-vendor-blobs.mk
 # Copyright (C) 2010 The AndroidOpen Source Project

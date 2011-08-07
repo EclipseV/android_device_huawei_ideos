@@ -12,6 +12,7 @@ LOCAL_SHARED_LIBRARIES := \
     libmedia
 
 LOCAL_STATIC_LIBRARIES := libaudiopolicybase
+LOCAL_MODULE_TAGS := optional
 
 LOCAL_MODULE:= libaudiopolicy
 
@@ -21,7 +22,9 @@ endif
 
 include $(BUILD_SHARED_LIBRARY)
 
+
 include $(CLEAR_VARS)
+LOCAL_MODULE_TAGS := optional
 
 LOCAL_MODULE := libaudio
 
@@ -36,7 +39,7 @@ LOCAL_LDLIBS += -ldl
 endif
 
 ifneq ($(TARGET_SIMULATOR),true)
-LOCAL_SHARED_LIBRARIES += libdl
+LOCAL_SHARED_LIBRARIES += libdl 
 endif
 
 LOCAL_SRC_FILES += AudioHardware.cpp
@@ -49,5 +52,4 @@ ifeq ($(BOARD_HAVE_BLUETOOTH),true)
 endif
 
 include $(BUILD_SHARED_LIBRARY)
-
-endif # build for U8150
+endif 

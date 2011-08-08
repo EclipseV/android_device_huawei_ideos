@@ -166,10 +166,10 @@
     <bool name="config_animateScreenLights">false</bool>
 
     <!-- Enable the screen-on animation -->
-    <bool name="config_enableScreenOnAnimation">false</bool>
+    <bool name="config_enableScreenOnAnimation">true</bool>
 
     <!-- Enable the screen-off animation -->
-    <bool name="config_enableScreenOffAnimation">false</bool>
+    <bool name="config_enableScreenOffAnimation">true</bool>
 
     <!-- Configure rotary bottom margin -->
     <integer name="config_rotaryMarginBottomDIP">0</integer>
@@ -178,11 +178,11 @@
     <integer name="config_lenseTimeLabelOffsetDIP">40</integer>
 
     <!-- The duration (in milliseconds) of a short animation. -->
-    <integer name="config_shortAnimTime">100</integer>
+    <integer name="config_shortAnimTime">50</integer>
 
     <!-- The duration (in milliseconds) of a medium-length animation. -->
-    <integer name="config_mediumAnimTime">250</integer>
+    <integer name="config_mediumAnimTime">200</integer>
 
     <!-- The duration (in milliseconds) of a long animation. -->
-    <integer name="config_longAnimTime">350</integer>
+    <integer name="config_longAnimTime">300</integer>
 </resources>

@@ -18,7 +18,6 @@
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
 USE_CAMERA_STUB := false
-BOARD_USE_FROYO_LIBCAMERA := true
 
 # inherit from the proprietary version
 -include vendor/huawei/u8150/BoardConfigVendor.mk
@@ -81,16 +80,10 @@ TARGET_PROVIDES_LIBAUDIO := true
 TARGET_HARDWARE_3D := true
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
+TARGET_SF_NEEDS_REAL_DIMENSIONS := true
 BOARD_NO_RGBX_8888 := true
 BOARD_EGL_CFG := device/huawei/u8150/prebuilt/lib/egl/egl.cfg
 BOARD_HAS_LIMITED_EGL := true
-TARGET_ELECTRONBEAM_FRAMES := 10
-
-# FM Radio
-BOARD_HAVE_FM_RADIO := true
-BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
-BOARD_FM_DEVICE := bcm4329
-BOARD_USE_BROADCOM_FM_VOLUME_HACK := true
 
 # WiFI
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT

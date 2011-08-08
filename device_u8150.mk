@@ -28,16 +28,11 @@ PRODUCT_PACKAGES += \
     LatinIME \
     copybit.ideos
 
-# FM Radio
-PRODUCT_PACKAGES += \
-    FM \
-    hcitool
-
 # Vold config
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/etc/vold.fstab:system/etc/vold.fstab
 
-# Hardware properties
+# Hardware permissions
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
     frameworks/base/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
@@ -83,13 +78,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
     device/huawei/u8150/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
-    device/huawei/u8150/prebuilt/etc/init.d/12sdext:system/etc/init.d/12sdext
-
-# Additions to build.prop
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.android.dataroaming=false \
-    persist.sys.use_dithering=0 \
-    persist.sys.purgeable_assets=1
+    device/huawei/u8150/prebuilt/etc/init.d/12cm:system/etc/init.d/12cm
 
 PRODUCT_COPY_FILES += device/huawei/u8150/prebuilt/kernel:kernel
 

@@ -63,6 +63,9 @@ service dhcpcd_eth0 /system/bin/dhcpcd -ABKL -d eth0
     disabled
     oneshot
 
+service netd /system/bin/netd
+	socket dnsproxyd stream 0660 root inet
+
 service iprenew_eth0 /system/bin/dhcpcd -n
     disabled
     oneshot

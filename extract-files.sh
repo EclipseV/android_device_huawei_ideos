@@ -80,7 +80,7 @@ adb pull /system/lib/libqmi.so ../../../vendor/huawei/$DEVICE/proprietary/lib/li
 adb pull /system/lib/libqueue.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libqueue.so
 adb pull /system/lib/libril.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libril.so
 adb pull /system/lib/libril-qc-1.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libril-qc-1.so
-adb pull /system/lib/libril-qcril-hook-oem.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libril-qcril-hook-oem.so.so
+adb pull /system/lib/libril-qcril-hook-oem.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libril-qcril-hook-oem.so
 adb pull /system/lib/libwms.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libwms.so
 adb pull /system/lib/libwmsts.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libwmsts.so
 

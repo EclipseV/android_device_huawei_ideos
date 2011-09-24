@@ -18,8 +18,6 @@
 
 DEVICE=u8150
 
-mkdir -p ../../../vendor/huawei/$DEVICE/proprietary
-
 DIRS="
 bin
 lib/hw
@@ -30,7 +28,6 @@ for DIR in $DIRS; do
 	mkdir -p ../../../vendor/huawei/$DEVICE/proprietary/$DIR
 done
 
-mkdir -p ../../../vendor/huawei/$DEVICE/proprietary
 adb pull /system/bin/akmd2 ../../../vendor/huawei/$DEVICE/proprietary/bin/akmd2
 adb pull /system/bin/load_oemlogo ../../../vendor/huawei/$DEVICE/proprietary/bin/load_oemlogo
 adb pull /system/bin/hci_qcomm_init ../../../vendor/huawei/$DEVICE/proprietary/bin/hci_qcomm_init

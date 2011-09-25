@@ -1216,11 +1216,7 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
             sndDevice = SND_DEVICE_HANDSET;
             audProcess = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
         }
-<<<<<<< HEAD
-=======
-    }
 
->>>>>>> parent of 0495f47... libaudio: kang libaudio from https://github.com/psyke83/android_device_huawei_u8160
     if (mDualMicEnabled && mMode == AudioSystem::MODE_IN_CALL) {
         if (sndDevice == SND_DEVICE_HANDSET) {
             LOGI("Routing audio to handset with DualMike enabled\n");

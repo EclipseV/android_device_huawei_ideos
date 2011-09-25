@@ -28,6 +28,11 @@ PRODUCT_PACKAGES += \
     LatinIME \
     copybit.ideos
 
+# FM Radio
+PRODUCT_PACKAGES += \
+    FM \
+    hcitool
+
 # Vold config
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/etc/vold.fstab:system/etc/vold.fstab
@@ -82,11 +87,10 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += device/huawei/u8150/prebuilt/kernel:kernel
 
-## (2) Also get non-open-source aspects if available
 $(call inherit-product-if-exists, vendor/huawei/u8150/u8150-vendor.mk)
 
 $(call inherit-product, build/target/product/full_base.mk)
 
-PRODUCT_NAME := generic_u8150
+PRODUCT_NAME := huawei_u8150
 PRODUCT_DEVICE := u8150
 PRODUCT_MODEL := Huawei U8150

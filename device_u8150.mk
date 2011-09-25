@@ -60,10 +60,6 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     device/huawei/u8150/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
-# GPS
-PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/etc/gps.conf:system/etc/gps.conf
-
 # Other
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
@@ -79,6 +75,9 @@ $(call inherit-product, build/target/product/full_base.mk)
 
 # Inherit some common cyanogenmod stuff.
 $(call inherit-product, vendor/cyanogen/products/common_full.mk)
+
+# The gps config appropriate for this device
+$(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 # Include GSM stuff
 $(call inherit-product, vendor/cyanogen/products/gsm.mk)

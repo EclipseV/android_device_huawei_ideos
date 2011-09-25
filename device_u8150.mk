@@ -20,7 +20,8 @@ PRODUCT_PACKAGES += \
     hwprops \
     rzscontrol \
     Gallery \
-    copybit.ideos
+    copybit.u8150 \
+    gps.u8150
 
 # Vold config
 PRODUCT_COPY_FILES += \

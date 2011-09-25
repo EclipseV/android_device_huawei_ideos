@@ -23,7 +23,6 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxVidEnc \
     Gallery \
-    Stk \
     Provision \
     LatinIME \
     copybit.ideos
@@ -70,10 +69,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/etc/gps.conf:system/etc/gps.conf
 
-# APNs
-PRODUCT_COPY_FILES += \
-    vendor/cyanogen/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
-
 # Other
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
@@ -89,6 +84,9 @@ $(call inherit-product, build/target/product/full_base.mk)
 
 # Inherit some common cyanogenmod stuff.
 $(call inherit-product, vendor/cyanogen/products/common_full.mk)
+
+# Include GSM stuff
+$(call inherit-product, vendor/cyanogen/products/gsm.mk)
 
 # LDPI assets
 PRODUCT_LOCALES += ldpi mdpi

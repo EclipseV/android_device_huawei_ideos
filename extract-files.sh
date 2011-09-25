@@ -42,7 +42,6 @@ adb pull /system/etc/AudioFilterU8150.csv ../../../vendor/huawei/$DEVICE/proprie
 adb pull /system/etc/init.qcom.bt.sh ../../../vendor/huawei/$DEVICE/proprietary/etc/init.qcom.bt.sh
 adb pull /system/etc/pvplayer.cfg ../../../vendor/huawei/$DEVICE/proprietary/etc/pvplayer.cfg
 
-adb pull /system/lib/hw/lights.ideos.so ../../../vendor/huawei/$DEVICE/proprietary/lib/hw/lights.ideos.so
 adb pull /system/lib/hw/gralloc.msm7k.so ../../../vendor/huawei/$DEVICE/proprietary/lib/hw/gralloc.msm7k.so
 adb pull /system/lib/hw/sensors.ideos.so ../../../vendor/huawei/$DEVICE/proprietary/lib/hw/sensors.ideos.so
 
@@ -117,7 +116,6 @@ PRODUCT_COPY_FILES += \\
     vendor/huawei/__DEVICE__/proprietary/etc/pvplayer.cfg:system/etc/pvplayer.cfg
 
 PRODUCT_COPY_FILES += \\
-    vendor/huawei/__DEVICE__/proprietary/lib/hw/lights.ideos.so:system/lib/hw/lights.ideos.so \\
     vendor/huawei/__DEVICE__/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \\
     vendor/huawei/__DEVICE__/proprietary/lib/hw/sensors.ideos.so:system/lib/hw/sensors.ideos.so
 

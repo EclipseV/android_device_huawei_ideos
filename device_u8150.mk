@@ -91,6 +91,17 @@ $(call inherit-product-if-exists, vendor/huawei/u8150/u8150-vendor.mk)
 
 $(call inherit-product, build/target/product/full_base.mk)
 
+# Inherit some common cyanogenmod stuff.
+$(call inherit-product, vendor/cyanogen/products/common_full.mk)
+
+# LDPI assets
+PRODUCT_LOCALES += ldpi mdpi
+PRODUCT_PACKAGE_OVERLAYS += vendor/cyanogen/overlay/ldpi
+PRODUCT_COPY_FILES += \
+    vendor/cyanogen/prebuilt/ldpi/media/bootanimation.zip:system/media/bootanimation.zip
+
 PRODUCT_NAME := huawei_u8150
 PRODUCT_DEVICE := u8150
-PRODUCT_MODEL := Huawei U8150
+PRODUCT_MODEL := U8150
+PRODUCT_BRAND := huawei
+PRODUCT_MANUFACTURER := huawei

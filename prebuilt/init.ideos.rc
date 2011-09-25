@@ -7,7 +7,6 @@ on post-fs
     mkdir /data/local/tmp 0777 radio shell
     chown radio shell /data/local
     chown radio shell /data/local/tmp
-    mkdir /data/sdext2
    
 on boot
     

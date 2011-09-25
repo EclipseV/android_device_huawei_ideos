@@ -20,8 +20,6 @@ PRODUCT_PACKAGES += \
     hwprops \
     rzscontrol \
     Gallery \
-    Provision \
-    LatinIME \
     copybit.ideos
 
 # Vold config

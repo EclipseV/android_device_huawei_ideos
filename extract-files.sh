@@ -43,7 +43,7 @@ adb pull /system/etc/init.qcom.bt.sh ../../../vendor/huawei/$DEVICE/proprietary/
 adb pull /system/etc/pvplayer.cfg ../../../vendor/huawei/$DEVICE/proprietary/etc/pvplayer.cfg
 
 adb pull /system/lib/hw/gralloc.msm7k.so ../../../vendor/huawei/$DEVICE/proprietary/lib/hw/gralloc.msm7k.so
-adb pull /system/lib/hw/sensors.ideos.so ../../../vendor/huawei/$DEVICE/proprietary/lib/hw/sensors.ideos.so
+adb pull /system/lib/hw/sensors.default.so ../../../vendor/huawei/$DEVICE/proprietary/lib/hw/sensors.default.so
 
 adb pull /system/lib/libaudioeq.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libaudioeq.so
 adb pull /system/lib/libcamera.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libcamera.so
@@ -117,7 +117,7 @@ PRODUCT_COPY_FILES += \\
 
 PRODUCT_COPY_FILES += \\
     vendor/huawei/__DEVICE__/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \\
-    vendor/huawei/__DEVICE__/proprietary/lib/hw/sensors.ideos.so:system/lib/hw/sensors.ideos.so
+    vendor/huawei/__DEVICE__/proprietary/lib/hw/sensors.default.so:system/lib/hw/sensors.default.so
 
 
 PRODUCT_COPY_FILES += \\

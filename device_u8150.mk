@@ -19,9 +19,6 @@ PRODUCT_PACKAGES += \
     libRS \
     hwprops \
     rzscontrol \
-    libOmxCore \
-    libmm-omxcore \
-    libOmxVidEnc \
     Gallery \
     Provision \
     LatinIME \

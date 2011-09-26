@@ -20,7 +20,9 @@ PRODUCT_PACKAGES += \
     hwprops \
     rzscontrol \
     Gallery \
-    copybit.ideos
+    copybit.u8150 \
+    gps.u8150 \
+    lights.msm7k
 
 # FM Radio
 PRODUCT_PACKAGES += \

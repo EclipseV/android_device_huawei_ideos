@@ -1216,7 +1216,7 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
             sndDevice = SND_DEVICE_HANDSET;
             audProcess = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
         }
-
+}
     if (mDualMicEnabled && mMode == AudioSystem::MODE_IN_CALL) {
         if (sndDevice == SND_DEVICE_HANDSET) {
             LOGI("Routing audio to handset with DualMike enabled\n");
@@ -2011,5 +2011,4 @@ String8 AudioHardware::AudioStreamInMSM72xx::getParameters(const String8& keys)
 extern "C" AudioHardwareInterface* createAudioHardware(void) {
     return new AudioHardware();
 }
-
 }; // namespace android

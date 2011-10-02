@@ -39,9 +39,6 @@ on boot
     write /sys/module/lowmemorykiller/parameters/adj 0,1,2
     write /sys/module/lowmemorykiller/parameters/check_filepages 1
 
-    chown system system /sys/bus/platform/devices/msm_sdcc.1/polling
-    chown system system /sys/bus/platform/devices/msm_sdcc.2/polling
-
     chmod 0667 /dev/graphics/fb0
 
 service qmuxd /system/bin/qmuxd
@@ -52,7 +49,7 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     disabled
     oneshot
     
-service wpa_supplicant /system/bin/wpa_supplicant -Dwext -ieth0 -c /data/misc/wifi/wpa_supplicant.conf
+service wpa_supplicant /system/bin/wpa_supplicant -Dawext -ieth0 -c /data/misc/wifi/wpa_supplicant.conf
     socket wpa_eth0 dgram 660 wifi wifi
     group system wifi inet dhcp
     disabled

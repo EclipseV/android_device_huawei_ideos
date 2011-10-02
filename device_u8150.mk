@@ -22,12 +22,7 @@ PRODUCT_PACKAGES += \
     Gallery \
     copybit.u8150 \
     gps.u8150 \
-    lights.msm7k
-
-# FM Radio
-PRODUCT_PACKAGES += \
-    FM \
-    hcitool
+    lights.u8150
 
 # Vold config
 PRODUCT_COPY_FILES += \

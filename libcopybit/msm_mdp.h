@@ -1,7 +1,7 @@
 /* include/linux/msm_mdp.h
  *
  * Copyright (C) 2007 Google Incorporated
- * Copyright (c) 2009, Code Aurora Forum. All rights reserved.
+ * Copyright (c) 2009-2010, Code Aurora Forum. All rights reserved.
  *
  * This software is licensed under the terms of the GNU General Public
  * License version 2, as published by the Free Software Foundation, and
@@ -30,20 +30,20 @@
 #define MSMFB_GET_CCS_MATRIX  _IOWR(MSMFB_IOCTL_MAGIC, 133, struct mdp_ccs)
 #define MSMFB_SET_CCS_MATRIX  _IOW(MSMFB_IOCTL_MAGIC, 134, struct mdp_ccs)
 #define MSMFB_OVERLAY_SET       _IOWR(MSMFB_IOCTL_MAGIC, 135, \
-					struct mdp_overlay)
+						struct mdp_overlay)
 #define MSMFB_OVERLAY_UNSET     _IOW(MSMFB_IOCTL_MAGIC, 136, unsigned int)
 #define MSMFB_OVERLAY_PLAY      _IOW(MSMFB_IOCTL_MAGIC, 137, \
-					struct msmfb_overlay_data)
+						struct msmfb_overlay_data)
 #define MSMFB_GET_PAGE_PROTECTION _IOR(MSMFB_IOCTL_MAGIC, 138, \
 					struct mdp_page_protection)
 #define MSMFB_SET_PAGE_PROTECTION _IOW(MSMFB_IOCTL_MAGIC, 139, \
 					struct mdp_page_protection)
 #define MSMFB_OVERLAY_GET      _IOR(MSMFB_IOCTL_MAGIC, 140, \
-					struct mdp_overlay)
+						struct mdp_overlay)
 #define MSMFB_OVERLAY_PLAY_ENABLE     _IOW(MSMFB_IOCTL_MAGIC, 141, unsigned int)
 
-
 #define MDP_IMGTYPE2_START 0x10000
+
 enum {
 	MDP_RGB_565,      /* RGB 565 planer */
 	MDP_XRGB_8888,    /* RGB 888 padded */
@@ -57,6 +57,8 @@ enum {
 	MDP_RGBA_8888,    /* ARGB 888 */
 	MDP_BGRA_8888,	  /* ABGR 888 */
 	MDP_RGBX_8888,	  /* RGBX 888 */
+	MDP_Y_CRCB_H2V2_TILE,  /* Y and CrCb, pseudo planer tile */
+	MDP_Y_CBCR_H2V2_TILE,  /* Y and CbCr, pseudo planer tile */
 	MDP_IMGTYPE_LIMIT,
 	MDP_BGR_565 = MDP_IMGTYPE2_START,      /* BGR 565 planer */
 	MDP_FB_FORMAT,    /* framebuffer format */
@@ -68,9 +70,7 @@ enum {
 	FB_IMG,
 };
 
-#define MDP_BLEND_FG_PREMULT 0x20000
-
-/* flag values */
+/* mdp_blit_req flag values */
 #define MDP_ROT_NOP 0
 #define MDP_FLIP_LR 0x1
 #define MDP_FLIP_UD 0x2
@@ -78,31 +78,28 @@ enum {
 #define MDP_ROT_180 (MDP_FLIP_UD|MDP_FLIP_LR)
 #define MDP_ROT_270 (MDP_ROT_90|MDP_FLIP_UD|MDP_FLIP_LR)
 #define MDP_DITHER 0x8
-//#define MDP_BLUR 0x10
-
+#define MDP_BLUR 0x10
+#define MDP_BLEND_FG_PREMULT 0x20000
 #define MDP_DEINTERLACE 0x80000000
 #define MDP_SHARPENING  0x40000000
-
-#define MDP_NO_DMA_BARRIER_START       0x20000000
-#define MDP_NO_DMA_BARRIER_END         0x10000000
-#define MDP_NO_BLIT                    0x08000000
-#define MDP_BLIT_WITH_DMA_BARRIERS     0x000
+#define MDP_NO_DMA_BARRIER_START	0x20000000
+#define MDP_NO_DMA_BARRIER_END		0x10000000
+#define MDP_NO_BLIT			0x08000000
+#define MDP_BLIT_WITH_DMA_BARRIERS	0x000
 #define MDP_BLIT_WITH_NO_DMA_BARRIERS    \
 	(MDP_NO_DMA_BARRIER_START | MDP_NO_DMA_BARRIER_END)
-
-
 #define MDP_TRANSP_NOP 0xffffffff
 #define MDP_ALPHA_NOP 0xff
 
-#define MDP_FB_PAGE_PROTECTION_NONCACHED	 (0)
-#define MDP_FB_PAGE_PROTECTION_WRITECOMBINE	 (1)
+#define MDP_FB_PAGE_PROTECTION_NONCACHED         (0)
+#define MDP_FB_PAGE_PROTECTION_WRITECOMBINE      (1)
 #define MDP_FB_PAGE_PROTECTION_WRITETHROUGHCACHE (2)
-#define MDP_FB_PAGE_PROTECTION_WRITEBACKCACHE	 (3)
-#define MDP_FB_PAGE_PROTECTION_WRITEBACKWACACHE	 (4)
+#define MDP_FB_PAGE_PROTECTION_WRITEBACKCACHE    (3)
+#define MDP_FB_PAGE_PROTECTION_WRITEBACKWACACHE  (4)
 /* Sentinel: Don't use! */
-#define MDP_FB_PAGE_PROTECTION_INVALID		 (5)
+#define MDP_FB_PAGE_PROTECTION_INVALID           (5)
 /* Count of the number of MDP_FB_PAGE_PROTECTION_... values. */
-#define MDP_NUM_FB_PAGE_PROTECTION_VALUES	 (5)
+#define MDP_NUM_FB_PAGE_PROTECTION_VALUES        (5)
 
 struct mdp_rect {
 	uint32_t x;
@@ -151,12 +148,48 @@ struct mdp_blit_req_list {
 	struct mdp_blit_req req[];
 };
 
+struct msmfb_data {
+	uint32_t offset;
+	int memory_id;
+	int id;
+};
+
+#define MSMFB_NEW_REQUEST -1
+
+struct msmfb_overlay_data {
+	uint32_t id;
+	struct msmfb_data data;
+};
+
+struct msmfb_img {
+	uint32_t width;
+	uint32_t height;
+	uint32_t format;
+};
+
+struct mdp_overlay {
+	struct msmfb_img src;
+	struct mdp_rect src_rect;
+	struct mdp_rect dst_rect;
+	uint32_t z_order;	/* stage number */
+	uint32_t is_fg;		/* control alpha & transp */
+	uint32_t alpha;
+	uint32_t transp_mask;
+	uint32_t flags;
+	uint32_t id;
+	uint32_t user_data[8];
+};
+
 struct mdp_histogram {
 	uint32_t frame_cnt;
 	uint32_t bin_cnt;
 	uint32_t *r;
 	uint32_t *g;
 	uint32_t *b;
+};
+
+struct mdp_page_protection {
+	uint32_t page_protection;
 };
 
 #endif /*_MSM_MDP_H_*/

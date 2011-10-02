@@ -34,7 +34,7 @@ TARGET_CPU_ABI := armeabi-v6j
 
 # Target properties
 TARGET_BOOTLOADER_BOARD_NAME := u8150
-TARGET_OTA_ASSERT_DEVICE := u8150
+TARGET_OTA_ASSERT_DEVICE := u8150,ideos,U8150
 
 # Target information
 TARGET_NO_BOOTLOADER := true
@@ -56,16 +56,11 @@ BOARD_USES_QCOM_GPS := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 1240
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := u8150
 
-# FM Radio
-BOARD_HAVE_FM_RADIO := true
-BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
-BOARD_FM_DEVICE := bcm4329
-BOARD_USE_BROADCOM_FM_VOLUME_HACK := true
-
 # Browser
 JS_ENGINE := v8
 
 # USB mass storage
+BOARD_CUSTOM_USB_CONTROLLER := ../../device/huawei/u8150/UsbController.cpp
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun"
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
@@ -92,7 +87,7 @@ BOARD_EGL_CFG := device/huawei/u8150/prebuilt/lib/egl/egl.cfg
 BOARD_HAS_LIMITED_EGL := true
 
 # WiFI
-BOARD_WPA_SUPPLICANT_DRIVER := WEXT
+BOARD_WPA_SUPPLICANT_DRIVER := AWEXT
 WIFI_DRIVER_FW_AP_PATH := "/system/etc/firmware/fw_bcm4319_apsta.bin"
 WIFI_DRIVER_FW_STA_PATH := "/system/etc/firmware/fw_bcm4319.bin"
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4319.bin nvram_path=/system/etc/firmware/nvram.txt"
@@ -103,7 +98,7 @@ BOARD_WEXT_NO_COMBO_SCAN := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00200000
-BOARD_KERNEL_CMDLINE := mem=211M console=ttyMSM2,115200n8 androidboot.hardware=ideos
+BOARD_KERNEL_CMDLINE := mem=211M console=ttyMSM2,115200n8 androidboot.hardware=u8150
 BOARD_KERNEL_PAGESIZE := 4096
 
 # # cat /proc/mtd

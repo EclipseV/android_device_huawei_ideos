@@ -163,10 +163,10 @@
     <bool name="config_animateScreenLights">false</bool>
 
     <!-- Enable the screen-on animation -->
-    <bool name="config_enableScreenOnAnimation">true</bool>
+    <bool name="config_enableScreenOnAnimation">false</bool>
 
     <!-- Enable the screen-off animation -->
-    <bool name="config_enableScreenOffAnimation">true</bool>
+    <bool name="config_enableScreenOffAnimation">false</bool>
 
     <!-- Configure rotary bottom margin -->
     <integer name="config_rotaryMarginBottomDIP">0</integer>

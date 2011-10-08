@@ -56,10 +56,10 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi releated
 PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/etc/firmware/fw_bcm4319_apsta.bin:system/etc/firmware/fw_bcm4319_apsta.bin \
-    device/huawei/u8150/prebuilt/etc/firmware/fw_bcm4319.bin:system/etc/firmware/fw_bcm4319.bin \
-    device/huawei/u8150/prebuilt/etc/firmware/nvram.txt:system/etc/firmware/nvram.txt \
-    device/huawei/u8150/prebuilt/lib/modules/bcm4319.ko:system/lib/modules/bcm4319.ko \
+    device/huawei/u8150/prebuilt/wifi/fw_bcm4319_apsta.bin:system/wifi/fw_bcm4319_apsta.bin \
+    device/huawei/u8150/prebuilt/wifi/fw_bcm4319.bin:system/wifi/fw_bcm4319.bin \
+    device/huawei/u8150/prebuilt/wifi/nvram.txt:system/wifi/nvram.txt \
+    device/huawei/u8150/prebuilt/wifi/dhd.ko:system/wifi/dhd.ko \
     device/huawei/u8150/prebuilt/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     device/huawei/u8150/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 

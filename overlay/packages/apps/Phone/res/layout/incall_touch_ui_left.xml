@@ -77,8 +77,8 @@
              same position onscreen.) -->
         <LinearLayout android:id="@+id/holdButtonContainer"
                 style="@style/InCallRoundButtonContainer"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dip"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dip"
                 android:visibility="gone">
             <ImageButton android:id="@+id/holdButton"
                     style="@style/InCallRoundTouchButton"
@@ -92,8 +92,8 @@
         <!-- This button's label changes to "Manage calls" in some CDMA states. -->
         <LinearLayout android:id="@+id/swapButtonContainer"
                 style="@style/InCallRoundButtonContainer"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dip"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dip"
                 android:visibility="gone">
             <ImageButton android:id="@+id/swapButton"
                     style="@style/InCallRoundTouchButton"
@@ -109,8 +109,8 @@
              button might need to be enabled at the same time.) -->
         <LinearLayout android:id="@+id/cdmaMergeButtonContainer"
                 style="@style/InCallRoundButtonContainer"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dip"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dip"
                 android:visibility="gone">
             <ImageButton android:id="@+id/cdmaMergeButton"
                     style="@style/InCallRoundTouchButton"
@@ -150,7 +150,27 @@
                      here; others do it from Java if the image depends on
                      the current state of the call. -->
 
-                <!-- The upper-left button in the main cluster is either
+                <!-- "Dialpad" -->
+                <Button android:id="@+id/dialpadButton"
+                        style="@style/InCallTouchButton"
+                        android:layout_width="1dip"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/onscreenShowDialpadText"
+                        />
+
+                <!-- "End call" -->
+                <Button android:id="@+id/endButton"
+                        style="@style/InCallTouchButton"
+                        android:layout_width="1dip"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/onscreenEndCallText"
+                        android:drawableTop="@drawable/ic_in_call_touch_end"
+                        android:textColor="@color/incall_endButtonLabel"
+                        />
+    
+                <!-- The upper-right button in the main cluster is either
                      "Add" or "Merge", depending on the state of the call. -->
                 <FrameLayout
                     android:layout_width="1dip"
@@ -190,39 +210,20 @@
                             />
                 </FrameLayout>
 
-                <!-- "End call" -->
-                <Button android:id="@+id/endButton"
-                        style="@style/InCallTouchButton"
-                        android:layout_width="1dip"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="@string/onscreenEndCallText"
-                        android:drawableTop="@drawable/ic_in_call_touch_end"
-                        android:textColor="@color/incall_endButtonLabel"
-                        />
-
-                <!-- "Dialpad" -->
-                <Button android:id="@+id/dialpadButton"
-                        style="@style/InCallTouchButton"
-                        android:layout_width="1dip"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="@string/onscreenShowDialpadText"
-                        />
             </LinearLayout>
             <LinearLayout android:id="@+id/inCallControlsRow2"
                           android:orientation="horizontal"
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           >
-                <!-- "Bluetooth" -->
-                <ToggleButton android:id="@+id/bluetoothButton"
+                <!-- "Speaker" -->
+                <ToggleButton android:id="@+id/speakerButton"
                         style="@style/InCallTouchToggleButton"
                         android:layout_width="1dip"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:textOn="@string/onscreenBluetoothText"
-                        android:textOff="@string/onscreenBluetoothText"
+                        android:textOn="@string/onscreenSpeakerText"
+                        android:textOff="@string/onscreenSpeakerText"
                         />
                 <!-- "Mute" -->
                 <ToggleButton android:id="@+id/muteButton"
@@ -233,14 +234,14 @@
                         android:textOn="@string/onscreenMuteText"
                         android:textOff="@string/onscreenMuteText"
                         />
-                <!-- "Speaker" -->
-                <ToggleButton android:id="@+id/speakerButton"
+                <!-- "Bluetooth" -->
+                <ToggleButton android:id="@+id/bluetoothButton"
                         style="@style/InCallTouchToggleButton"
                         android:layout_width="1dip"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:textOn="@string/onscreenSpeakerText"
-                        android:textOff="@string/onscreenSpeakerText"
+                        android:textOn="@string/onscreenBluetoothText"
+                        android:textOff="@string/onscreenBluetoothText"
                         />
             </LinearLayout>
 

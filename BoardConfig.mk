@@ -59,6 +59,9 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := u8150
 # Browser
 JS_ENGINE := v8
 
+# RIL
+TARGET_PROVIDES_LIBRIL := true
+
 # USB mass storage
 BOARD_CUSTOM_USB_CONTROLLER := ../../device/huawei/u8150/UsbController.cpp
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
@@ -88,11 +91,11 @@ BOARD_HAS_LIMITED_EGL := true
 
 # WiFI
 BOARD_WPA_SUPPLICANT_DRIVER := AWEXT
-WIFI_DRIVER_FW_AP_PATH := "/system/etc/firmware/fw_bcm4319_apsta.bin"
-WIFI_DRIVER_FW_STA_PATH := "/system/etc/firmware/fw_bcm4319.bin"
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4319.bin nvram_path=/system/etc/firmware/nvram.txt"
+WIFI_DRIVER_FW_AP_PATH := "/system/wifi/fw_bcm4319_apsta.bin"
+WIFI_DRIVER_FW_STA_PATH := "/system/wifi/fw_bcm4319.bin"
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/wifi/fw_bcm4319.bin nvram_path=/system/wifi/nvram.txt"
 WIFI_DRIVER_MODULE_NAME := "dhd"
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcm4319.ko"
+WIFI_DRIVER_MODULE_PATH := "/system/wifi/dhd.ko"
 WPA_SUPPLICANT_VERSION := VER_0_6_X
 BOARD_WEXT_NO_COMBO_SCAN := true
 

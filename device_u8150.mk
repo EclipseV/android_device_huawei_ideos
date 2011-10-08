@@ -22,7 +22,8 @@ PRODUCT_PACKAGES += \
     Gallery \
     copybit.u8150 \
     gps.u8150 \
-    lights.u8150
+    lights.u8150 \
+    rzscontrol
 
 # Vold config
 PRODUCT_COPY_FILES += \

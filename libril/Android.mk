@@ -2,10 +2,11 @@
 
 ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),u8150)
 
-MODULE.TARGET.SHARED_LIBRARIES.libril :=
+LOCAL_PATH := $(call my-dir)
 
-LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
+
+LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES:= \
     ril.cpp \
@@ -19,10 +20,10 @@ LOCAL_SHARED_LIBRARIES := \
 
 LOCAL_CFLAGS :=
 
-LOCAL_MODULE:= libril
+LOCAL_MODULE := libril
 
 LOCAL_LDLIBS += -lpthread
 
 include $(BUILD_SHARED_LIBRARY)
 
-endif # TARGET_BOOTLOADER_BOARD_NAME
+endif # build for u8150

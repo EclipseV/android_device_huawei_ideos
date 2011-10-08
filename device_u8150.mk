@@ -54,6 +54,11 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/installlogo:system/media/installlogo \
     device/huawei/u8150/prebuilt/media/oemlogo.mbn:system/media/oemlogo.mbn
 
+# Kernel Modules
+PRODUCT_COPY_FILES += \
+    device/huawei/u8150/prebuilt/lib/modules/ramzswap.ko:system/lib/modules/ramzswap.ko \
+    device/huawei/u8150/prebuilt/lib/modules/tun.ko:system/lib/modules/tun.ko
+
 # Wi-Fi releated
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/wifi/fw_bcm4319_apsta.bin:system/wifi/fw_bcm4319_apsta.bin \
@@ -90,7 +95,7 @@ PRODUCT_COPY_FILES += \
     vendor/cyanogen/prebuilt/ldpi/media/bootanimation.zip:system/media/bootanimation.zip
 
 PRODUCT_NAME := huawei_u8150
-PRODUCT_DEVICE := u8150
-PRODUCT_MODEL := U8150
-PRODUCT_BRAND := huawei
 PRODUCT_MANUFACTURER := huawei
+PRODUCT_DEVICE := u8150
+PRODUCT_BRAND := Huawei
+PRODUCT_MODEL := U8150

@@ -24,11 +24,6 @@ PRODUCT_PACKAGES += \
     gps.u8150 \
     lights.msm7k
 
-# FM Radio
-PRODUCT_PACKAGES += \
-    FM \
-    hcitool
-
 # Vold config
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/etc/vold.fstab:system/etc/vold.fstab

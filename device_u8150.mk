@@ -15,6 +15,9 @@
 
 DEVICE_PACKAGE_OVERLAYS += device/huawei/u8150/overlay
 
+# Full build
+$(call inherit-product, build/target/product/full_base.mk)
+
 PRODUCT_PACKAGES += \
     libRS \
     hwprops \

@@ -89,7 +89,7 @@ BOARD_EGL_CFG := device/huawei/u8150/prebuilt/lib/egl/egl.cfg
 BOARD_HAS_LIMITED_EGL := true
 
 # WiFI
-BOARD_WPA_SUPPLICANT_DRIVER := AWEXT
+BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 WIFI_DRIVER_FW_AP_PATH := "/system/wifi/fw_bcm4319_apsta.bin"
 WIFI_DRIVER_FW_STA_PATH := "/system/wifi/fw_bcm4319.bin"
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/wifi/fw_bcm4319.bin nvram_path=/system/wifi/nvram.txt"

@@ -16,7 +16,7 @@ persist.sys.use_16bpp_alpha=1
 
 # WiFi
 wifi.interface=eth0
-wifi.supplicant_scan_interval=30
+wifi.supplicant_scan_interval=60
 
 # RIL
 rild.libargs=-d /dev/smd0

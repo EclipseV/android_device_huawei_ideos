@@ -22,12 +22,8 @@ PRODUCT_PACKAGES += \
     Gallery \
     copybit.u8150 \
     gps.u8150 \
-<<<<<<< HEAD
     lights.u8150 \
     rzscontrol
-=======
-    lights.msm7k
->>>>>>> upstream/gingerbread
 
 # Vold config
 PRODUCT_COPY_FILES += \
@@ -60,23 +56,14 @@ PRODUCT_COPY_FILES += \
 
 # Kernel Modules
 PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/lib/modules/ramzswap.ko:system/lib/modules/ramzswap.ko \
-    device/huawei/u8150/prebuilt/lib/modules/tun.ko:system/lib/modules/tun.ko
+    device/huawei/u8150/prebuilt/lib/modules/ramzswap.ko:system/lib/modules/ramzswap.ko
 
 # Wi-Fi releated
 PRODUCT_COPY_FILES += \
-<<<<<<< HEAD
     device/huawei/u8150/prebuilt/wifi/fw_bcm4319_apsta.bin:system/wifi/fw_bcm4319_apsta.bin \
     device/huawei/u8150/prebuilt/wifi/fw_bcm4319.bin:system/wifi/fw_bcm4319.bin \
     device/huawei/u8150/prebuilt/wifi/nvram.txt:system/wifi/nvram.txt \
     device/huawei/u8150/prebuilt/wifi/dhd.ko:system/wifi/dhd.ko \
-=======
-    device/huawei/u8150/prebuilt/etc/firmware/fw_bcm4319_apsta.bin:system/etc/firmware/fw_bcm4319_apsta.bin \
-    device/huawei/u8150/prebuilt/etc/firmware/fw_bcm4319.bin:system/etc/firmware/fw_bcm4319.bin \
-    device/huawei/u8150/prebuilt/etc/firmware/nvram.txt:system/etc/firmware/nvram.txt \
-    device/huawei/u8150/prebuilt/lib/modules/bcm4319.ko:system/lib/modules/bcm4319.ko \
-    device/huawei/u8150/prebuilt/lib/modules/ramzswap.ko:system/lib/modules/ramzswap.ko \
->>>>>>> upstream/gingerbread
     device/huawei/u8150/prebuilt/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     device/huawei/u8150/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
@@ -89,25 +76,15 @@ PRODUCT_COPY_FILES += device/huawei/u8150/prebuilt/kernel:kernel
 
 $(call inherit-product-if-exists, vendor/huawei/u8150/u8150-vendor.mk)
 
-$(call inherit-product, build/target/product/full_base.mk)
-
-# Inherit some common cyanogenmod stuff.
-$(call inherit-product, vendor/cyanogen/products/common_full.mk)
+PRODUCT_LOCALES += ldpi mdpi
 
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
-# Include GSM stuff
-$(call inherit-product, vendor/cyanogen/products/gsm.mk)
-
-# LDPI assets
-PRODUCT_LOCALES += ldpi mdpi
-PRODUCT_PACKAGE_OVERLAYS += vendor/cyanogen/overlay/ldpi
-PRODUCT_COPY_FILES += \
-    vendor/cyanogen/prebuilt/ldpi/media/bootanimation.zip:system/media/bootanimation.zip
-
+# Product definition
 PRODUCT_NAME := huawei_u8150
 PRODUCT_MANUFACTURER := huawei
 PRODUCT_DEVICE := u8150
 PRODUCT_BRAND := Huawei
 PRODUCT_MODEL := U8150
+

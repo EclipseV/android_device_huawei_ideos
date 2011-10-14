@@ -16,16 +16,12 @@ persist.sys.use_16bpp_alpha=1
 
 # WiFi
 wifi.interface=eth0
-wifi.supplicant_scan_interval=60
+wifi.supplicant_scan_interval=30
 
 # RIL
 rild.libargs=-d /dev/smd0
 rild.libpath=/system/lib/libril-qc-1.so
 ro.telephony.default_network=0
-ro.com.android.dataroaming=false
-
-# Keep home always in memory 
-pref_lock_home=1
 
 # No Autofocus device
 ro.workaround.noautofocus=1
@@ -35,5 +31,3 @@ dalvik.vm.execution-mode=int:jit
 dalvik.vm.heapsize=24m
 ro.compcache.default=18
 ro.com.google.locationfeatures=0
-ro.tether.denied=false
-sys.checkfs.fat=false

@@ -34,7 +34,7 @@ TARGET_CPU_ABI := armeabi-v6j
 
 # Target properties
 TARGET_BOOTLOADER_BOARD_NAME := u8150
-TARGET_OTA_ASSERT_DEVICE := u8150
+TARGET_OTA_ASSERT_DEVICE := u8150,ideos,U8150
 
 # Target information
 TARGET_NO_BOOTLOADER := true
@@ -61,7 +61,6 @@ JS_ENGINE := v8
 
 # USB mass storage
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun"
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
 # Sensors
@@ -85,6 +84,7 @@ BOARD_NO_RGBX_8888 := true
 BOARD_EGL_CFG := device/huawei/u8150/prebuilt/lib/egl/egl.cfg
 BOARD_HAS_LIMITED_EGL := true
 TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
+TARGET_ELECTRONBEAM_FRAMES := 10
 
 # WiFI
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT

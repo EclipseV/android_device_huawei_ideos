@@ -1,13 +1,10 @@
-# Copyright 2006 The Android Open Source Project
-
 ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),u8150)
 
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_SRC_FILES := \
-    AudioPolicyManager.cpp
+LOCAL_SRC_FILES := AudioPolicyManager.cpp
 
 LOCAL_SHARED_LIBRARIES := \
     libcutils \
@@ -15,6 +12,7 @@ LOCAL_SHARED_LIBRARIES := \
     libmedia
 
 LOCAL_STATIC_LIBRARIES := libaudiopolicybase
+LOCAL_MODULE_TAGS := optional
 
 LOCAL_MODULE:= libaudiopolicy
 
@@ -26,6 +24,7 @@ include $(BUILD_SHARED_LIBRARY)
 
 
 include $(CLEAR_VARS)
+LOCAL_MODULE_TAGS := optional
 
 LOCAL_MODULE := libaudio
 
@@ -40,7 +39,7 @@ LOCAL_LDLIBS += -ldl
 endif
 
 ifneq ($(TARGET_SIMULATOR),true)
-LOCAL_SHARED_LIBRARIES += libdl
+LOCAL_SHARED_LIBRARIES += libdl 
 endif
 
 LOCAL_SRC_FILES += AudioHardware.cpp
@@ -53,5 +52,4 @@ ifeq ($(BOARD_HAVE_BLUETOOTH),true)
 endif
 
 include $(BUILD_SHARED_LIBRARY)
-
-endif # build for u8150
+endif 

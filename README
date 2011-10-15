@@ -1,1 +1,8 @@
-Device configuration for the Huawei IDEOS U8150
+CyanogenMod device configuration for the Huawei U8150 IDEOS
+
+Originally designed by marcnvidic
+Changed, improved and optimized by tilal6991
+
+Pre-Setup
+=========
+Execute "extract-files.sh" to extract prebuilt libraries (from a working device)

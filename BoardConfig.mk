@@ -14,11 +14,6 @@
 # limitations under the License.
 #
 
-# WARNING: This line must come *before* including the proprietary
-# variant, so that it gets overwritten by the parent (which goes
-# against the traditional rules of inheritance).
-USE_CAMERA_STUB := false
-
 # inherit from the proprietary version
 -include vendor/huawei/u8150/BoardConfigVendor.mk
 
@@ -60,8 +55,7 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := u8150
 JS_ENGINE := v8
 
 # USB mass storage
-BOARD_CUSTOM_USB_CONTROLLER := ../../device/huawei/u8150/UsbController.cpp
-BOARD_USE_USB_MASS_STORAGE_SWITCH := true
+BOARD_USE_USB_MASS_STORAGE_SWITCH := false
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
 # Sensors
@@ -85,7 +79,6 @@ BOARD_NO_RGBX_8888 := true
 BOARD_EGL_CFG := device/huawei/u8150/prebuilt/lib/egl/egl.cfg
 BOARD_HAS_LIMITED_EGL := true
 TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
-TARGET_ELECTRONBEAM_FRAMES := 10
 
 # WiFI
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
@@ -99,7 +92,7 @@ BOARD_WEXT_NO_COMBO_SCAN := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00200000
-BOARD_KERNEL_CMDLINE := mem=211M console=ttyMSM2,115200n8 androidboot.hardware=ideos
+BOARD_KERNEL_CMDLINE := mem=211M console=ttyMSM2,115200n8 androidboot.hardware=u8150
 BOARD_KERNEL_PAGESIZE := 4096
 
 # # cat /proc/mtd

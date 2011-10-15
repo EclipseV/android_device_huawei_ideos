@@ -52,7 +52,6 @@
          USB interfaces.  If the device doesn't want to support tething over USB this should
          be empty.  An example would be "usb.*" -->
     <string-array translatable="false" name="config_tether_usb_regexs">
-        <item>"usb\\d"</item>
     </string-array>
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
@@ -164,10 +163,10 @@
     <bool name="config_animateScreenLights">false</bool>
 
     <!-- Enable the screen-on animation -->
-    <bool name="config_enableScreenOnAnimation">true</bool>
+    <bool name="config_enableScreenOnAnimation">false</bool>
 
     <!-- Enable the screen-off animation -->
-    <bool name="config_enableScreenOffAnimation">true</bool>
+    <bool name="config_enableScreenOffAnimation">false</bool>
 
     <!-- The duration (in milliseconds) of a short animation. -->
     <integer name="config_shortAnimTime">50</integer>

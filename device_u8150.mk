@@ -44,8 +44,8 @@ PRODUCT_COPY_FILES += \
 
 # Init files
 PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/init.ideos.rc:root/init.ideos.rc \
-    device/huawei/u8150/prebuilt/ueventd.ideos.rc:root/ueventd.ideos.rc
+    device/huawei/u8150/prebuilt/init.u8150.rc:root/init.u8150.rc \
+    device/huawei/u8150/prebuilt/ueventd.u8150.rc:root/ueventd.u8150.rc
 
 # OEM logo and boot splash
 PRODUCT_COPY_FILES += \
@@ -74,20 +74,11 @@ $(call inherit-product-if-exists, vendor/huawei/u8150/u8150-vendor.mk)
 
 $(call inherit-product, build/target/product/full_base.mk)
 
-# Inherit some common cyanogenmod stuff.
-$(call inherit-product, vendor/cyanogen/products/common_full.mk)
-
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
-# Include GSM stuff
-$(call inherit-product, vendor/cyanogen/products/gsm.mk)
-
 # LDPI assets
 PRODUCT_LOCALES += ldpi mdpi
-PRODUCT_PACKAGE_OVERLAYS += vendor/cyanogen/overlay/ldpi
-PRODUCT_COPY_FILES += \
-    vendor/cyanogen/prebuilt/ldpi/media/bootanimation.zip:system/media/bootanimation.zip
 
 PRODUCT_NAME := huawei_u8150
 PRODUCT_DEVICE := u8150

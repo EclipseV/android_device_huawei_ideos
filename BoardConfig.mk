@@ -14,11 +14,6 @@
 # limitations under the License.
 #
 
-# WARNING: This line must come *before* including the proprietary
-# variant, so that it gets overwritten by the parent (which goes
-# against the traditional rules of inheritance).
-USE_CAMERA_STUB := false
-
 # inherit from the proprietary version
 -include vendor/huawei/u8150/BoardConfigVendor.mk
 
@@ -34,7 +29,7 @@ TARGET_CPU_ABI := armeabi-v6j
 
 # Target properties
 TARGET_BOOTLOADER_BOARD_NAME := u8150
-TARGET_OTA_ASSERT_DEVICE := u8150
+TARGET_OTA_ASSERT_DEVICE := u8150,ideos,U8150
 
 # Target information
 TARGET_NO_BOOTLOADER := true
@@ -60,8 +55,7 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := u8150
 JS_ENGINE := v8
 
 # USB mass storage
-BOARD_USE_USB_MASS_STORAGE_SWITCH := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun"
+BOARD_USE_USB_MASS_STORAGE_SWITCH := false
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
 # Sensors
@@ -98,7 +92,7 @@ BOARD_WEXT_NO_COMBO_SCAN := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00200000
-BOARD_KERNEL_CMDLINE := mem=211M console=ttyMSM2,115200n8 androidboot.hardware=ideos
+BOARD_KERNEL_CMDLINE := mem=211M console=ttyMSM2,115200n8 androidboot.hardware=u8150
 BOARD_KERNEL_PAGESIZE := 4096
 
 # # cat /proc/mtd

@@ -168,12 +168,6 @@
     <!-- Enable the screen-off animation -->
     <bool name="config_enableScreenOffAnimation">false</bool>
 
-    <!-- Configure rotary bottom margin -->
-    <integer name="config_rotaryMarginBottomDIP">0</integer>
-
-    <!-- Configure lense unlock time label offset -->
-    <integer name="config_lenseTimeLabelOffsetDIP">40</integer>
-
     <!-- The duration (in milliseconds) of a short animation. -->
     <integer name="config_shortAnimTime">50</integer>
 

@@ -34,7 +34,7 @@ TARGET_CPU_ABI := armeabi-v6j
 
 # Target properties
 TARGET_BOOTLOADER_BOARD_NAME := u8150
-TARGET_OTA_ASSERT_DEVICE := u8150,ideos,U8150
+TARGET_OTA_ASSERT_DEVICE := u8150
 
 # Target information
 TARGET_NO_BOOTLOADER := true
@@ -59,17 +59,14 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := u8150
 # Browser
 JS_ENGINE := v8
 
-# RIL
-TARGET_PROVIDES_LIBRIL := true
-
 # USB mass storage
-BOARD_CUSTOM_USB_CONTROLLER := ../../device/huawei/u8150/UsbController.cpp
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun"
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
 # Sensors
 TARGET_USES_OLD_LIBSENSORS_HAL := true
+BOARD_VENDOR_USE_AKMD := akm8973
 
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8150/recovery/recovery_ui.c
@@ -80,27 +77,28 @@ BOARD_USES_GENERIC_AUDIO := false
 TARGET_PROVIDES_LIBAUDIO := true
 
 # Graphics
-TARGET_HARDWARE_3D := true
+TARGET_HARDWARE_3D := false
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
 TARGET_SF_NEEDS_REAL_DIMENSIONS := true
 BOARD_NO_RGBX_8888 := true
 BOARD_EGL_CFG := device/huawei/u8150/prebuilt/lib/egl/egl.cfg
 BOARD_HAS_LIMITED_EGL := true
+TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
 
 # WiFI
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-WIFI_DRIVER_FW_AP_PATH := "/system/wifi/fw_bcm4319_apsta.bin"
-WIFI_DRIVER_FW_STA_PATH := "/system/wifi/fw_bcm4319.bin"
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/wifi/fw_bcm4319.bin nvram_path=/system/wifi/nvram.txt"
+WIFI_DRIVER_FW_AP_PATH := "/system/etc/firmware/fw_bcm4319_apsta.bin"
+WIFI_DRIVER_FW_STA_PATH := "/system/etc/firmware/fw_bcm4319.bin"
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4319.bin nvram_path=/system/etc/firmware/nvram.txt"
 WIFI_DRIVER_MODULE_NAME := "dhd"
-WIFI_DRIVER_MODULE_PATH := "/system/wifi/dhd.ko"
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcm4319.ko"
 WPA_SUPPLICANT_VERSION := VER_0_6_X
 BOARD_WEXT_NO_COMBO_SCAN := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00200000
-BOARD_KERNEL_CMDLINE := mem=211M console=ttyMSM2,115200n8 androidboot.hardware=u8150
+BOARD_KERNEL_CMDLINE := mem=211M console=ttyMSM2,115200n8 androidboot.hardware=ideos
 BOARD_KERNEL_PAGESIZE := 4096
 
 # # cat /proc/mtd

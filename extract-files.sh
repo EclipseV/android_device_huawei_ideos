@@ -73,6 +73,7 @@ adb pull /system/lib/libpbmlib.so ../../../vendor/huawei/$DEVICE/proprietary/lib
 adb pull /system/lib/libqcamera.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libqcamera.so
 adb pull /system/lib/libqmi.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libqmi.so
 adb pull /system/lib/libqueue.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libqueue.so
+adb pull /system/lib/libril.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libril.so
 adb pull /system/lib/libril-qc-1.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libril-qc-1.so
 adb pull /system/lib/libril-qcril-hook-oem.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libril-qcril-hook-oem.so
 adb pull /system/lib/libwms.so ../../../vendor/huawei/$DEVICE/proprietary/lib/libwms.so
@@ -118,6 +119,7 @@ PRODUCT_COPY_FILES += \\
     vendor/huawei/__DEVICE__/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \\
     vendor/huawei/__DEVICE__/proprietary/lib/hw/sensors.default.so:system/lib/hw/sensors.default.so
 
+
 PRODUCT_COPY_FILES += \\
     vendor/huawei/__DEVICE__/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \\
     vendor/huawei/__DEVICE__/proprietary/lib/libcamera.so:system/lib/libcamera.so \\
@@ -148,10 +150,13 @@ PRODUCT_COPY_FILES += \\
     vendor/huawei/__DEVICE__/proprietary/lib/libqcamera.so:system/lib/libqcamera.so \\
     vendor/huawei/__DEVICE__/proprietary/lib/libqmi.so:system/lib/libqmi.so \\
     vendor/huawei/__DEVICE__/proprietary/lib/libqueue.so:system/lib/libqueue.so \\
+    vendor/huawei/__DEVICE__/proprietary/lib/libril.so:system/lib/libril.so \\
+    vendor/huawei/__DEVICE__/proprietary/lib/libril.so:obj/lib/libril.so \\
     vendor/huawei/__DEVICE__/proprietary/lib/libril-qc-1.so:system/lib/libril-qc-1.so \\
     vendor/huawei/__DEVICE__/proprietary/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \\
     vendor/huawei/__DEVICE__/proprietary/lib/libwms.so:system/lib/libwms.so \\
     vendor/huawei/__DEVICE__/proprietary/lib/libwmsts.so:system/lib/libwmsts.so
+
 EOF
 
 ./setup-makefiles.sh

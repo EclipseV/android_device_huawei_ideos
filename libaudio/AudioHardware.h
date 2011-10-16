@@ -165,7 +165,6 @@ public:
 
     virtual status_t    setVoiceVolume(float volume);
     virtual status_t    setMasterVolume(float volume);
-
     virtual status_t    setMode(int mode);
 
     // mic mute
@@ -304,6 +303,8 @@ private:
             int m7xsnddriverfd;
             bool        mDualMicEnabled;
             int         mTtyMode;
+
+            bool        mBuiltinMicSelected;
 
      friend class AudioStreamInMSM72xx;
             Mutex       mLock;

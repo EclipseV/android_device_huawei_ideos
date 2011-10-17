@@ -53,6 +53,10 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/installlogo:system/media/installlogo \
     device/huawei/u8150/prebuilt/media/oemlogo.mbn:system/media/oemlogo.mbn
 
+# add autorun.iso to stop kernel complain about it..
+PRODUCT_COPY_FILES += \
+    device/huawei/u8150/prebuilt/autorun.iso:system/cdrom/autorun.iso
+
 # Wi-Fi releated
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/etc/firmware/fw_bcm4319_apsta.bin:system/etc/firmware/fw_bcm4319_apsta.bin \

@@ -57,7 +57,6 @@ JS_ENGINE := v8
 # USB mass storage
 BOARD_CUSTOM_USB_CONTROLLER := ../../device/huawei/u8150/UsbController.cpp
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun"
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
 # Sensors
@@ -72,6 +71,9 @@ BOARD_LDPI_RECOVERY := true
 BOARD_USES_GENERIC_AUDIO := false
 TARGET_PROVIDES_LIBAUDIO := true
 
+# RIL
+TARGET_PROVIDES_LIBRIL := true
+
 # Graphics
 TARGET_HARDWARE_3D := false
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
@@ -84,7 +86,6 @@ TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
 
 # WiFI
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-WIFI_DRIVER_FW_AP_PATH := "/system/etc/firmware/fw_bcm4319_apsta.bin"
 WIFI_DRIVER_FW_STA_PATH := "/system/etc/firmware/fw_bcm4319.bin"
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4319.bin nvram_path=/system/etc/firmware/nvram.txt"
 WIFI_DRIVER_MODULE_NAME := "dhd"

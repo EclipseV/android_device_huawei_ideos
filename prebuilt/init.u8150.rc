@@ -35,8 +35,16 @@ on boot
     write /sys/module/lowmemorykiller/parameters/adj 0,1,2
     write /sys/module/lowmemorykiller/parameters/check_filepages 1
 
+
+    # SD card polling
     chown system system /sys/bus/platform/devices/msm_sdcc.1/polling
     chown system system /sys/bus/platform/devices/msm_sdcc.2/polling
+    chown system system /sys/devices/platform/msm_hsusb/composition
+
+    # Enable MASS storage on SDCARD
+    write /sys/devices/platform/mass_storage/lun0/file /dev/block/mmcblk0p1
+    write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.1/polling 1
+    write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.2/polling 1
 
     chmod 0667 /dev/graphics/fb0
 

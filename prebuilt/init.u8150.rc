@@ -35,11 +35,14 @@ on boot
     write /sys/module/lowmemorykiller/parameters/adj 0,1,2
     write /sys/module/lowmemorykiller/parameters/check_filepages 1
 
-
     # SD card polling
-    chown system system /sys/bus/platform/devices/msm_sdcc.1/polling
-    chown system system /sys/bus/platform/devices/msm_sdcc.2/polling
-    chown system system /sys/devices/platform/msm_hsusb/composition
+    chown system system /sys/module/g_android/parameters/product_id
+    chown system system /sys/devices/platform/msm_sdcc.1/polling
+    chown system system /sys/devices/platform/msm_sdcc.2/polling
+    chown system system /sys/devices/platform/msm_sdcc.3/polling
+    chown system system /sys/devices/platform/msm_sdcc.4/polling
+    chown system system /sys/devices/platform/android_usb/composition
+    chown system system /sys/devices/platform/android_usb/remote_wakeup
 
     # Enable MASS storage on SDCARD
     write /sys/devices/platform/mass_storage/lun0/file /dev/block/mmcblk0p1

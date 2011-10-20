@@ -34,3 +34,4 @@ ro.compcache.default=18
 ro.com.google.locationfeatures=0
 ro.tether.denied=false
 sys.checkfs.fat=false
+ro.vold.umsdirtyratio=20

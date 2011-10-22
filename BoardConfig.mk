@@ -90,8 +90,7 @@ WIFI_DRIVER_FW_STA_PATH := "/system/etc/firmware/fw_bcm4319.bin"
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4319.bin nvram_path=/system/etc/firmware/nvram.txt"
 WIFI_DRIVER_MODULE_NAME := "dhd"
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcm4319.ko"
-WPA_SUPPLICANT_VERSION := VER_0_6_X
-BOARD_WEXT_NO_COMBO_SCAN := true
+WPA_SUPPLICANT_VERSION := VER_0_5_X
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00200000

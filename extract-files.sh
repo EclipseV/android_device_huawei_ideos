@@ -35,7 +35,6 @@ adb pull /system/bin/qmuxd ../../../vendor/huawei/$DEVICE/proprietary/bin/qmuxd
 adb pull /system/bin/rild ../../../vendor/huawei/$DEVICE/proprietary/bin/rild
 
 adb pull /system/etc/01_qc.cfg ../../../vendor/huawei/$DEVICE/proprietary/etc/01_qc.cfg
-adb pull /system/etc/AudioFilter.csv ../../../vendor/huawei/$DEVICE/proprietary/etc/AudioFilter.csv
 adb pull /system/etc/AudioFilterU8150.csv ../../../vendor/huawei/$DEVICE/proprietary/etc/AudioFilterU8150.csv
 adb pull /system/etc/init.qcom.bt.sh ../../../vendor/huawei/$DEVICE/proprietary/etc/init.qcom.bt.sh
 adb pull /system/etc/pvplayer.cfg ../../../vendor/huawei/$DEVICE/proprietary/etc/pvplayer.cfg
@@ -103,7 +102,6 @@ PRODUCT_COPY_FILES += \\
 
 PRODUCT_COPY_FILES += \\
     vendor/huawei/__DEVICE__/proprietary/etc/01_qc.cfg:system/etc/01_qc.cfg \\
-    vendor/huawei/__DEVICE__/proprietary/etc/AudioFilter.csv:system/etc/AudioFilter.csv \\
     vendor/huawei/__DEVICE__/proprietary/etc/AudioFilterU8150.csv:system/etc/AudioFilterU8150.csv \\
     vendor/huawei/__DEVICE__/proprietary/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \\
     vendor/huawei/__DEVICE__/proprietary/etc/pvplayer.cfg:system/etc/pvplayer.cfg

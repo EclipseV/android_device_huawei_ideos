@@ -45,7 +45,7 @@ PRODUCT_COPY_FILES += \
 # Init files
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/init.u8150.rc:root/init.u8150.rc \
-    device/huawei/u8150/prebuilt/ueventd.u8150.rc:root/ueventd.u8150.rc
+    device/huawei/u8150/prebuilt/ueventd.huawei.rc:root/ueventd.huawei.rc
 
 # OEM logo and boot splash
 PRODUCT_COPY_FILES += \
@@ -53,12 +53,16 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/installlogo:system/media/installlogo \
     device/huawei/u8150/prebuilt/media/oemlogo.mbn:system/media/oemlogo.mbn
 
+#  Add autorun.iso to stop kernel complaining about it..
+PRODUCT_COPY_FILES += \
+    device/huawei/u8150/prebuilt/autorun.iso:system/cdrom/autorun.iso
+
 # Wi-Fi releated
 PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/etc/firmware/fw_bcm4319_apsta.bin:system/etc/firmware/fw_bcm4319_apsta.bin \
     device/huawei/u8150/prebuilt/etc/firmware/fw_bcm4319.bin:system/etc/firmware/fw_bcm4319.bin \
     device/huawei/u8150/prebuilt/etc/firmware/nvram.txt:system/etc/firmware/nvram.txt \
     device/huawei/u8150/prebuilt/lib/modules/bcm4319.ko:system/lib/modules/bcm4319.ko \
+    device/huawei/u8150/prebuilt/lib/modules/zram.ko:system/lib/modules/zram.ko \
     device/huawei/u8150/prebuilt/lib/modules/ramzswap.ko:system/lib/modules/ramzswap.ko \
     device/huawei/u8150/prebuilt/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     device/huawei/u8150/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
@@ -66,7 +70,9 @@ PRODUCT_COPY_FILES += \
 # Other
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
-    device/huawei/u8150/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf
+    device/huawei/u8150/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
+    device/huawei/u8150/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
+    device/huawei/u8150/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv
 
 PRODUCT_COPY_FILES += device/huawei/u8150/prebuilt/kernel:kernel
 

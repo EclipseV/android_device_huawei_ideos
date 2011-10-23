@@ -63,7 +63,6 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/etc/firmware/nvram.txt:system/etc/firmware/nvram.txt \
     device/huawei/u8150/prebuilt/lib/modules/bcm4319.ko:system/lib/modules/bcm4319.ko \
     device/huawei/u8150/prebuilt/lib/modules/zram.ko:system/lib/modules/zram.ko \
-    device/huawei/u8150/prebuilt/lib/modules/ramzswap.ko:system/lib/modules/ramzswap.ko \
     device/huawei/u8150/prebuilt/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     device/huawei/u8150/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 

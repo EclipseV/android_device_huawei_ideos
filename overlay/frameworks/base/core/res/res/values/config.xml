@@ -52,7 +52,7 @@
          USB interfaces.  If the device doesn't want to support tething over USB this should
          be empty.  An example would be "usb.*" -->
     <string-array translatable="false" name="config_tether_usb_regexs">
-        <item>"usb\\d"</item>
+		<item>"rndis\\d"</item>
     </string-array>
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
@@ -79,7 +79,7 @@
     <bool name="config_batterySdCardAccessibility">false</bool>
 
     <!-- Allow the menu hard key to be disabled in LockScreen on some devices -->
-    <bool name="config_disableMenuKeyInLockScreen">true</bool>
+    <bool name="config_disableMenuKeyInLockScreen">false</bool>
 
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
          The N entries of this array define N + 1 zones as follows:
@@ -159,15 +159,6 @@
 
     <!-- Component name of the service providing geocoder API support. -->
     <string name="config_geocodeProvider">com.google.android.location.GeocodeProvider</string>
-
-     <!-- If this is true, the screen will fade off. -->
-    <bool name="config_animateScreenLights">false</bool>
-
-    <!-- Enable the screen-on animation -->
-    <bool name="config_enableScreenOnAnimation">false</bool>
-
-    <!-- Enable the screen-off animation -->
-    <bool name="config_enableScreenOffAnimation">false</bool>
 
     <!-- The duration (in milliseconds) of a short animation. -->
     <integer name="config_shortAnimTime">50</integer>

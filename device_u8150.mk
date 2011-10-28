@@ -49,13 +49,7 @@ PRODUCT_COPY_FILES += \
 
 # OEM logo and boot splash
 PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/initlogo.rle:root/initlogo.rle \
-    device/huawei/u8150/prebuilt/installlogo:system/media/installlogo \
-    device/huawei/u8150/prebuilt/media/oemlogo.mbn:system/media/oemlogo.mbn
-
-#  Add autorun.iso to stop kernel complaining about it..
-PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/autorun.iso:system/cdrom/autorun.iso
+    device/huawei/u8150/prebuilt/initlogo.rle:root/initlogo.rle
 
 # Wi-Fi releated
 PRODUCT_COPY_FILES += \

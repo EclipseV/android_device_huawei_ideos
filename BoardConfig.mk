@@ -17,9 +17,6 @@
 # inherit from the proprietary version
 -include vendor/huawei/u8150/BoardConfigVendor.mk
 
-# Camera
-BOARD_USE_FROYO_LIBCAMERA := true
-
 # ARMv6-compatible processor rev 2 (v6l)
 # CPU
 TARGET_BOARD_PLATFORM := msm7k

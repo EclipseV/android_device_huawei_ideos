@@ -71,5 +71,6 @@ EOF
 
 BOARD_GPS_LIBRARIES := libloc_api
 
-#USE_CAMERA_STUB := false
+USE_CAMERA_STUB := false
+BOARD_USE_FROYO_LIBCAMERA := true
 EOF

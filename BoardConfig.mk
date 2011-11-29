@@ -66,6 +66,9 @@ TARGET_PROVIDES_LIBLIGHTS := true
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8150/recovery/recovery_ui.c
 BOARD_LDPI_RECOVERY := true
 
+# Touchscreen
+BOARD_USE_LEGACY_TOUCHSCREEN := true
+
 # Audio
 # BOARD_USES_GENERIC_AUDIO := false
 # TARGET_PROVIDES_LIBAUDIO := true

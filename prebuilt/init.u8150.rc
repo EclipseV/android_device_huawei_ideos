@@ -4,6 +4,9 @@ on post-fs
     mkdir /data/misc/dhcp 0770 dhcp dhcp
    
 on boot
+
+    # Temporary hack to prevent framebuffer flicker
+    write /sys/class/graphics/fb0/state 1
     
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type

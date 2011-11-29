@@ -63,7 +63,7 @@ BOARD_VENDOR_USE_AKMD := akm8973
 TARGET_PROVIDES_LIBLIGHTS := true
 
 # Recovery
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8150/recovery/recovery_ui.c
+# BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8150/recovery/recovery_ui.c
 BOARD_LDPI_RECOVERY := true
 
 # Touchscreen

@@ -68,6 +68,10 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     device/huawei/u8150/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv
 
+# Touchscreen
+PRODUCT_COPY_FILES += \
+    device/huawei/u8150/prebuilt/usr/idc/synaptics.idc:system/usr/idc/synaptics.idc
+
 PRODUCT_COPY_FILES += device/huawei/u8150/prebuilt/kernel:kernel
 
 $(call inherit-product-if-exists, vendor/huawei/u8150/u8150-vendor.mk)

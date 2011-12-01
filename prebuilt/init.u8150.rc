@@ -36,6 +36,7 @@ on boot
     write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.2/polling 1
 
 service qmuxd /system/bin/qmuxd
+    class main
     
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     user bluetooth
@@ -44,28 +45,30 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     oneshot
     
 service wpa_supplicant /system/bin/wpa_supplicant -Dwext -ieth0 -c /data/misc/wifi/wpa_supplicant.conf
+    class main
     socket wpa_eth0 dgram 660 wifi wifi
     group system wifi inet dhcp
     disabled
     oneshot 
 
 service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
+    class main
     disabled
     oneshot
 
-service netd /system/bin/netd
-	socket dnsproxyd stream 0660 root inet
-
 service iprenew_eth0 /system/bin/dhcpcd -n
+    class main
     disabled
     oneshot
     
 service akmd /system/bin/akmd2
+    class main
     user compass
     group compass misc input
 
 # bugreport is triggered by the KEY_VOLUMEUP and KEY_CENTER keycodes
 service bugreport /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
+    class main
     disabled
     oneshot
     keycodes 115 232

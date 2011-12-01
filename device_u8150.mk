@@ -20,9 +20,10 @@ PRODUCT_PACKAGES += \
     hwprops \
     rzscontrol \
     Gallery \
-    lights.u8150 \
-    copybit.u8150 \
-    gps.u8150
+    audio.primary.msm7k \
+    audio_policy.msm7k \
+    com.android.future.usb.accessory \
+    FileManager
 
 # Vold config
 PRODUCT_COPY_FILES += \

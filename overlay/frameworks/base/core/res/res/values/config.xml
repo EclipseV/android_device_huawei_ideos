@@ -149,7 +149,6 @@
         <item>"mobile_mms,2,0,2,60000,true"</item>
         <item>"mobile_supl,3,0,2,60000,true"</item>
         <item>"mobile_dun,4,0,4,60000,true"</item>
-        <item>"mobile_hipri,5,0,3,60000,true"</item>
     </string-array>
 
     <!-- An Array of "[ConnectivityManager connectionType],

@@ -46,7 +46,7 @@ PRODUCT_COPY_FILES += \
 # Init files
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/init.u8150.rc:root/init.u8150.rc \
-    device/huawei/u8150/prebuilt/ueventd.huawei.rc:root/ueventd.huawei.rc
+    device/huawei/u8150/prebuilt/ueventd.u8150.rc:root/ueventd.u8150.rc
 
 # OEM logo and boot splash
 PRODUCT_COPY_FILES += \

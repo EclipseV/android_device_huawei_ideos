@@ -19,9 +19,8 @@
 # ARMv6-compatible processor rev 2 (v6l)
 # CPU
 TARGET_BOARD_PLATFORM := msm7k
-TARGET_ARCH_VARIANT := armv6j
-TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_ABI := armeabi-v6j
+TARGET_ARCH_VARIANT := armv5te
+TARGET_CPU_ABI := armeabi
 
 # Target properties
 TARGET_BOOTLOADER_BOARD_NAME := u8150
@@ -48,7 +47,8 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 1240
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := u8150
 
 # Browser
-JS_ENGINE := v8
+WITH_JIT := flase
+ENABLE_JSC_JIT := false
 
 # USB mass storage
 BOARD_CUSTOM_USB_CONTROLLER := ../../device/huawei/u8150/UsbController.cpp

@@ -20,6 +20,7 @@ PRODUCT_PACKAGES += \
     hwprops \
     rzscontrol \
     Gallery \
+    lights.u8150 \
     audio.primary.msm7k \
     audio_policy.msm7k \
     com.android.future.usb.accessory \

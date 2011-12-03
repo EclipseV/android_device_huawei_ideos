@@ -59,9 +59,6 @@ BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 TARGET_USES_OLD_LIBSENSORS_HAL := true
 BOARD_VENDOR_USE_AKMD := akm8973
 
-# Lights
-TARGET_PROVIDES_LIBLIGHTS := true
-
 # Recovery
 # BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8150/recovery/recovery_ui.c
 BOARD_LDPI_RECOVERY := true
@@ -74,7 +71,7 @@ BOARD_USE_LEGACY_TOUCHSCREEN := true
 # TARGET_PROVIDES_LIBAUDIO := true
 
 # RIL
-# TARGET_PROVIDES_LIBRIL := true
+TARGET_PROVIDES_LIBRIL := true
 
 # Graphics
 # USE_OPENGL_RENDERER := true
@@ -84,11 +81,12 @@ BOARD_USE_LEGACY_TOUCHSCREEN := true
 BOARD_NO_RGBX_8888 := true
 BOARD_EGL_CFG := device/huawei/u8150/prebuilt/lib/egl/egl.cfg
 BOARD_HAS_LIMITED_EGL := true
+COMMON_GLOBAL_CFLAGS += -DBOARD_GL_OES_EGL_IMG_EXTERNAL_HACK
 
 # WiFI
 WPA_SUPPLICANT_VERSION      := VER_0_6_X
-BOARD_HOSTAPD_DRIVER        := WEXT
-BOARD_WLAN_DEVICE           := bcmdhd
+BOARD_WPA_SUPPLICANT_DRIVER := WEXT
+BOARD_WEXT_NO_COMBO_SCAN := true
 WIFI_DRIVER_FW_STA_PATH := "/system/etc/firmware/fw_bcm4319.bin"
 WIFI_DRIVER_FW_AP_PATH := "/system/etc/firmware/fw_bcm4319_apsta.bin"
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4319.bin nvram_path=/system/etc/firmware/nvram.txt"

@@ -29,6 +29,23 @@ on boot
     chmod 0777 /sys/kernel/logger/log_main/priority
     chmod 0777 /sys/kernel/logger/log_radio/enable
     chmod 0777 /sys/kernel/logger/log_radio/priority
+	
+    # Fix led issue
+
+    chown system system /sys/class/leds/green/blink
+    chown system system /sys/class/leds/green/grpfreq
+    chown system system /sys/class/leds/green/grppwm
+    chown system system /sys/class/leds/red/blink
+    chown system system /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/red/grpfreq
+    chown system system /sys/class/leds/red/grppwm
+    chown system system /sys/class/leds/amber/blink
+    chown system system /sys/class/leds/amber/brightness
+    chown system system /sys/class/leds/amber/grpfreq
+    chown system system /sys/class/leds/amber/grppwm
+
+    # Enable USB mounting of SD card...
+    write /sys/module/g_android/parameters/product_id 0x1038
 
     # SD card polling
     chown system system /sys/module/g_android/parameters/product_id
@@ -54,7 +71,6 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
 service wpa_supplicant /system/bin/wpa_supplicant -Dwext -ieth0 -c /data/misc/wifi/wpa_supplicant.conf
     class main
     socket wpa_eth0 dgram 660 wifi wifi
-#   group system wifi inet dhcp
     disabled
     oneshot 
 

@@ -11,6 +11,7 @@
 /dev/msm_amrnb_in	0660		system		audio
 /dev/msm_amrwb		0660		system		audio
 /dev/msm_evrc		0660		system		audio
+/dev/msm_pcm*	0660		system		audio
 /dev/msm_pcm_dec	0660		system		audio
 /dev/msm_preproc_ctl	0660		system		audio
 /dev/msm_qcelp		0660		system		audio

@@ -20,9 +20,13 @@ PRODUCT_PACKAGES += \
     hwprops \
     rzscontrol \
     Gallery \
+    copybit.u8150 \
+    gralloc.u8150 \
     lights.u8150 \
-    audio.primary.msm7k \
-    audio_policy.msm7k \
+    audio.a2dp.default \
+    audio.primary.u8150 \
+    audio_policy.u8150 \
+    gps.u8150 \
     com.android.future.usb.accessory \
     FileManager
 

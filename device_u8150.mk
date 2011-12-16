@@ -20,12 +20,7 @@ PRODUCT_PACKAGES += \
     hwprops \
     rzscontrol \
     Gallery \
-    copybit.u8150 \
-    gralloc.u8150 \
     lights.u8150 \
-    audio.a2dp.default \
-    audio.primary.u8150 \
-    audio_policy.u8150 \
     gps.u8150 \
     com.android.future.usb.accessory \
     FileManager
@@ -69,20 +64,33 @@ PRODUCT_COPY_FILES += \
 
 # Other
 PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
+    device/huawei/u8150/prebuilt/lib/hw/audio.primary.u8150.so:system/lib/hw/audio.primary.u8150.so\
     device/huawei/u8150/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
     device/huawei/u8150/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     device/huawei/u8150/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv
 
 # Touchscreen
 PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/usr/idc/synaptics.idc:system/usr/idc/synaptics.idc
+    device/huawei/u8150/prebuilt/usr/idc/synaptics.idc:system/usr/idc/synaptics.idc \
+    device/huawei/u8150/prebuilt/usr/idc/melfas-touchscreen.idc:system/usr/idc/melfas-touchscreen.idc
 
 PRODUCT_COPY_FILES += device/huawei/u8150/prebuilt/kernel:kernel
 
 $(call inherit-product-if-exists, vendor/huawei/u8150/u8150-vendor.mk)
 
 $(call inherit-product, build/target/product/full_base.mk)
+
+PRODUCT_PROPERTY_OVERIDES += \
+    ro.config.disable_hw_accel=true
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    keyguard.no_require_sim=true \
+    ro.telephony.ril.v3=icccardstatus,datacall,signalstrength,facilitylock \
+    ro.com.android.dateformat=dd-MM-yyyy \
+    ro.ril.hsxpa=1 \
+    ro.ril.gprsclass=10 \
+    ro.telephony.default_network=0 \
+    ro.telephony.call_ring.multiple=false
 
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)

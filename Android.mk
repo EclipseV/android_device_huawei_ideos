@@ -15,5 +15,5 @@
 #
 
 ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),u8150)
-  include $(call all-named-subdir-makefiles, libaudio libril libcamera libgralloc libcopybit liblights)
+  include $(call all-named-subdir-makefiles, libaudio libril libcamera libcopybit liblights)
 endif

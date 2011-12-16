@@ -30,7 +30,7 @@ ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),u8150)
     LOCAL_SHARED_LIBRARIES := liblog
     LOCAL_SRC_FILES := copybit.cpp
     LOCAL_MODULE := copybit.u8150
-    LOCAL_C_INCLUDES += device/skate/u8150/libgralloc
+    LOCAL_C_INCLUDES += device/huawei/u8150/libgralloc
     LOCAL_CFLAGS += -DCOPYBIT_MSM7K=1
     include $(BUILD_SHARED_LIBRARY)
 endif

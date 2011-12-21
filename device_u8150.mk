@@ -16,12 +16,15 @@
 DEVICE_PACKAGE_OVERLAYS += device/huawei/u8150/overlay
 
 PRODUCT_PACKAGES += \
-    libRS \
-    hwprops \
-    rzscontrol \
-    Gallery \
+    overlay.default \
     lights.u8150 \
     gps.u8150 \
+    hwprops \
+    rzscontrol \
+    Gallery2 \
+    SpareParts \
+    libRS \
+    Stk \
     com.android.future.usb.accessory \
     FileManager
 
@@ -64,7 +67,7 @@ PRODUCT_COPY_FILES += \
 
 # Other
 PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/lib/hw/audio.primary.u8150.so:system/lib/hw/audio.primary.u8150.so\
+    device/huawei/u8150/prebuilt/lib/hw/audio.primary.u8150.so:system/lib/hw/audio.primary.u8150.so \
     device/huawei/u8150/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
     device/huawei/u8150/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     device/huawei/u8150/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv
@@ -72,7 +75,9 @@ PRODUCT_COPY_FILES += \
 # Touchscreen
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/usr/idc/synaptics.idc:system/usr/idc/synaptics.idc \
-    device/huawei/u8150/prebuilt/usr/idc/melfas-touchscreen.idc:system/usr/idc/melfas-touchscreen.idc
+    device/huawei/u8150/prebuilt/usr/idc/melfas-touchscreen.idc:system/usr/idc/melfas-touchscreen.idc \
+    device/huawei/u8150/prebuilt/usr/keylayout/synaptics.kl:system/usr/keylayout/synaptics.kl \
+    device/huawei/u8150/prebuilt/usr/keylayout/melfas-touchscreen.kl:system/usr/keylayout/melfas-touchscreen.kl
 
 PRODUCT_COPY_FILES += device/huawei/u8150/prebuilt/kernel:kernel
 

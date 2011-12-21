@@ -20,13 +20,24 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
 <resources>
+
+    <!-- Flag indicating whether the surface flinger has limited
+         alpha compositing functionality in hardware.  If set, the window
+         manager will disable alpha trasformation in animations where not
+         strictly needed. -->
+    <bool name="config_sf_limitedAlpha">true</bool>
+
     <!-- Flag indicating whether we should enable the automatic brightness in Settings.
          config_hardware_automatic_brightness_available is not set, so we will use software implementation -->
     <bool name="config_automatic_brightness_available">true</bool>
 
+    <bool name="config_disableMenuKeyInLockScreen">true</bool>
+
+    <!-- If this is true, the screen will fade off. -->
     <bool name="config_animateScreenLights">false</bool>
 
-    <bool name="config_disableMenuKeyInLockScreen">true</bool>
+    <!-- Use legacy USB device manager. -->
+    <bool name="config_usesLegacyUsbDeviceManager">true</bool>
 
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
          The N entries of this array define N + 1 zones as follows:
@@ -80,11 +91,7 @@
         <item>0</item>
         <item>0</item>
     </integer-array>
-    
-    <!-- Component name of the default wallpaper. This will be ImageWallpaper if not 
-         specified -->
-    <string name="default_wallpaper_component">com.android.wallpaper/.nexus.NexusWallpaper</string>
-
+ 
     <integer name="config_deskDockKeepsScreenOn">0</integer>
     <integer name="config_carDockKeepsScreenOn">1</integer>
 
@@ -106,7 +113,7 @@
     <!-- An Array of "[Connection name],[ConnectivityManager connection type],
          [associated radio-type],[priority]  -->
 	<string-array translatable="false" name="networkAttributes">
-        <item>"wifi,1,1,1,-1,true"</item>
+        	<item>"wifi,1,1,1,-1,true"</item>
 		<item>"mobile,0,0,0,-1,true"</item>
 		<item>"mobile_mms,2,0,2,60000,true"</item>
 		<item>"mobile_supl,3,0,2,60000,true"</item>
@@ -119,27 +126,30 @@
         <item>"usb\\d"</item>
     </string-array>
 
-    <!-- Regex array of allowable upstream ifaces for tethering - for example if you want
-         tethering on a new interface called "foo2" add <item>"foo\\d"</item> to the array -->
-    <add-resource type="string" name="config_tether_upstream_regexs">
-        <string-array translatable="false" name="config_tether_upstream_regexs">
-            <item>"rmnet\\d"</item>
-            <item>"eth\\d"</item>
-        </string-array>
-    </add-resource>
-
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
          Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
          should be empty.  An example would be "softap.*" -->
     <string-array translatable="false" name="config_tether_wifi_regexs">
-        <item>"wl1.0"</item>
+        <item>"wl10.1"</item>
     </string-array>
 
+    <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
+    <bool name="config_unplugTurnsOnScreen">true</bool>
+    
+    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
+    autodetected from the Configuration. -->
+    <bool name="config_showNavigationBar">false</bool>
+    
+    <!-- Minimum screen brightness allowed by the power manager. -->
+    <integer name="config_screenBrightnessDim">10</integer>
 
-    <!-- Boolean indicating if we require the use of DUN on mobile for tethering -->
-    <add-resource type="bool" name="config_tether_dun_required">
-        <bool translatable="false" name="config_tether_dun_required">false</bool>
-    </add-resource>
+    <bool name="config_ui_enableFadingMarquee">false</bool>
+    
+    <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
+    <bool translatable="false" name="config_wifi_dual_band_support">false</bool>
+
+    <!-- Boolean indicating whether the wifi chipset has background scan support -->
+    <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
 
     <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
     <integer-array name="config_keyboardTapVibePattern">

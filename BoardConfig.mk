@@ -18,7 +18,7 @@
 
 # ARMv6-compatible processor rev 2 (v6l)
 # CPU
-TARGET_BOARD_PLATFORM := msm7k
+TARGET_BOARD_PLATFORM := msm7x27
 TARGET_ARCH_VARIANT := armv6j
 TARGET_CPU_ABI := armeabi
 TARGET_CPU_ABI := armeabi-v6l
@@ -57,7 +57,11 @@ HTTP := android
 # USB mass storage
 BOARD_CUSTOM_USB_CONTROLLER := ../../device/huawei/u8150/UsbController.cpp
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
+BOARD_HAS_SDCARD_INTERNAL := true
+BOARD_SDCARD_DEVICE_INTERNAL := /dev/block/vold/179:1
+BOARD_SDEXT_DEVICE := /dev/block/vold/179:2
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH  := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
 # Sensors
 TARGET_USES_OLD_LIBSENSORS_HAL := true
@@ -70,7 +74,8 @@ BOARD_LDPI_RECOVERY := true
 BOARD_USE_LEGACY_TOUCHSCREEN := true
 
 # Audio
-TARGET_PROVIDES_LIBAUDIO := true
+BOARD_PROVIDES_LIBAUDIO := true
+BOARD_USES_GENERIC_AUDIO := false
 
 # RIL
 BOARD_PROVIDES_LIBRIL := true

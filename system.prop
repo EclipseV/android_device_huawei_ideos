@@ -34,4 +34,3 @@ ro.com.google.locationfeatures=0
 ro.tether.denied=false
 sys.checkfs.fat=false
 ro.vold.umsdirtyratio=20
-persist.sys.usb.config=adb,mass_storage

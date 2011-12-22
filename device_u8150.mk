@@ -23,7 +23,6 @@ PRODUCT_PACKAGES += \
     rzscontrol \
     Gallery2 \
     SpareParts \
-    libRS \
     Stk \
     com.android.future.usb.accessory \
     FileManager
@@ -68,6 +67,7 @@ PRODUCT_COPY_FILES += \
 # Other
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/lib/hw/audio.primary.u8150.so:system/lib/hw/audio.primary.u8150.so \
+    device/huawei/u8150/prebuilt/lib/hw/audio_policy.u8150.so:system/lib/hw/audio_policy.u8150.so \
     device/huawei/u8150/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
     device/huawei/u8150/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     device/huawei/u8150/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv

@@ -16,5 +16,5 @@
 
 ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),u8150)
   include $(call all-named-subdir-makefiles, libril liblights)
-   PACKAGES.Phone.OVERRIDES += LatinIME DSPManager PinyinIME
+   PACKAGES.Stk.OVERRIDES += LatinIME DSPManager PinyinIME
 endif

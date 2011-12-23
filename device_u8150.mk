@@ -16,16 +16,11 @@
 DEVICE_PACKAGE_OVERLAYS += device/huawei/u8150/overlay
 
 PRODUCT_PACKAGES += \
-    overlay.default \
     lights.u8150 \
     gps.u8150 \
     hwprops \
     rzscontrol \
-    Gallery2 \
-    SpareParts \
-    Stk \
-    com.android.future.usb.accessory \
-    FileManager
+    Gallery2
 
 # Vold config
 PRODUCT_COPY_FILES += \
@@ -66,6 +61,8 @@ PRODUCT_COPY_FILES += \
 
 # Other
 PRODUCT_COPY_FILES += \
+    device/huawei/u8150/prebuilt/lib/libsurfaceflinger.so:system/lib/libsurfaceflinger.so \
+    device/huawei/u8150/prebuilt/lib/hw/gralloc.msm7x27.so:system/lib/hw/gralloc.msm7x27.so \
     device/huawei/u8150/prebuilt/lib/hw/audio.primary.u8150.so:system/lib/hw/audio.primary.u8150.so \
     device/huawei/u8150/prebuilt/lib/hw/audio_policy.u8150.so:system/lib/hw/audio_policy.u8150.so \
     device/huawei/u8150/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \

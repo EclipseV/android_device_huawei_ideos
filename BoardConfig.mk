@@ -57,10 +57,6 @@ HTTP := android
 # USB mass storage
 BOARD_CUSTOM_USB_CONTROLLER := ../../device/huawei/u8150/UsbController.cpp
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
-BOARD_HAS_SDCARD_INTERNAL := true
-BOARD_SDCARD_DEVICE_INTERNAL := /dev/block/vold/179:1
-BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
-TARGET_USE_CUSTOM_LUN_FILE_PATH  := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
 # Sensors
 TARGET_USES_OLD_LIBSENSORS_HAL := true

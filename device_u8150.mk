@@ -42,6 +42,7 @@ PRODUCT_COPY_FILES += \
 
 # Init files
 PRODUCT_COPY_FILES += \
+    device/huawei/u8150/prebuilt/init.u8150.usb.rc:root/init.u8150.usb.rc \
     device/huawei/u8150/prebuilt/init.u8150.rc:root/init.u8150.rc \
     device/huawei/u8150/prebuilt/ueventd.u8150.rc:root/ueventd.u8150.rc
 
@@ -62,7 +63,7 @@ PRODUCT_COPY_FILES += \
 # Other
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/lib/libsurfaceflinger.so:system/lib/libsurfaceflinger.so \
-    device/huawei/u8150/prebuilt/lib/hw/gralloc.msm7x27.so:system/lib/hw/gralloc.msm7x27.so \
+    device/huawei/u8150/prebuilt/lib/hw/gralloc.u8150.so:system/lib/hw/gralloc.u8150.so \
     device/huawei/u8150/prebuilt/lib/hw/audio.primary.u8150.so:system/lib/hw/audio.primary.u8150.so \
     device/huawei/u8150/prebuilt/lib/hw/audio_policy.u8150.so:system/lib/hw/audio_policy.u8150.so \
     device/huawei/u8150/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \

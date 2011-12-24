@@ -51,6 +51,7 @@ PRODUCT_COPY_FILES += \
 
 # Required CM packages
 PRODUCT_PACKAGES += \
+    Trebuchet \
     Camera \
     Development \
     SpareParts \

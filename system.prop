@@ -11,12 +11,12 @@ ro.media.dec.jpeg.memcap=20000000
 ro.opengles.version=65537
 ro.sf.lcd_density=120
 qemu.sf.lcd_density=120
-persist.sys.use_dithering=0
+persist.sys.use_dithering=1
 persist.sys.purgeable_assets=1
 persist.sys.use_16bpp_alpha=1
 
 # WiFi
-wifi.interface=eth0
+wifi.interface=wlan0
 wifi.supplicant_scan_interval=60
 
 # RIL

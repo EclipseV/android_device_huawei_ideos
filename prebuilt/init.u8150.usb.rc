@@ -14,7 +14,7 @@ on property:sys.usb.config=mass_storage,adb
     setprop sys.usb.state $sys.usb.config
 
 on property:sys.usb.config=mass_storage,rndis
-    write /sys/module/g_android/parameters/product_id 1364
+    write /sys/module/g_android/parameters/product_id 1039
     setprop sys.usb.state $sys.usb.config
 
 # Adding this in because adb is being removed from persist.sys.usb.config after booting

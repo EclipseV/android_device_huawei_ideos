@@ -1,7 +1,6 @@
 #
 # system.prop for U8150
 #
-
 # Graphics
 view.fading_edge_length=8
 view.minimum_fling_velocity=25
@@ -34,3 +33,6 @@ ro.com.google.locationfeatures=0
 ro.tether.denied=false
 sys.checkfs.fat=false
 ro.vold.umsdirtyratio=20
+persist.sys.usb.config=mass_storage
+sys.usb.config=mass_storage
+persist.service.adb.enable=1

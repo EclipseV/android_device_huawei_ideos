@@ -17,10 +17,24 @@ DEVICE_PACKAGE_OVERLAYS += device/huawei/u8150/overlay
 
 PRODUCT_PACKAGES += \
     lights.u8150 \
+    gralloc.u8150 \
+    copybit.u8150 \
     gps.u8150 \
+    audio.a2dp.default \
     hwprops \
     rzscontrol \
+    libstagefrighthw \
+    libmm-omxcore \
+    libOmxVenc \
+    libOmxVdec \
+    libOmxCore \
+    libOmxVidEnc \
     Gallery2
+
+# LDPI assets
+PRODUCT_LOCALES += en ldpi mdpi
+PRODUCT_AAPT_CONFIG := normal ldpi mdpi
+PRODUCT_AAPT_PREF_CONFIG := ldpi
 
 # Vold config
 PRODUCT_COPY_FILES += \
@@ -62,8 +76,6 @@ PRODUCT_COPY_FILES += \
 
 # Other
 PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/lib/libsurfaceflinger.so:system/lib/libsurfaceflinger.so \
-    device/huawei/u8150/prebuilt/lib/hw/gralloc.u8150.so:system/lib/hw/gralloc.u8150.so \
     device/huawei/u8150/prebuilt/lib/hw/audio.primary.u8150.so:system/lib/hw/audio.primary.u8150.so \
     device/huawei/u8150/prebuilt/lib/hw/audio_policy.u8150.so:system/lib/hw/audio_policy.u8150.so \
     device/huawei/u8150/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
@@ -73,9 +85,15 @@ PRODUCT_COPY_FILES += \
 # Touchscreen
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/usr/idc/synaptics.idc:system/usr/idc/synaptics.idc \
-    device/huawei/u8150/prebuilt/usr/idc/melfas-touchscreen.idc:system/usr/idc/melfas-touchscreen.idc \
+    device/huawei/u8150/prebuilt/usr/idc/cypress-ts-innolux_Ver04.idc:system/usr/idc/cypress-ts-innolux_Ver04.idc \
+    device/huawei/u8150/prebuilt/usr/idc/melfas-touchscreen.Ver23.idc:system/usr/idc/melfas-touchscreen.Ver23.idc \
+    device/huawei/u8150/prebuilt/usr/idc/melfas-touchscreen_ver23.idc:system/usr/idc/melfas-touchscreen_ver23.idc \
+    device/huawei/u8150/prebuilt/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
     device/huawei/u8150/prebuilt/usr/keylayout/synaptics.kl:system/usr/keylayout/synaptics.kl \
-    device/huawei/u8150/prebuilt/usr/keylayout/melfas-touchscreen.kl:system/usr/keylayout/melfas-touchscreen.kl
+    device/huawei/u8150/prebuilt/usr/keylayout/cypress-ts-innolux_Ver04.kl:system/usr/keylayout/cypress-ts-innolux_Ver04.kl \
+    device/huawei/u8150/prebuilt/usr/keylayout/melfas-touchscreen.Ver23.kl:system/usr/keylayout/melfas-touchscreen.Ver23.kl \
+    device/huawei/u8150/prebuilt/usr/keylayout/melfas-touchscreen_ver23.kl:system/usr/keylayout/melfas-touchscreen_ver23.kl \
+    device/huawei/u8150/prebuilt/usr/keylayout/synaptics-rmi-touchscreen.kl:system/usr/keylayout/synaptics-rmi-touchscreen.kl
 
 PRODUCT_COPY_FILES += device/huawei/u8150/prebuilt/kernel:kernel
 
@@ -88,23 +106,24 @@ PRODUCT_PROPERTY_OVERIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true \
-    ro.telephony.ril.v3=icccardstatus,datacall,signalstrength,facilitylock \
+    ro.telephony.ril.v3=1 \
     ro.com.android.dateformat=dd-MM-yyyy \
     ro.ril.hsxpa=1 \
     ro.ril.gprsclass=10 \
     ro.telephony.default_network=0 \
     ro.telephony.call_ring.multiple=false
 
-# Set usb type
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    persist.sys.usb.config=mass_storage \
-    persist.service.adb.enable=1
-
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 # LDPI assets
 PRODUCT_LOCALES += ldpi mdpi
+
+# For userdebug builds
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.secure=0 \
+    ro.allow.mock.location=1 \
+    ro.debuggable=1
 
 PRODUCT_NAME := huawei_u8150
 PRODUCT_DEVICE := u8150

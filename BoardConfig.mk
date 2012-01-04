@@ -13,6 +13,8 @@
 # limitations under the License.
 #
 
+TARGET_SPECIFIC_HEADER_PATH := device/huawei/u8150/include
+
 # inherit from the proprietary version
 -include vendor/huawei/u8150/BoardConfigVendor.mk
 
@@ -39,7 +41,7 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
 # QCOM
-BOARD_USES_QCOM_HARDWARE := true
+#BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_LIBRPC := true
 
@@ -57,6 +59,7 @@ HTTP := android
 # USB mass storage
 BOARD_CUSTOM_USB_CONTROLLER := ../../device/huawei/u8150/UsbController.cpp
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
+BOARD_HAS_SDCARD_INTERNAL := true
 BOARD_SDCARD_DEVICE_INTERNAL := /dev/block/vold/179:1
 BOARD_SDEXT_DEVICE := /dev/block/vold/179:2
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
@@ -86,21 +89,25 @@ BOARD_EGL_CFG := device/huawei/u8150/prebuilt/lib/egl/egl.cfg
 BOARD_HAS_LIMITED_EGL := true
 TARGET_SPECIFIC_HEADER_PATH := device/huawei/u8150/include
 TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
+COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS
+BOARD_USE_SKIA_LCDTEXT := true
+TARGET_FORCE_CPU_UPLOAD := true
 
 # WiFI
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-# I know we have the bcm4319 but this is a hack to get around incompatibility with the bcm4319
-BOARD_WLAN_DEVICE := bcm4329
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_HOSTAPD_DRIVER := WEXT
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_wext
-BOARD_WEXT_NO_COMBO_SCAN := true
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcm4319.ko"
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4319.bin nvram_path=/system/etc/firmware/nvram.txt iface_name=wlan"
 WIFI_DRIVER_FW_STA_PATH := "/system/etc/firmware/fw_bcm4319.bin"
 WIFI_DRIVER_FW_AP_PATH := "/system/etc/firmware/fw_bcm4319_apsta.bin"
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4319.bin nvram_path=/system/etc/firmware/nvram.txt iface_name=wlan"
+WIFI_DRIVER_FW_PATH_STA := "/system/etc/firmware/fw_bcm4319.bin"
+WIFI_DRIVER_FW_PATH_AP := "/system/etc/firmware/fw_bcm4319_apsta.bin"
 WIFI_DRIVER_MODULE_NAME := "dhd"
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcm4319.ko"
+WPA_SUPPLICANT_VERSION := VER_0_6_X
+BOARD_WEXT_NO_COMBO_SCAN := true
+
+# Recovery
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8150/recovery/recovery_keys.c
+BOARD_CUSTOM_GRAPHICS := ../../../device/huawei/u8150/recovery/recovery_graphics.c
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00200000

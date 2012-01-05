@@ -15,7 +15,7 @@ persist.sys.purgeable_assets=1
 persist.sys.use_16bpp_alpha=1
 
 # WiFi
-wifi.interface=wlan0
+wifi.interface=eth0
 wifi.supplicant_scan_interval=60
 
 # RIL

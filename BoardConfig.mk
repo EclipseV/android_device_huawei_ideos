@@ -95,15 +95,18 @@ TARGET_FORCE_CPU_UPLOAD := true
 
 # WiFI
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
+# I know we have the bcm4319 but this is a hack to get around incompatibility with the BCM4319
+BOARD_WLAN_DEVICE := bcm4329
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+BOARD_HOSTAPD_DRIVER := WEXT
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_wext
+BOARD_WEXT_NO_COMBO_SCAN := true
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcm4319.ko"
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4319.bin nvram_path=/system/etc/firmware/nvram.txt iface_name=wlan"
-WIFI_DRIVER_FW_STA_PATH := "/system/etc/firmware/fw_bcm4319.bin"
-WIFI_DRIVER_FW_AP_PATH := "/system/etc/firmware/fw_bcm4319_apsta.bin"
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4319.bin nvram_path=/system/etc/firmware/nvram.txt"
 WIFI_DRIVER_FW_PATH_STA := "/system/etc/firmware/fw_bcm4319.bin"
 WIFI_DRIVER_FW_PATH_AP := "/system/etc/firmware/fw_bcm4319_apsta.bin"
 WIFI_DRIVER_MODULE_NAME := "dhd"
-WPA_SUPPLICANT_VERSION := VER_0_6_X
-BOARD_WEXT_NO_COMBO_SCAN := true
 
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8150/recovery/recovery_keys.c

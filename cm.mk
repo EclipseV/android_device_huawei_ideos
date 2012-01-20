@@ -10,9 +10,12 @@ $(call inherit-product, device/huawei/u8150/device_u8150.mk)
 PRODUCT_NAME := cm_u8150
 
 # Release name and versioning
-PRODUCT_RELEASE_NAME := GN
+PRODUCT_RELEASE_NAME := tilal6991
 PRODUCT_VERSION_DEVICE_SPECIFIC :=
 -include vendor/cm/config/common_versions.mk
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := u8150
+
+# Device fingerprint
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=maguro BUILD_ID=ITL41D BUILD_FINGERPRINT=google/yakju/maguro:4.0.1/ITL41D/223971:user/release-keys

@@ -14,11 +14,13 @@
 #
 
 DEVICE_PACKAGE_OVERLAYS += device/huawei/u8150/overlay
+PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/ldpi
 
 PRODUCT_PACKAGES += \
     lights.u8150 \
     gralloc.u8150 \
     copybit.u8150 \
+    libQcomUI \
     gps.u8150 \
     audio.a2dp.default \
     hwprops \

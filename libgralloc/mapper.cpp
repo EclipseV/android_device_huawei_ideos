@@ -30,7 +30,7 @@
 #include <cutils/atomic.h>
 
 #include <hardware/hardware.h>
-#include <hardware/gralloc.h>
+#include "gralloc_tilal6991.h"
 
 #include <linux/android_pmem.h>
 

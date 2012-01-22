@@ -20,7 +20,6 @@ PRODUCT_PACKAGES += \
     lights.u8150 \
     gralloc.u8150 \
     copybit.u8150 \
-    libQcomUI \
     gps.u8150 \
     audio.a2dp.default \
     hwprops \
@@ -78,8 +77,8 @@ PRODUCT_COPY_FILES += \
 
 # Other
 PRODUCT_COPY_FILES += \
+    device/huawei/u8150/prebuilt/lib/libsurfaceflinger.so:system/lib/libsurfaceflinger.so \
     device/huawei/u8150/prebuilt/lib/hw/audio.primary.u8150.so:system/lib/hw/audio.primary.u8150.so \
-    device/huawei/u8150/prebuilt/lib/hw/audio_policy.u8150.so:system/lib/hw/audio_policy.u8150.so \
     device/huawei/u8150/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
     device/huawei/u8150/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     device/huawei/u8150/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv
@@ -108,7 +107,7 @@ PRODUCT_PROPERTY_OVERIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true \
-    ro.telephony.ril.v3=1 \
+    ro.telephony.ril.v3=icccardstatus,datacall,signalstrength,facilitylock \
     ro.com.android.dateformat=dd-MM-yyyy \
     ro.ril.hsxpa=1 \
     ro.ril.gprsclass=10 \

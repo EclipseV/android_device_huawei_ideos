@@ -10,7 +10,7 @@ $(call inherit-product, device/huawei/u8150/device_u8150.mk)
 PRODUCT_NAME := cm_u8150
 
 # Release name and versioning
-PRODUCT_RELEASE_NAME := tilal6991
+PRODUCT_RELEASE_NAME := U8150
 PRODUCT_VERSION_DEVICE_SPECIFIC :=
 -include vendor/cm/config/common_versions.mk
 

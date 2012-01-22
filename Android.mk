@@ -15,5 +15,5 @@
 #
 
 ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),u8150)
-  include $(call all-named-subdir-makefiles, recovery libcamerahal libril liblights librpc libcopybit libgralloc libomxcore libstagefrighthw)
+  include $(call all-named-subdir-makefiles, recovery libcamerahal libcopybit libgralloc liblights librpc libomxcore libstagefrighthw)
 endif 

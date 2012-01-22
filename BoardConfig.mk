@@ -15,9 +15,6 @@
 
 TARGET_SPECIFIC_HEADER_PATH := device/huawei/u8150/include
 
-# inherit from the proprietary version
--include vendor/huawei/u8150/BoardConfigVendor.mk
-
 # ARMv6-compatible processor rev 2 (v6l)
 # CPU
 TARGET_BOARD_PLATFORM := msm7x27
@@ -41,8 +38,9 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
 # QCOM
-#BOARD_USES_QCOM_HARDWARE := true
+# BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QCOM_LIBS := true
+BOARD_USES_LEGACY_QCOM := true
 BOARD_USES_QCOM_LIBRPC := true
 
 # GPS
@@ -72,8 +70,9 @@ BOARD_VENDOR_USE_AKMD := akm8973
 # Recovery
 BOARD_LDPI_RECOVERY := true
 
-# Touchscreen
 BOARD_USE_LEGACY_TOUCHSCREEN := true
+BOARD_USE_LEGACY_TRACKPAD := true
+COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS
 
 # Audio
 BOARD_PROVIDES_LIBAUDIO := true
@@ -88,25 +87,16 @@ BOARD_NO_RGBX_8888 := true
 BOARD_EGL_CFG := device/huawei/u8150/prebuilt/lib/egl/egl.cfg
 BOARD_HAS_LIMITED_EGL := true
 TARGET_SPECIFIC_HEADER_PATH := device/huawei/u8150/include
-TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
-COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS
-BOARD_USE_SKIA_LCDTEXT := true
-TARGET_FORCE_CPU_UPLOAD := true
 
 # WiFI
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-# I know we have the bcm4319 but this is a hack to get around incompatibility with the BCM4319
-BOARD_WLAN_DEVICE := bcm4329
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_HOSTAPD_DRIVER := WEXT
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_wext
+WPA_SUPPLICANT_VERSION := VER_0_6_X
 BOARD_WEXT_NO_COMBO_SCAN := true
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcm4319.ko"
+WIFI_DRIVER_FW_STA_PATH := "/system/etc/firmware/fw_bcm4319.bin"
+WIFI_DRIVER_FW_AP_PATH := "/system/etc/firmware/fw_bcm4319_apsta.bin"
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4319.bin nvram_path=/system/etc/firmware/nvram.txt"
-WIFI_DRIVER_FW_PATH_STA := "/system/etc/firmware/fw_bcm4319.bin"
-WIFI_DRIVER_FW_PATH_AP := "/system/etc/firmware/fw_bcm4319_apsta.bin"
 WIFI_DRIVER_MODULE_NAME := "dhd"
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcm4319.ko"
 
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8150/recovery/recovery_keys.c

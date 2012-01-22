@@ -9,8 +9,8 @@ etc/init.qcom.bt.sh
 etc/pvplayer.cfg
 
 lib/hw/sensors.default.so
-lib/hw/gralloc.msm7k.so
 
+lib/libril.so
 lib/libril-qc-1.so
 lib/libril-qcril-hook-oem.so
 lib/libdiag.so
@@ -31,15 +31,12 @@ lib/libpbmlib.so
 lib/libdss.so
 lib/libauth.so
 
-lib/libOmxCore.so
 lib/libOmxH264Dec.so
 lib/libOmxMpeg4Dec.so
 lib/libOmxVidEnc.so
 lib/libOmxWmvDec.so
-lib/libOmxCore.so
 lib/libOmxVidEnc.so
 lib/libmm-adspsvc.so
-lib/libmm-omxcore.so
 
 lib/libcamera.so
 lib/libqcamera.so

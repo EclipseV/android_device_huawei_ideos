@@ -10,19 +10,15 @@ on early-fs
 on post-fs
     mkdir /data/misc/wifi/sockets 0770 wifi wifi    
     mkdir /data/misc/dhcp 0770 dhcp dhcp
-
+   
 on boot
-
-# Temporary hack to prevent framebuffer flicker
-    write /sys/class/graphics/fb0/state 1
-    
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chmod 0660                /sys/class/rfkill/rfkill0/state
     chown bluetooth bluetooth /proc/bluetooth/sleep/proto
     chmod 0660 /proc/bluetooth/sleep/proto
     
-# Increase read throughput from sd card
+    # Increase read throughput from sd card
     write /sys/block/mmcblk0/bdi/read_ahead_kb 2048
         
     chmod 0777 /sys/kernel/logger/log_events/enable
@@ -30,37 +26,35 @@ on boot
     chmod 0777 /sys/kernel/logger/log_main/priority
     chmod 0777 /sys/kernel/logger/log_radio/enable
     chmod 0777 /sys/kernel/logger/log_radio/priority
-	
-# Fix led issue
-    chown system system /sys/class/leds/green/blink
-    chown system system /sys/class/leds/green/grpfreq
-    chown system system /sys/class/leds/green/grppwm
-    chown system system /sys/class/leds/red/blink
-    chown system system /sys/class/leds/red/brightness
-    chown system system /sys/class/leds/red/grpfreq
-    chown system system /sys/class/leds/red/grppwm
-    chown system system /sys/class/leds/amber/blink
-    chown system system /sys/class/leds/amber/brightness
-    chown system system /sys/class/leds/amber/grpfreq
-    chown system system /sys/class/leds/amber/grppwm
 
-# SD card
+    # SD card polling
     chown system system /sys/module/g_android/parameters/product_id
+    chown system system /sys/devices/platform/msm_sdcc.1/polling
+    chown system system /sys/devices/platform/msm_sdcc.2/polling
     chown system system /sys/devices/platform/android_usb/composition
     chown system system /sys/devices/platform/android_usb/remote_wakeup
+
+    # Enable MASS storage on SDCARD
+    write /sys/devices/platform/mass_storage/lun0/file /dev/block/mmcblk0p1
+    cp /system/etc/wifi/wpa_supplicant.conf /data/misc/wifi/wpa_supplicant.conf
+
+# Temporary hack to prevent framebuffer flicker
+    write /sys/class/graphics/fb0/state 1
 
 service qmuxd /system/bin/qmuxd
     class main
     
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
+    class main
     user bluetooth
     group qcom_oncrpc bluetooth net_bt_admin system
     disabled
     oneshot
     
-service wpa_supplicant /system/bin/wpa_supplicant -Dwext -ieth0 -c /data/misc/wifi/wpa_supplicant.conf
+service wpa_supplicant /system/bin/wpa_supplicant -Dwext -eth0 -c/system/etc/wifi/wpa_supplicant.conf
     class main
     socket wpa_eth0 dgram 660 wifi wifi
+    group system wifi inet dhcp
     disabled
     oneshot 
 

@@ -27,18 +27,12 @@ on boot
     chmod 0777 /sys/kernel/logger/log_radio/enable
     chmod 0777 /sys/kernel/logger/log_radio/priority
 
-    # SD card polling
-    chown system system /sys/module/g_android/parameters/product_id
+    # Required for WiFi (weird right :) !!)
     chown system system /sys/devices/platform/msm_sdcc.1/polling
     chown system system /sys/devices/platform/msm_sdcc.2/polling
-    chown system system /sys/devices/platform/android_usb/composition
-    chown system system /sys/devices/platform/android_usb/remote_wakeup
-
-    # Enable MASS storage on SDCARD
-    write /sys/devices/platform/mass_storage/lun0/file /dev/block/mmcblk0p1
-    cp /system/etc/wifi/wpa_supplicant.conf /data/misc/wifi/wpa_supplicant.conf
 
 # Temporary hack to prevent framebuffer flicker
+    chmod 0777 /sys/class/graphics/fb0/state
     write /sys/class/graphics/fb0/state 1
 
 service qmuxd /system/bin/qmuxd
@@ -51,9 +45,8 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     disabled
     oneshot
     
-service wpa_supplicant /system/bin/wpa_supplicant -Dwext -eth0 -c/system/etc/wifi/wpa_supplicant.conf
+service wpa_supplicant /system/bin/wpa_supplicant -Dwext -ieth0 -c/system/etc/wifi/wpa_supplicant.conf
     class main
-    socket wpa_eth0 dgram 660 wifi wifi
     group system wifi inet dhcp
     disabled
     oneshot 

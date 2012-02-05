@@ -1,15 +1,11 @@
 #
 # system.prop for U8150
 #
-# Graphics
-view.fading_edge_length=8
-view.minimum_fling_velocity=25
-view.scroll_friction=0.008
-view.touch_slop=15
+# Graphics and performance
 ro.media.dec.jpeg.memcap=20000000
+windowsmgr.max_events_per_sec=500
 ro.opengles.version=65537
 ro.sf.lcd_density=120
-qemu.sf.lcd_density=120
 persist.sys.use_dithering=1
 persist.sys.purgeable_assets=1
 persist.sys.use_16bpp_alpha=1
@@ -21,18 +17,23 @@ wifi.supplicant_scan_interval=60
 # RIL
 rild.libargs=-d/dev/smd0
 rild.libpath=/system/lib/libril-qc-1.so
-ro.com.android.dataroaming=false
+ro.telephony.ril.v3=icccardstatus,datacall,signalstrength,facilitylock
 
-# No Autofocus device
-ro.workaround.noautofocus=1
-
-# System and Misc.
-dalvik.vm.heapsize=32m
-ro.compcache.default=26
-ro.com.google.locationfeatures=0
-ro.tether.denied=false
-sys.checkfs.fat=false
-ro.vold.umsdirtyratio=20
+# USB
 persist.sys.usb.config=mass_storage
 sys.usb.config=mass_storage
 persist.service.adb.enable=1
+
+# System
+dalvik.vm.heapsize=32m
+ro.compcache.default=26
+sys.checkfs.fat=false
+ro.vold.umsdirtyratio=20
+dalvik.vm.execution-mode=int:jit
+dalvik.vm.lockprof.threshold=500
+dalvik.vm.dexopt-flags=m=y
+dalvik.vm.dexopt-data-only=1
+
+# Misc.
+ro.com.android.dateformat=dd-MM-yyyy
+ro.com.google.locationfeatures=0

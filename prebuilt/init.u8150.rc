@@ -27,7 +27,7 @@ on boot
     chmod 0777 /sys/kernel/logger/log_radio/enable
     chmod 0777 /sys/kernel/logger/log_radio/priority
 
-    # Required for WiFi (weird right :) !!)
+    # Required for WiFi (Weird right?!)
     chown system system /sys/devices/platform/msm_sdcc.1/polling
     chown system system /sys/devices/platform/msm_sdcc.2/polling
 

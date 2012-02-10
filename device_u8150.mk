@@ -30,8 +30,7 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    audio.a2dp.default \
-    audio.primary.u8150
+    audio.a2dp.default
 
 # Zram
 PRODUCT_PACKAGES += \
@@ -96,6 +95,7 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
+    device/huawei/u8150/prebuilt/lib/audio.primary.u8150.so:system/lib/audio.primary.u8150.so \
     device/huawei/u8150/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt
 
 # Kernel modules

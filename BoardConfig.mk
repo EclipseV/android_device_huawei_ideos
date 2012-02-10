@@ -96,7 +96,7 @@ WIFI_DRIVER_MODULE_NAME := "dhd"
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8150/recovery/recovery_keys.c
 # BOARD_CUSTOM_GRAPHICS := ../../../device/huawei/u8150/recovery/recovery_graphics.c
-BOARD_USE_CUSTOM_RECOVERY_FONT := ../../device/huawei/u8150/recovery/font_7x16.h
+BOARD_USE_CUSTOM_RECOVERY_FONT := "<recovery/font_7x16.h>"
 
 # Kernel
 TARGET_PREBUILT_KERNEL := device/huawei/u8150/prebuilt/kernel

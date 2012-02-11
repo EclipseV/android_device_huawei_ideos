@@ -16,6 +16,7 @@
 $(call inherit-product-if-exists, vendor/huawei/u8150/u8150-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/huawei/u8150/overlay
+DEVICE_PACKAGE_OVERLAYS += device/huawei/u8150/ldpi
 PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/ldpi
 
 # Discard inherited values and use our own instead.

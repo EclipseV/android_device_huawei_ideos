@@ -88,8 +88,10 @@ BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 WPA_SUPPLICANT_VERSION := VER_0_6_X
 BOARD_WEXT_NO_COMBO_SCAN := true
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/dhd.ko"
-WIFI_DRIVER_FW_PATH_AP := "/system/etc/fw_4319.bin"
-WIFI_DRIVER_FW_PATH_STA := "/system/etc/fw_4319_apsta.bin"
+WIFI_DRIVER_FW_STA_PATH := "/system/etc/fw_4319.bin"
+WIFI_DRIVER_FW_AP_PATH := "/system/etc/fw_4319_apsta.bin"
+WIFI_DRIVER_FW_PATH_STA := "/system/etc/fw_4319.bin"
+WIFI_DRIVER_FW_PATH_AP := "/system/etc/fw_4319_apsta.bin"
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/fw_4319.bin nvram_path=/system/etc/nv_4319.txt"
 WIFI_DRIVER_MODULE_NAME := "dhd"
 

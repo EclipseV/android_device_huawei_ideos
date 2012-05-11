@@ -11,26 +11,36 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 #
+# This file sets variables that control the way modules are built
+# throughout the system. It should not be used to conditionally
+# disable makefiles (the proper mechanism to control what gets
+# included in a build is to use PRODUCT_PACKAGES in a product
+# definition file).
+#
+
+# WARNING: This line must come *before* including the proprietary
+# variant, so that it gets overwritten by the parent (which goes
+# against the traditional rules of inheritance).
+USE_CAMERA_STUB := true
+
+# inherit from the proprietary version
+-include vendor/htc/buzz/BoardConfigVendor.mk
 
 TARGET_SPECIFIC_HEADER_PATH := device/huawei/u8150/include
 
-# Arch related defines
-TARGET_BOARD_PLATFORM := msm7x27
+# ARMv6-compatible processor rev 5 (v6l)
+TARGET_BOARD_PLATFORM := msm7k
 TARGET_ARCH_VARIANT := armv6j
-TARGET_CPU_ABI := armeabi
-TARGET_CPU_ABI := armeabi-v6l
+TARGET_CPU_ABI := armeabi-v6j
 TARGET_CPU_ABI2 := armeabi
 
-# Target properties
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
+
 TARGET_BOOTLOADER_BOARD_NAME := u8150
 TARGET_OTA_ASSERT_DEVICE := u8150,ideos,U8150
-
-# Target information
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_KERNEL := false
-TARGET_NO_RADIOIMAGE := true
-TARGET_NO_RECOVERY := false
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -51,6 +61,7 @@ WITH_JIT := true
 TARGET_WEBKIT_USE_MORE_MEMORY := true
 
 # USB mass storage
+BOARD_UMS_LUNFILE := /sys/devices/platform/msm_hsusb/gadget/lun0/file
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
 # Sensors
@@ -69,20 +80,23 @@ BOARD_PROVIDES_LIBRIL := true
 
 # Graphics
 BOARD_EGL_CFG := device/huawei/u8150/prebuilt/lib/egl/egl.cfg
-BOARD_HAS_LIMITED_EGL := true
-TARGET_SPECIFIC_HEADER_PATH := device/huawei/u8150/include
+BOARD_USE_FROYO_LIBCAMERA := true
+BOARD_USE_SKIA_LCDTEXT := true
+BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
+TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
+TARGET_FORCE_CPU_UPLOAD := true
 
 # WiFI
-BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-WPA_SUPPLICANT_VERSION := VER_0_6_X
-BOARD_WEXT_NO_COMBO_SCAN := true
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/dhd.ko"
-WIFI_DRIVER_FW_STA_PATH := "/system/etc/fw_4319.bin"
-WIFI_DRIVER_FW_AP_PATH := "/system/etc/fw_4319_apsta.bin"
-WIFI_DRIVER_FW_PATH_STA := "/system/etc/fw_4319.bin"
-WIFI_DRIVER_FW_PATH_AP := "/system/etc/fw_4319_apsta.bin"
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/fw_4319.bin nvram_path=/system/etc/nv_4319.txt"
-WIFI_DRIVER_MODULE_NAME := "dhd"
+BOARD_WPA_SUPPLICANT_DRIVER      := WEXT
+WPA_SUPPLICANT_VERSION           := VER_0_8_X
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
+BOARD_WLAN_DEVICE                := bcm4329
+WIFI_BAND                        := 802_11_ABG
+WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/dhd.ko"
+WIFI_DRIVER_FW_PATH_STA          := "/system/etc/fw_4319.bin"
+WIFI_DRIVER_FW_PATH_AP           := "/system/etc/fw_4319_apsta.bin"
+WIFI_DRIVER_MODULE_ARG           := "firmware_path=/system/etc/fw_4319.bin nvram_path=/system/etc/nv_4319.txt"
+WIFI_DRIVER_MODULE_NAME          := "dhd"
 
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8150/recovery/recovery_keys.c

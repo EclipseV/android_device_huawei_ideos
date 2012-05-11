@@ -12,17 +12,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#
-# AndroidBoard.mk is a legacy mechanism to deal with a few
-# edge-cases that can't be managed otherwise. No new rules
-# should be added to this file.
-#
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
+else
+LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+endif
 
-LOCAL_PATH := $(call my-dir)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_KERNEL):kernel
 
-# Least specific includes go first, so that they can get
-# overridden further down
-include $(CLEAR_VARS)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
-# include the non-open-source counterpart to this file
--include vendor/huawei/u8150/AndroidBoardVendor.mk
+# Inherit from buzz device
+$(call inherit-product, $(LOCAL_PATH)/device.mk)
+
+# The gps config appropriate for this device
+$(call inherit-product, device/common/gps/gps_eu_supl.mk)
+
+$(call inherit-product-if-exists, vendor/huawei/u8150/u8150-vendor.mk)
+$(call inherit-product-if-exists, vendor/huawei/u8150/u8150-vendor-blobs.mk)

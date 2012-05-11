@@ -12,12 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# proprietary side of the device
-$(call inherit-product-if-exists, vendor/huawei/u8150/u8150-vendor.mk)
-
-DEVICE_PACKAGE_OVERLAYS += device/huawei/u8150/overlay
-DEVICE_PACKAGE_OVERLAYS += device/huawei/u8150/ldpi
-PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/ldpi
+DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := huawei_u8150
@@ -31,6 +26,8 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
+    audio.primary.u8150 \
+    audio_policy.u8150 \
     audio.a2dp.default
 
 # Zram
@@ -45,20 +42,10 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxCore
 
-# Apps
-PRODUCT_PACKAGES += \
-    Gallery2
-
 # Other
 PRODUCT_PACKAGES += \
     lights.u8150 \
     gps.u8150
-
-PRODUCT_LOCALES := en_GB
-# LDPI assets
-PRODUCT_LOCALES += ldpi mdpi
-PRODUCT_AAPT_CONFIG := ldpi mdpi
-PRODUCT_AAPT_PREF_CONFIG := ldpi
 
 # Hardware permissions
 PRODUCT_COPY_FILES += \
@@ -96,13 +83,15 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/lib/hw/audio.primary.u8150.so:system/lib/hw/audio.primary.u8150.so \
-    device/huawei/u8150/prebuilt/lib/hw/audio_policy.u8150.so:system/lib/hw/audio_policy.u8150.so \
     device/huawei/u8150/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt
 
 # Kernel modules
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/lib/modules/zram.ko:system/lib/modules/zram.ko
+
+# Bluetooth configuration files
+PRODUCT_COPY_FILES += \
+    system/bluetooth/data/main.conf:system/etc/bluetooth/main.conf
 
 # Touchscreen
 PRODUCT_COPY_FILES += \
@@ -128,3 +117,5 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/usr/keylayout/melfas-touchscreen.Ver23.kl:system/usr/keylayout/melfas-touchscreen.Ver23.kl \
     device/huawei/u8150/prebuilt/usr/keylayout/melfas-touchscreen_ver23.kl:system/usr/keylayout/melfas-touchscreen_ver23.kl \
     device/huawei/u8150/prebuilt/usr/keylayout/synaptics-rmi-touchscreen.kl:system/usr/keylayout/synaptics-rmi-touchscreen.kl
+
+PRODUCT_LOCALES += mdpi

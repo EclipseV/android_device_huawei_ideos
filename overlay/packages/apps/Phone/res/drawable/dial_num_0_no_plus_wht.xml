@@ -14,14 +14,7 @@
      limitations under the License.
 -->
 
-<resources>
-    <!-- IDs used with events from in-call touch UI elements.
-         (Note we handle these in the InCallScreen's "button click"
-         handler even though the UI elements may not actually be buttons.) -->
-    <item type="id" name="incomingCallAnswer" />
-    <item type="id" name="incomingCallReject" />
-    <item type="id" name="incomingCallRespondViaSms" />
-
-    <!-- View tag ID used by CallCard.Fade -->
-    <item type="id" name="fadeState" />
-</resources>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    <item
+        android:drawable="@drawable/dial_num_0_no_plus_wht" /> -->
+</selector>

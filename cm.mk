@@ -13,7 +13,7 @@
 # limitations under the License.
 
 # Inherit device configuration
-$(call inherit-product, $(LOCAL_PATH)/buzz.mk)
+$(call inherit-product, $(LOCAL_PATH)/u8150.mk)
 
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_mini_phone.mk)

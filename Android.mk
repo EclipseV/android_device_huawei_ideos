@@ -6,7 +6,6 @@ ifeq ($(TARGET_DEVICE),u8150)
         $(LOCAL_PATH)/libcopybit/Android.mk \
         $(LOCAL_PATH)/libgralloc/Android.mk \
         $(LOCAL_PATH)/liblights/Android.mk \
-        $(LOCAL_PATH)/libomxcore/Android.mk \
         $(LOCAL_PATH)/libopencorehw/Android.mk \
         $(LOCAL_PATH)/librpc/Android.mk \
         $(LOCAL_PATH)/libstagefrighthw/Android.mk

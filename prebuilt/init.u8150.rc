@@ -6,7 +6,7 @@ on early-init
     # for backwards compatibility
     symlink /mnt/sdcard /sdcard
 
-service dhcp-service /system/bin/netcfg wlan0 dhcp
+service dhcp-service /system/bin/netcfg eth0 dhcp
     class main
     oneshot
 
@@ -71,7 +71,7 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     oneshot
     
 # WPA SETTINGS
-service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant -Dwext -ieth0 -W -c/data/misc/wifi/wpa_supplicant.conf
+service wpa_supplicant /system/bin/wpa_supplicant -Dwext -ieth0 -W -c/data/misc/wifi/wpa_supplicant.conf
     class main
     group wifi inet
     socket wpa_eth0 dgram 660 wifi wifi

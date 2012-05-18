@@ -49,7 +49,8 @@ PRODUCT_PACKAGES += \
 # Other
 PRODUCT_PACKAGES += \
     lights.u8150 \
-    gps.u8150
+    gps.u8150 \
+    camera.u8150
 
 # Hardware permissions
 PRODUCT_COPY_FILES += \

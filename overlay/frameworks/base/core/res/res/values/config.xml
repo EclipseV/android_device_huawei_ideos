@@ -7,13 +7,13 @@
          alpha compositing functionality in hardware.  If set, the window
          manager will disable alpha trasformation in animations where not
          strictly needed. -->
-    <bool name="config_sf_limitedAlpha">false</bool>
+    <bool name="config_sf_limitedAlpha">true</bool>
 
     <!-- Enables or disables fading edges when marquee is enabled in TextView. -->
     <bool name="config_ui_enableFadingMarquee">false</bool>
 
     <!-- Our device doesn't animate well. -->
-    <bool name="config_animateScreenLights">false</bool>
+    <bool name="config_animateScreenLights">true</bool>
 
     <bool name="config_sf_slowBlur">true</bool>
 
@@ -106,11 +106,11 @@
         <item>"rndis\\d"</item>
     </string-array>
 
-    <string-array translatable="false" name="config_tether_wifi_regexs">
+    <!-- <string-array translatable="false" name="config_tether_wifi_regexs">
         <item>"eth\\d"</item>
     </string-array>
 
-    <!-- List of regexpressions describing the interface (if any) that represent tetherable
+     List of regexpressions describing the interface (if any) that represent tetherable
          bluetooth interfaces.  If the device doesn't want to support tethering over bluetooth this
          should be empty. -->
     <string-array translatable="false" name="config_tether_bluetooth_regexs">

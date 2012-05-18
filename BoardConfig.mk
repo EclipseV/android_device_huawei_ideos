@@ -84,27 +84,28 @@ BOARD_PROVIDES_LIBRIL := true
 BOARD_EGL_CFG := device/huawei/u8150/prebuilt/lib/egl/egl.cfg
 BOARD_USE_FROYO_LIBCAMERA := true
 BOARD_USE_SKIA_LCDTEXT := true
-BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 TARGET_FORCE_CPU_UPLOAD := true
 
 # WiFI
-BOARD_WPA_SUPPLICANT_DRIVER      := WEXT
-WPA_SUPPLICANT_VERSION           := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER := WEXT
+WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
-BOARD_WLAN_DEVICE                := bcm4329
-WIFI_BAND                        := 802_11_ABG
-WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/dhd.ko"
-WIFI_DRIVER_FW_PATH_STA          := "/system/etc/fw_4319.bin"
-WIFI_DRIVER_FW_PATH_AP           := "/system/etc/fw_4319_apsta.bin"
-WIFI_DRIVER_MODULE_ARG           := "firmware_path=/system/etc/fw_4319.bin nvram_path=/system/etc/nv_4319.txt"
-WIFI_DRIVER_MODULE_NAME          := "dhd"
+BOARD_WLAN_DEVICE := bcm4329
+WIFI_BAND  := 802_11_ABG
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/dhd.ko"
+WIFI_DRIVER_FW_PATH_STA := "/system/etc/fw_4319.bin"
+WIFI_DRIVER_FW_PATH_AP := "/system/etc/fw_4319_apsta.bin"
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/fw_4319.bin nvram_path=/system/etc/nv_4319.txt"
+WIFI_DRIVER_MODULE_NAME := "dhd"
 
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8150/recovery/recovery_keys.c
 BOARD_USE_CUSTOM_RECOVERY_FONT := "<font_7x16.h>"
 
 # Kernel
+TARGET_KERNEL_SOURCE := kernel/huawei/huawei-kernel-msm7x25
+TARGET_KERNEL_CONFIG := hw_msm7x25_cm9_defconfig
 TARGET_PREBUILT_KERNEL := device/huawei/u8150/prebuilt/kernel
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_CMDLINE := mem=211M console=ttyMSM2,115200n8 androidboot.hardware=u8150
@@ -120,7 +121,6 @@ BOARD_KERNEL_PAGESIZE := 4096
 # mtd5: 05d00000 00020000 "cache"
 # mtd6: 0a6a0000 00020000 "userdata"
 # mtd7: 01400000 00020000 "cust"
-
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00500000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00500000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x0af00000

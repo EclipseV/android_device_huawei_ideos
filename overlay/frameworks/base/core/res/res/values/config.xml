@@ -15,8 +15,6 @@
     <!-- Our device doesn't animate well. -->
     <bool name="config_animateScreenLights">true</bool>
 
-    <bool name="config_sf_slowBlur">true</bool>
-
     <!-- If true, the screen can be rotated via the accelerometer in all 4
          rotations as the default behavior. -->
     <bool name="config_allowAllRotations">true</bool>
@@ -106,11 +104,13 @@
         <item>"rndis\\d"</item>
     </string-array>
 
-    <!-- <string-array translatable="false" name="config_tether_wifi_regexs">
+    <!-- 
+    <string-array translatable="false" name="config_tether_wifi_regexs">
         <item>"eth\\d"</item>
     </string-array>
+    -->
 
-     List of regexpressions describing the interface (if any) that represent tetherable
+    <!-- List of regexpressions describing the interface (if any) that represent tetherable
          bluetooth interfaces.  If the device doesn't want to support tethering over bluetooth this
          should be empty. -->
     <string-array translatable="false" name="config_tether_bluetooth_regexs">
@@ -126,4 +126,5 @@
     <!-- Base "touch slop" value used by ViewConfiguration as a
          movement threshold where scrolling should begin. -->
     <dimen name="config_viewConfigurationTouchSlop">12dp</dimen>
+
 </resources>

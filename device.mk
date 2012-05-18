@@ -19,6 +19,10 @@ PRODUCT_NAME := huawei_u8150
 PRODUCT_DEVICE := u8150
 PRODUCT_MODEL := Huawei U8150
 
+PRODUCT_AAPT_CONFIG := mdpi hdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+PRODUCT_LOCALES += mdpi
+
 # Graphics 
 PRODUCT_PACKAGES += \
     gralloc.u8150 \
@@ -61,9 +65,11 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
-# Vold config
+# Vold and USB
 PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/etc/vold.fstab:system/etc/vold.fstab
+    device/huawei/u8150/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
+    device/huawei/u8150/prebuilt/etc/start_usb0.sh:system/etc/start_usb0.sh \
+    device/huawei/u8150/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml
 
 # Init files
 PRODUCT_COPY_FILES += \
@@ -84,10 +90,6 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt
-
-# Kernel modules
-PRODUCT_COPY_FILES += \
-    device/huawei/u8150/prebuilt/lib/modules/zram.ko:system/lib/modules/zram.ko
 
 # Bluetooth configuration files
 PRODUCT_COPY_FILES += \
@@ -117,5 +119,3 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/usr/keylayout/melfas-touchscreen.Ver23.kl:system/usr/keylayout/melfas-touchscreen.Ver23.kl \
     device/huawei/u8150/prebuilt/usr/keylayout/melfas-touchscreen_ver23.kl:system/usr/keylayout/melfas-touchscreen_ver23.kl \
     device/huawei/u8150/prebuilt/usr/keylayout/synaptics-rmi-touchscreen.kl:system/usr/keylayout/synaptics-rmi-touchscreen.kl
-
-PRODUCT_LOCALES += mdpi

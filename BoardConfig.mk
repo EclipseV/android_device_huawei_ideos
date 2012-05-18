@@ -26,7 +26,7 @@
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
--include vendor/htc/buzz/BoardConfigVendor.mk
+-include vendor/huawei/u8150/BoardConfigVendor.mk
 
 TARGET_SPECIFIC_HEADER_PATH := device/huawei/u8150/include
 

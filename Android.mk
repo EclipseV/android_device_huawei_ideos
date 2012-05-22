@@ -4,6 +4,7 @@ ifeq ($(TARGET_DEVICE),u8150)
 
 subdir_makefiles := \
     $(LOCAL_PATH)/libaudio/Android.mk \
+    $(LOCAL_PATH)/libcamera/Android.mk \
     $(LOCAL_PATH)/libcopybit/Android.mk \
     $(LOCAL_PATH)/libgralloc/Android.mk \
     $(LOCAL_PATH)/liblights/Android.mk \

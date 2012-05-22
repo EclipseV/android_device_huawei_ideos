@@ -50,7 +50,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.u8150 \
     gps.u8150 \
-    camera.u8150
+    camera.u8150 \
+    Apollo
 
 # Hardware permissions
 PRODUCT_COPY_FILES += \

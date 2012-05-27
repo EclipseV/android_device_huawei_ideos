@@ -134,7 +134,4 @@ BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_HAVE_FM_RADIO := true
 BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 BOARD_FM_DEVICE := bcm4329
-#That needs changing in vendor/cyanogen/product/cyanogen_u8150.mk,adding with FM.apk
-## Include fm_radio
-#$(call inherit-product, vendor/cyanogen/products/bcm_fm_radio.mk)
 #Maybe it should use bluethood to enable! 

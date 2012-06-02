@@ -89,6 +89,8 @@ service akmd /system/bin/akmd2
     class main
     user compass
     group compass misc input
+    disabled
+    oneshot
 
 # bugreport is triggered by the KEY_VOLUMEUP and KEY_CENTER keycodes
 service bugreport /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport

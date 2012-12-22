@@ -12,13 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-
-# Inherit from u8150 device
-$(call inherit-product, $(LOCAL_PATH)/device.mk)
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
-$(call inherit-product-if-exists, vendor/huawei/u8150/u8150-vendor.mk)
-$(call inherit-product-if-exists, vendor/huawei/u8150/u8150-vendor-blobs.mk)
+# Inherit from u8150 device
+$(call inherit-product, $(LOCAL_PATH)/device.mk)
+

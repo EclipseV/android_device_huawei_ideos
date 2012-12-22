@@ -40,7 +40,7 @@ ofdmpo=0x88888888
 mcs2gpo0=0xcccc
 mcs2gpo1=0xcccc
 boardnum=1
-macaddr=00:90:4c:14:43:19
+macaddr=00:90:4c:14:43:01
 
 #for mfgc
 otpimagesize=182

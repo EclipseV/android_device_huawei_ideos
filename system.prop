@@ -1,5 +1,5 @@
 #
-# system.prop for U8150
+# system.prop for u8150
 #
 # Graphics and performance
 ro.media.dec.jpeg.memcap=20000000

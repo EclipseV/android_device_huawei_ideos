@@ -78,7 +78,8 @@ enum {
     GRALLOC_USAGE_HW_VIDEO_ENCODER      = 0x00010000,
     /* mask for the software usage bit-mask */
     GRALLOC_USAGE_HW_MASK               = 0x00011F00,
-
+    /* buffer will be used as part of zero-shutter-lag queue */
+    GRALLOC_USAGE_HW_CAMERA_ZSL         = 0x00060000,
     /* buffer should be displayed full-screen on an external display when
      * possible
      */

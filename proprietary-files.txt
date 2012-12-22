@@ -4,7 +4,7 @@ bin/qmuxd
 bin/rild
 
 etc/01_qc.cfg
-etc/AudioFilterU8150.csv
+etc/AudioFilteru8150.csv
 etc/init.qcom.bt.sh
 etc/pvplayer.cfg
 

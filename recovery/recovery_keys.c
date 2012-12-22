@@ -30,7 +30,6 @@ int device_handle_key(int key_code, int visible) {
                 return HIGHLIGHT_UP;
 
             case KEY_SEND:
-            case KEY_POWER:
             case 232:
                 return SELECT_ITEM;
 

@@ -135,7 +135,7 @@ static void set_image(struct mdp_img *img, const struct copybit_image_t *rhs)
 {
     private_handle_t* hnd = (private_handle_t*)rhs->handle;
     if(hnd == NULL){
-        LOGE("copybit: Invalid handle");
+        ALOGE("copybit: Invalid handle");
         return;
     }
     img->width      = rhs->w;
@@ -199,14 +199,14 @@ static int msm_copybit(struct copybit_context_t *dev, void const *list)
 {
     int err = ioctl(dev->mFD, MSMFB_BLIT,
                     (struct mdp_blit_req_list const*)list);
-    LOGE_IF(err<0, "copyBits failed (%s)", strerror(errno));
+    ALOGE_IF(err<0, "copyBits failed (%s)", strerror(errno));
     if (err == 0) {
         return 0;
     } else {
 #if DEBUG_MDP_ERRORS
         struct mdp_blit_req_list const* l = (struct mdp_blit_req_list const*)list;
         for (int i=0 ; i<l->count ; i++) {
-            LOGD("%d: src={w=%d, h=%d, f=%d, rect={%d,%d,%d,%d}}\n"
+            ALOGD("%d: src={w=%d, h=%d, f=%d, rect={%d,%d,%d,%d}}\n"
                  "    dst={w=%d, h=%d, f=%d, rect={%d,%d,%d,%d}}\n"
                  "    flags=%08lx"
                     ,
@@ -263,7 +263,7 @@ static int set_parameter_copybit(
                 ctx->mFlags |= MDP_ROT_270;
                 break;
             default:
-                LOGE("Invalid value for COPYBIT_ROTATION_DEG");
+                ALOGE("Invalid value for COPYBIT_ROTATION_DEG");
                 status = -EINVAL;
                 break;
             }
@@ -455,7 +455,7 @@ static int open_copybit(const struct hw_module_t* module, const char* name,
 
     if (ctx->mFD < 0) {
         status = errno;
-        LOGE("Error opening frame buffer errno=%d (%s)",
+        ALOGE("Error opening frame buffer errno=%d (%s)",
              status, strerror(status));
         status = -status;
     } else {
@@ -465,11 +465,11 @@ static int open_copybit(const struct hw_module_t* module, const char* name,
                 /* Success */
                 status = 0;
             } else {
-                LOGE("Error not msm frame buffer");
+                ALOGE("Error not msm frame buffer");
                 status = -EINVAL;
             }
         } else {
-            LOGE("Error executing ioctl for screen info");
+            ALOGE("Error executing ioctl for screen info");
             status = -errno;
         }
     }

@@ -106,17 +106,17 @@ PRODUCT_COPY_FILES += \
 
 # Touchscreen
 PRODUCT_COPY_FILES += \
-    device/huawei/C8500S/prebuilt/usr/idc/surf_keypad.idc:system/usr/idc/surf_keypad.idc \
-    device/huawei/C8500S/prebuilt/usr/idc/touchscreen.idc:system/usr/idc/melfas-touchscreen.idc \
-    device/huawei/C8500S/prebuilt/usr/idc/touchscreen.idc:system/usr/idc/synaptics.idc \
-    device/huawei/C8500S/prebuilt/usr/idc/touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc
+    device/huawei/u8150/prebuilt/usr/idc/surf_keypad.idc:system/usr/idc/surf_keypad.idc \
+    device/huawei/u8150/prebuilt/usr/idc/touchscreen.idc:system/usr/idc/melfas-touchscreen.idc \
+    device/huawei/u8150/prebuilt/usr/idc/touchscreen.idc:system/usr/idc/synaptics.idc \
+    device/huawei/u8150/prebuilt/usr/idc/touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-    device/huawei/C8500S/prebuilt/usr/keylayout/surf_keypad.kl:system/usr/keylayout/surf_keypad.kl \
-    device/huawei/C8500S/prebuilt/usr/keylayout/touchscreen-keys.kl:system/usr/keylayout/melfas-touchscreen.kl \
-    device/huawei/C8500S/prebuilt/usr/keylayout/touchscreen-keys.kl:system/usr/keylayout/synaptics.kl \
-    device/huawei/C8500S/prebuilt/usr/keylayout/touchscreen-keys.kl:system/usr/keylayout/synaptics-rmi-touchscreen.kl
+    device/huawei/u8150/prebuilt/usr/keylayout/surf_keypad.kl:system/usr/keylayout/surf_keypad.kl \
+    device/huawei/u8150/prebuilt/usr/keylayout/touchscreen-keys.kl:system/usr/keylayout/melfas-touchscreen.kl \
+    device/huawei/u8150/prebuilt/usr/keylayout/touchscreen-keys.kl:system/usr/keylayout/synaptics.kl \
+    device/huawei/u8150/prebuilt/usr/keylayout/touchscreen-keys.kl:system/usr/keylayout/synaptics-rmi-touchscreen.kl
 
 # Bluetooth
 PRODUCT_COPY_FILES += \

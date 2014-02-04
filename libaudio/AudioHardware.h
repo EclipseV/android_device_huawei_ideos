@@ -26,11 +26,13 @@
 #include <hardware_legacy/AudioHardwareBase.h>
 
 extern "C" {
-#include <msm_audio.h>
-#include <msm_audio_voicememo.h>
+#include "msm_audio.h"
+#include "msm_audio_voicememo.h"
 }
 
-namespace android {
+using namespace android;
+
+namespace android_audio_legacy {
 
 // ----------------------------------------------------------------------------
 // Kernel driver interface
@@ -49,13 +51,13 @@ namespace android {
 #define EQ_MAX_BAND_NUM 12
 
 #define ADRC_ENABLE  0x0001
-#define ADRC_DISABLE 0xFFFE
+#define ADRC_DISABLE 0x0000
 #define EQ_ENABLE    0x0002
-#define EQ_DISABLE   0xFFFD
+#define EQ_DISABLE   0x0000
 #define RX_IIR_ENABLE  0x0004
-#define RX_IIR_DISABLE 0xFFFB
+#define RX_IIR_DISABLE 0x0000
 #define MBADRC_ENABLE  0x0010
-#define MBADRC_DISABLE 0xFFEF
+#define MBADRC_DISABLE 0x0000
 
 #define AGC_ENABLE     0x0001
 #define NS_ENABLE      0x0002
@@ -165,7 +167,9 @@ public:
 
     virtual status_t    setVoiceVolume(float volume);
     virtual status_t    setMasterVolume(float volume);
-
+#ifdef HAVE_FM_RADIO
+    virtual status_t    setFmVolume(float volume);
+#endif
     virtual status_t    setMode(int mode);
 
     // mic mute
@@ -178,6 +182,7 @@ public:
     // create I/O streams
     virtual AudioStreamOut* openOutputStream(
                                 uint32_t devices,
+                                audio_output_flags_t flags,
                                 int *format=0,
                                 uint32_t *channels=0,
                                 uint32_t *sampleRate=0,
@@ -210,6 +215,9 @@ private:
     uint32_t    getInputSampleRate(uint32_t sampleRate);
     bool        checkOutputStandby();
     status_t    doRouting(AudioStreamInMSM72xx *input);
+#ifdef HAVE_FM_RADIO
+    status_t    setFmOnOff(int onoff);
+#endif
     AudioStreamInMSM72xx*   getActiveInput_l();
 
     class AudioStreamOutMSM72xx : public AudioStreamOut {
@@ -276,6 +284,10 @@ private:
                 uint32_t    devices() { return mDevices; }
                 int         state() const { return mState; }
 
+        // Stubs (ICS)
+        virtual status_t addAudioEffect(effect_handle_t effect) { return INVALID_OPERATION; }
+        virtual status_t removeAudioEffect(effect_handle_t effect) { return INVALID_OPERATION; }
+
     private:
                 AudioHardware* mHardware;
                 int         mFd;
@@ -296,17 +308,23 @@ private:
             bool        mBluetoothNrec;
             uint32_t    mBluetoothId;
             AudioStreamOutMSM72xx*  mOutput;
-            SortedVector <AudioStreamInMSM72xx*>   mInputs;
+            android::SortedVector <AudioStreamInMSM72xx*>   mInputs;
 
             msm_snd_endpoint *mSndEndpoints;
             int mNumSndEndpoints;
             int mCurSndDevice;
+	    int mFmRadioEnabled;
+	    int mFmPrev;
+	    int mFmVolume;
             int m7xsnddriverfd;
+            int fmfd;
             bool        mDualMicEnabled;
             int         mTtyMode;
 
+            bool        mBuiltinMicSelected;
+
      friend class AudioStreamInMSM72xx;
-            Mutex       mLock;
+            android::Mutex       mLock;
 };
 
 // ----------------------------------------------------------------------------

@@ -1,60 +1,35 @@
 #!/bin/sh
 
-# Extract prebuilt libraries that are needed for the u8150
+## usage: extract-files.sh $1 $2
+## $1 and $2 are optional
+## if $1 = unzip the files will be extracted from zip file (if $1 = anything else 'adb pull' will be used
+## $2 specifies the zip file to extract from (default = ../../../${DEVICE}_update.zip)
 
-mkdir -p ../../../vendor/huawei/ideos/proprietary
+VENDOR=huawei
+DEVICE=u8150
 
-DIRS="
-bin
-lib/hw
-"
+BASE=../../../vendor/$VENDOR/$DEVICE/proprietary
+rm -rf $BASE/*
 
-for DIR in $DIRS; do
-	mkdir -p ../../../vendor/huawei/ideos/proprietary/$DIR
+if [ -z "$2" ]; then
+ZIPFILE=../../../${DEVICE}_update.zip
+else
+ZIPFILE=$2
+fi
+
+if [ "$1" = "unzip" -a ! -e $ZIPFILE ]; then
+echo $ZIPFILE does not exist.
+else
+for FILE in `cat proprietary-files.txt | grep -v ^# | grep -v ^$`; do
+DIR=`dirname $FILE`
+if [ ! -d $BASE/$DIR ]; then
+mkdir -p $BASE/$DIR
+fi
+if [ "$1" = "unzip" ]; then
+unzip -j -o $ZIPFILE system/$FILE -d $BASE/$DIR
+else
+adb pull /system/$FILE $BASE/$FILE
+fi
 done
-
-FILES="
-bin/akmd2
-bin/hci_qcomm_init
-bin/modempre
-bin/oem_rpc_svc
-bin/qmuxd
-bin/rild
-
-lib/hw/lights.msm7k.so
-lib/hw/sensors.default.so
-
-lib/libaudioeq.so
-lib/libcm.so
-lib/libdiag.so
-lib/libdll.so
-lib/libdsm.so
-lib/libdss.so
-lib/libgsdi_exp.so
-lib/libgstk_exp.so
-lib/libhwrpc.so
-lib/libmm-adspsvc.so
-lib/libmmgsdilib.so
-lib/libmmipl.so
-lib/libmmjpeg.so
-lib/libmmprocess.so
-lib/libnv.so
-lib/liboem_rapi.so
-lib/libOmxH264Dec.so
-lib/libOmxMpeg4Dec.so
-lib/libOmxVidEnc.so
-lib/libOmxWmvDec.so
-lib/liboncrpc.so
-lib/libpbmlib.so
-lib/libqmi.so
-lib/libqueue.so
-lib/libril-qc-1.so
-lib/libril-qcril-hook-oem.so
-lib/libwms.so
-lib/libwmsts.so
-"
-
-for FILE in $FILES; do
-	adb pull system/$FILE ../../../vendor/huawei/ideos/proprietary/$FILE
-done
-
+fi
+./setup-makefiles.sh

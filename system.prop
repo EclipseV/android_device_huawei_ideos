@@ -1,58 +1,47 @@
-
 #
 # system.prop for u8150
 #
-
-# Density in DPI of the LCD of this board. This is used to scale the UI
-# appropriately. If this property is not defined, the default value is 160 dpi.
+# Graphics and performance
+ro.media.dec.jpeg.memcap=20000000
+windowsmgr.max_events_per_sec=500
+ro.opengles.version=65537
 ro.sf.lcd_density=120
-
-# View configuration for QVGA.
 view.fading_edge_length=8
 view.touch_slop=15
 view.minimum_fling_velocity=25
 view.scroll_friction=0.008
+persist.sys.use_dithering=1
+persist.sys.purgeable_assets=1
 
-# RIL specific configuration.
-rild.libpath=/system/lib/libril-qc-1.so
-rild.libargs=-d /dev/smd0
-
-# Modify MMS APN retry timer from 5s to 2s.
-ro.gsm.2nd_data_retry_config=max_retries=3, 2000, 2000, 2000
-
-# Time between scans in seconds. Keep it high to minimize battery drain.
-# This only affects the case in which there are remembered access points,
-# but none are in range.
+# WiFi
 wifi.interface=eth0
 wifi.supplicant_scan_interval=60
 
-# Allow or deny tethering.
-ro.tether.denied=false
+# RIL
+rild.libargs=-d/dev/smd0
+rild.libpath=/system/lib/libril-qc-1.so
+ro.telephony.ril.v3=icccardstatus,datacall,signalstrength,facilitylock
+ro.telephony.call_ring.delay=3000
 
-# Default network type.
-# 0 => WCDMA Preferred.
-ro.telephony.default_network=0
+# USB
+persist.sys.usb.config=mass_storage
+sys.usb.config=mass_storage
+persist.service.adb.enable=1
 
-# Enable Google-specific location features,
-# like NetworkLocationProvider and LocationCollector.
-ro.com.google.locationfeatures=1
-
-# The OpenGL ES API level that is natively supported by this device.
-# This is a 16.16 fixed point number.
-ro.opengles.version=65537
-
-# Disable fs check on boot by default.
+# System
+dalvik.vm.heapsize=32m
+ro.compcache.default=26
 sys.checkfs.fat=false
-
-# Performance settings.
+ro.vold.umsdirtyratio=20
+dalvik.vm.dexopt-data-only=1
 dalvik.vm.execution-mode=int:jit
-dalvik.vm.heapsize=24m
+debug.sf.hw=0
+debug.camcorder.disablemeta=1
+ro.config.disable_hw_accel=true
+dalvik.vm.lockprof.threshold=500
+dalvik.vm.dexopt-flags=m=y
+dalvik.vm.dexopt-data-only=1
 
-# Increase SKIA decode memory capability for progressive jpg file.
-ro.media.dec.jpeg.memcap=20000000
-
-# This will go away someday.
-# Debugging oem_rpc_svc.
-ro.confg.hw_appsbootversion=U8150V100R001C253B836_APPSBOOT
-ro.confg.hw_appversion=U8150V100R001C253B836_KERNEL
-ro.confg.hw_appfsversion=U8150V100R001C253B836_SYSIMG
+# Misc.
+ro.com.android.dateformat=dd-MM-yyyy
+ro.com.google.locationfeatures=0

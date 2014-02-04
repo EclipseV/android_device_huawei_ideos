@@ -19,7 +19,7 @@
 
 #include <cutils/log.h>
 
-#include <msm_mdp.h>
+#include <linux/msm_mdp.h>
 #include <linux/fb.h>
 
 #include <stdint.h>
@@ -34,7 +34,7 @@
 
 #include <hardware/copybit.h>
 
-#include "gralloc_priv.h"
+#include "../libgralloc/gralloc_priv.h"
 
 #define DEBUG_MDP_ERRORS 1
 
@@ -124,10 +124,8 @@ static int get_format(int format) {
     case COPYBIT_FORMAT_RGB_888:       return MDP_RGB_888;
     case COPYBIT_FORMAT_RGBA_8888:     return MDP_RGBA_8888;
     case COPYBIT_FORMAT_BGRA_8888:     return MDP_BGRA_8888;
-    //case COPYBIT_FORMAT_YCrCb_422_SP:  return MDP_Y_CBCR_H2V1;
     case COPYBIT_FORMAT_YCrCb_420_SP:  return MDP_Y_CBCR_H2V2;
     case COPYBIT_FORMAT_YCbCr_422_SP:  return MDP_Y_CRCB_H2V1;
-    //case COPYBIT_FORMAT_YCbCr_420_SP:  return MDP_Y_CRCB_H2V2;
     }
     return -1;
 }
@@ -136,24 +134,15 @@ static int get_format(int format) {
 static void set_image(struct mdp_img *img, const struct copybit_image_t *rhs) 
 {
     private_handle_t* hnd = (private_handle_t*)rhs->handle;
+    if(hnd == NULL){
+        ALOGE("copybit: Invalid handle");
+        return;
+    }
     img->width      = rhs->w;
     img->height     = rhs->h;
     img->format     = get_format(rhs->format);
     img->offset     = hnd->offset;
-#if defined(COPYBIT_MSM7K)
-    if (hnd->flags & private_handle_t::PRIV_FLAGS_USES_GPU) {
-        img->offset += hnd->map_offset;
-        img->memory_id = hnd->gpu_fd;
-        if (img->format == MDP_RGBA_8888) {
-            // msm7201A GPU only supports BGRA_8888 destinations
-            img->format = MDP_BGRA_8888;
-        }
-    } else {
-        img->memory_id = hnd->fd;
-    }
-#else
     img->memory_id  = hnd->fd;
-#endif
 }
 /** setup rectangles */
 static void set_rects(struct copybit_context_t *dev,
@@ -196,10 +185,13 @@ static void set_rects(struct copybit_context_t *dev,
 }
 
 /** setup mdp request */
-static void set_infos(struct copybit_context_t *dev, struct mdp_blit_req *req) {
+static void set_infos(struct copybit_context_t *dev, struct mdp_blit_req *req, int flags) {
     req->alpha = dev->mAlpha;
     req->transp_mask = MDP_TRANSP_NOP;
-    req->flags = dev->mFlags;// | MDP_BLEND_FG_PREMULT;
+    req->flags = dev->mFlags | flags;
+#if defined(COPYBIT_QSD8K)
+    req->flags |= MDP_BLEND_FG_PREMULT;
+#endif
 }
 
 /** copy the bits */
@@ -207,14 +199,14 @@ static int msm_copybit(struct copybit_context_t *dev, void const *list)
 {
     int err = ioctl(dev->mFD, MSMFB_BLIT,
                     (struct mdp_blit_req_list const*)list);
-    LOGE_IF(err<0, "copyBits failed (%s)", strerror(errno));
+    ALOGE_IF(err<0, "copyBits failed (%s)", strerror(errno));
     if (err == 0) {
         return 0;
     } else {
 #if DEBUG_MDP_ERRORS
         struct mdp_blit_req_list const* l = (struct mdp_blit_req_list const*)list;
         for (int i=0 ; i<l->count ; i++) {
-            LOGD("%d: src={w=%d, h=%d, f=%d, rect={%d,%d,%d,%d}}\n"
+            ALOGD("%d: src={w=%d, h=%d, f=%d, rect={%d,%d,%d,%d}}\n"
                  "    dst={w=%d, h=%d, f=%d, rect={%d,%d,%d,%d}}\n"
                  "    flags=%08lx"
                     ,
@@ -271,7 +263,7 @@ static int set_parameter_copybit(
                 ctx->mFlags |= MDP_ROT_270;
                 break;
             default:
-                LOGE("Invalid value for COPYBIT_ROTATION_DEG");
+                ALOGE("Invalid value for COPYBIT_ROTATION_DEG");
                 status = -EINVAL;
                 break;
             }
@@ -385,7 +377,12 @@ static int stretch_copybit(
         while ((status == 0) && region->next(region, &clip)) {
             intersect(&clip, &bounds, &clip);
             mdp_blit_req* req = &list.req[list.count];
-            set_infos(ctx, req);
+            int flags = 0;
+            private_handle_t* src_hnd = (private_handle_t*)src->handle;
+            if(src_hnd->flags & private_handle_t::PRIV_FLAGS_DO_NOT_FLUSH) {
+                flags |=  MDP_BLIT_NON_CACHED;
+            }
+            set_infos(ctx, req, flags);
             set_image(&req->dst, dst);
             set_image(&req->src, src);
             set_rects(ctx, req, dst_rect, src_rect, &clip);
@@ -455,10 +452,10 @@ static int open_copybit(const struct hw_module_t* module, const char* name,
     ctx->mAlpha = MDP_ALPHA_NOP;
     ctx->mFlags = 0;
     ctx->mFD = open("/dev/graphics/fb0", O_RDWR, 0);
-    
+
     if (ctx->mFD < 0) {
         status = errno;
-        LOGE("Error opening frame buffer errno=%d (%s)",
+        ALOGE("Error opening frame buffer errno=%d (%s)",
              status, strerror(status));
         status = -status;
     } else {
@@ -468,11 +465,11 @@ static int open_copybit(const struct hw_module_t* module, const char* name,
                 /* Success */
                 status = 0;
             } else {
-                LOGE("Error not msm frame buffer");
+                ALOGE("Error not msm frame buffer");
                 status = -EINVAL;
             }
         } else {
-            LOGE("Error executing ioctl for screen info");
+            ALOGE("Error executing ioctl for screen info");
             status = -errno;
         }
     }
